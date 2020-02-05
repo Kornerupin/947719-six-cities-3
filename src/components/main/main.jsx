@@ -1,7 +1,8 @@
 import React from "react";
 
-const Main = () => {
+const Main = (props) => {
   // eslint-disable-next-line react/prop-types
+  const {numberOfPlaces} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -79,16 +80,16 @@ const Main = () => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">312 places to stay in Amsterdam</b>
+              <b className="places__found">
+                {numberOfPlaces} places to stay in Amsterdam
+              </b>
 
               <div className="cities__places-list places__list tabs__content">
                 <article className="cities__place-card place-card">
-
                   <div className="place-card__info">
-
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: '80%' }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
@@ -136,7 +137,7 @@ const Main = () => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: '80%' }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
@@ -183,7 +184,7 @@ const Main = () => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: '80%' }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
@@ -232,7 +233,7 @@ const Main = () => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: '100%' }}></span>
+                        <span style={{width: `100%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
@@ -278,7 +279,7 @@ const Main = () => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: '80%' }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
