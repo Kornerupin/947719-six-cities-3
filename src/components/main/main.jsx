@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import Card from "../card/card.jsx";
 
 const Main = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {cards} = props;
+  const number = cards.length;
 
   return (<div className="page page--gray page--main">
     <header className="header">
@@ -73,7 +73,7 @@ const Main = (props) => {
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
             <b className="places__found">
-              {cards.length} places to stay in Amsterdam
+              {number} places to stay in Amsterdam
             </b>
             <div className="cities__places-list places__list tabs__content">
 
@@ -89,5 +89,14 @@ const Main = (props) => {
     </main>
   </div>);
 };
-  
+
+Main.defaultProps = {
+  number: 0
+};
+
+Main.propTypes = {
+  number: PropTypes.number.isRequired,
+  cards: PropTypes.array.isRequired
+};
+
 export default Main;

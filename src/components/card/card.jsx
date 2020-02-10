@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Card = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {name} = props.card;
 
   return (
@@ -50,7 +49,14 @@ const Card = (props) => {
         <p className="place-card__type">Private room</p>
       </div>
     </article>
-  )
+  );
 };
+
+Card.propTypes = {
+  card: PropTypes.shape({
+    name: PropTypes.string.isRequired
+  }).isRequired
+};
+
 
 export default Card;
