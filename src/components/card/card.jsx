@@ -55,8 +55,7 @@ const Card = (props) => {
 Card.propTypes = {
   card: PropTypes.shape({
     name: PropTypes.string.isRequired
-  }).isRequired
+  })
 };
-
 
 export default Card;
