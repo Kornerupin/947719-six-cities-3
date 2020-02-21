@@ -1,13 +1,25 @@
 import Main from '../main/main';
 
-const App = (props) => {
-  const {offers} = props;
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
 
-  return <Main offers={offers} />;
-};
+  render() {
+    const {offers} = this.props;
+
+    return <Main offers={offers} />;
+  }
+}
 
 App.propTypes = {
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.arrayOf(PropTypes.shape({
+    image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    type: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  })
+  )
 };
 
 export default App;

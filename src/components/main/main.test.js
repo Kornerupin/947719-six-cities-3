@@ -1,8 +1,8 @@
 import Main from './main';
-import mockCards from '../../mocks/mock-cards';
+import offers from '../../mocks/offers';
 
 it(`Main /> should render cards`, () => {
-  const tree = renderer.create(<Main cards={mockCards} />).toJSON();
+  const tree = renderer.create(<Main offers={offers} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
