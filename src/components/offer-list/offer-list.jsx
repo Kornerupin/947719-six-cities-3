@@ -1,11 +1,22 @@
 import Card from "../card/card";
 
-const OfferList = (props) => {
-    const { offers } = props;
+class OfferList extends PureComponent {
+    constructor(props) {
+        super(props);
+    }
 
-    return (
-        offers.map((card, index) => <Card key={index} card={card} />)
-    )
+    render() {
+        const { offers } = this.props;
+
+        return (
+            offers.map((card, index) =>
+                <Card
+                    key={index}
+                    card={card}
+                    onCardMouseOver={() => {}}
+                />)
+        )
+    }
 }
 
 export default OfferList;

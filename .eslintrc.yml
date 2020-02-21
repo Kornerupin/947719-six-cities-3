@@ -23,7 +23,7 @@ rules:
 
 globals:
   React: true
+  PureComponent: true
   PropTypes: true
   shallow: true
   renderer: true
-
