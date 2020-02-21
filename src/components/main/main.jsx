@@ -1,7 +1,7 @@
 import OfferList from "../offer-list/offer-list";
 
 const Main = (props) => {
-  const { offers } = props;
+  const {offers} = props;
   const offersNumber = offers.length;
 
   return (

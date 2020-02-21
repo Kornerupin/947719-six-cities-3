@@ -1,13 +1,16 @@
 class Card extends PureComponent {
   constructor(props) {
-    super(props);  
+    super(props);
   }
 
   render() {
-    const { image, type, price, name } = this.props.card;
-    
+    const {onCardMouseOver} = this.props;
+    const {image, type, price, name} = this.props.card;
+
     return (
-      <article className="cities__place-card place-card" onMouseOver={console.log(this)}>
+      <article className="cities__place-card place-card" onMouseOver={() => {
+        onCardMouseOver(this.props.card);
+      }}>
         <div className="cities__image-wrapper place-card__image-wrapper">
           <a href="#">
             <img
@@ -25,7 +28,7 @@ class Card extends PureComponent {
               <b className="place-card__price-value">&euro;{price}</b>
               <span className="place-card__price-text">
                 &#47;&nbsp;night
-            </span>
+              </span>
             </div>
             <button
               className="place-card__bookmark-button place-card__bookmark-button--active button"
@@ -41,7 +44,7 @@ class Card extends PureComponent {
           </div>
           <div className="place-card__rating rating">
             <div className="place-card__stars rating__stars">
-              <span style={{ width: `80%` }}></span>
+              <span style={{width: `80%`}}></span>
               <span className="visually-hidden">Rating</span>
             </div>
           </div>
