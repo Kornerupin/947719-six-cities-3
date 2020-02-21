@@ -1,13 +1,8 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import Card from "./card.jsx";
+import Card from './card';
+import mockCards from '../../mocks/mock-cards';
 
-const card = [
-  {name: `Beautiful &amp; luxurious apartment at great location`}
-];
-
-it(`Card /> should render card`, () => {
-  const tree = renderer.create(<Card card={card}/>).toJSON();
+it(`Card /> Should render one card`, () => {
+  const tree = renderer.create(<Card card={mockCards[0]}/>).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

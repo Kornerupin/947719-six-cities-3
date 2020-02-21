@@ -1,15 +1,17 @@
-import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import Card from "./card.jsx";
+import Card from './card';
+import mockCards from '../../mocks/mock-cards';
 
-Enzyme.configure({adapter: new Adapter()});
+const card = mockCards[0];
 
-const cardMock = [
-  {name: `Beautiful &amp; luxurious apartment at great location`}
-];
+it(`It expect an Object that contains the following properties`, () => {
+  shallow(<Card
+    card={card}
+  />);
 
-it(`Should cards be rendered`, () => {
-  const card = shallow(<Card card={cardMock}/>);
-  expect(card.mock.calls).toBe(card.length);
+  expect(card).toEqual(
+      expect.objectContaining({
+        name: expect.any(String)
+      })
+  );
+
 });

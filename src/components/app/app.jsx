@@ -1,15 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Main from "../main/main.jsx";
+import Main from '../main/main';
 
 const App = (props) => {
-  const {cards} = props;
+  const {offers} = props;
 
-  return <Main cards={cards} />;
+  return <Main offers={offers} />;
 };
 
 App.propTypes = {
-  cards: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired
 };
 
 export default App;

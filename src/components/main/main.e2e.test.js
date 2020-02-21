@@ -1,9 +1,10 @@
-import App from './app';
+import Main from './main';
 import mockCards from '../../mocks/mock-cards';
 
-it(`It expect an Array contains Object with the following properties`, () => {
-  const cards = mockCards;
-  shallow(<App
+const cards = mockCards;
+
+it(`Expected an Array`, () => {
+  shallow(<Main
     cards={cards}
   />);
 
