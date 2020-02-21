@@ -1,13 +1,13 @@
 import Main from '../main/main';
 
 const App = (props) => {
-  const {cards} = props;
+  const {offers} = props;
 
-  return <Main cards={cards} />;
+  return <Main offers={offers} />;
 };
 
 App.propTypes = {
-  cards: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired
 };
 
 export default App;

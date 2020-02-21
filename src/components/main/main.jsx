@@ -1,8 +1,8 @@
-import Card from '../card/card';
+import OfferList from "../offer-list/offer-list";
 
 const Main = (props) => {
-  const {cards} = props;
-  const number = cards.length;
+  const { offers } = props;
+  const offersNumber = offers.length;
 
   return (
     <div className="page page--gray page--main">
@@ -72,11 +72,11 @@ const Main = (props) => {
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">
-                {number} places to stay in Amsterdam
+                {offersNumber} places to stay in Amsterdam
               </b>
               <div className="cities__places-list places__list tabs__content">
 
-                {cards.map((card, index) => <Card key={index} card={card} />)}
+                {<OfferList offers={offers} />}
 
               </div>
             </section>
@@ -91,12 +91,12 @@ const Main = (props) => {
 };
 
 Main.defaultProps = {
-  number: 0
+  offersNumber: 0
 };
 
 Main.propTypes = {
-  number: PropTypes.number.isRequired,
-  cards: PropTypes.array.isRequired
+  offersNumber: PropTypes.number.isRequired,
+  offers: PropTypes.array.isRequired
 };
 
 export default Main;

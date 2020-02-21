@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
-import mockCards from './mocks/mock-cards';
+import offers from './mocks/offers';
 
-ReactDOM.render(<App cards={mockCards} />, document.getElementById(`root`));
+ReactDOM.render(<App offers={offers} />, document.getElementById(`root`));
