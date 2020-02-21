@@ -64,7 +64,8 @@ Card.propTypes = {
     type: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
-  })
+  }),
+  onCardMouseOver: PropTypes.func.isRequired
 };
 
 export default Card;
