@@ -1,5 +1,6 @@
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Main from '../main/main';
+import OfferDetail from '../offer-detail/offer-detail';
 
 class App extends PureComponent {
   constructor(props) {
@@ -20,9 +21,9 @@ class App extends PureComponent {
           <Route exact path="/">
             {this._renderApp()}
           </Route>
-          {/* <Route exact path="/dev-component">
-            <Component />
-          </Route> */}
+          <Route exact path="/dev-offer">
+            <OfferDetail />
+          </Route>
         </Switch>
       </BrowserRouter>
     )
