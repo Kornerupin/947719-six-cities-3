@@ -4,12 +4,12 @@ class Card extends PureComponent {
   }
 
   render() {
-    const {onCardMouseOver} = this.props;
-    const {image, type, price, name} = this.props.card;
+    const {card, onCardMouseOver, _onCardNameClick} = this.props;
+    const {image, type, price, name} = card;
 
     return (
       <article className="cities__place-card place-card" onMouseOver={() => {
-        onCardMouseOver(this.props.card);
+        onCardMouseOver(card);
       }}>
         <div className="cities__image-wrapper place-card__image-wrapper">
           <a href="#">
@@ -48,7 +48,7 @@ class Card extends PureComponent {
               <span className="visually-hidden">Rating</span>
             </div>
           </div>
-          <h2 className="place-card__name">
+          <h2 className="place-card__name" onClick={() => _onCardNameClick(card)}>
             <a href="#">{name}</a>
           </h2>
           <p className="place-card__type">{type}</p>

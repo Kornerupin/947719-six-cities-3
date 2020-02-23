@@ -6,7 +6,7 @@ class OfferList extends PureComponent {
   }
 
   render() {
-    const {offers} = this.props;
+    const {offers, _onCardNameClick} = this.props;
 
     if (offers) {
 
@@ -17,6 +17,7 @@ class OfferList extends PureComponent {
           onCardMouseOver={(offer) => {
             this.setState(() => (offer));
           }}
+          _onCardNameClick={_onCardNameClick}
         />);
 
       return (<> {getOffers} </>);

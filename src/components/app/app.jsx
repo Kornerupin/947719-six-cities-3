@@ -1,16 +1,26 @@
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
+    this._onCardNameClick = this._onCardNameClick.bind(this);
+  }
+
+  _onCardNameClick(offer) {
+    this.setState(() => (offer));
   }
 
   _renderApp() {
-    const { offers } = this.props;
+    const {offers} = this.props;
 
-    return ( <Main offers={offers} /> )
+    if (this.state) {
+
+      return (<OfferDetail offer={this.state} />);
+    }
+
+    return (<Main offers={offers} _onCardNameClick={this._onCardNameClick} />);
   }
 
   render() {
@@ -26,7 +36,7 @@ class App extends PureComponent {
           </Route>
         </Switch>
       </BrowserRouter>
-    )
+    );
   }
 }
 

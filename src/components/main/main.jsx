@@ -6,7 +6,7 @@ class Main extends PureComponent {
   }
 
   render() {
-    const {offers} = this.props;
+    const {offers, _onCardNameClick} = this.props;
 
     // if simple "const offersNumber = offers.length;"
     // it'll get error TypeError: Cannot read property 'length' of undefined
@@ -84,7 +84,7 @@ class Main extends PureComponent {
                 </b>
                 <div className="cities__places-list places__list tabs__content">
 
-                  {<OfferList offers={offers} />}
+                  {<OfferList offers={offers} _onCardNameClick={_onCardNameClick} />}
 
                 </div>
               </section>

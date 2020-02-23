@@ -4,6 +4,7 @@ class OfferDetail extends PureComponent {
   }
 
   render() {
+    const {name} = this.props.offer;
 
     return (
       <div className="page">
@@ -60,7 +61,7 @@ class OfferDetail extends PureComponent {
                 </div>
                 <div className="property__name-wrapper">
                   <h1 className="property__name">
-                    Beautiful &amp; luxurious studio at great location
+                    {name}
                   </h1>
                   <button className="property__bookmark-button button" type="button">
                     <svg className="property__bookmark-icon" width={31} height={33}>
