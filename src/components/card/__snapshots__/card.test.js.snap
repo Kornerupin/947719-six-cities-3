@@ -83,6 +83,7 @@ exports[`Card /> Should render one card 1`] = `
     </div>
     <h2
       className="place-card__name"
+      onClick={[Function]}
     >
       <a
         href="#"

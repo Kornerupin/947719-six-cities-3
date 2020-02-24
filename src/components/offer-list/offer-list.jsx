@@ -14,7 +14,7 @@ class OfferList extends PureComponent {
         <Card
           key={index}
           card={card}
-          onCardMouseOver={(offer) => {
+          _onCardMouseOver={(offer) => {
             this.setState(() => (offer));
           }}
           _onCardNameClick={_onCardNameClick}
@@ -34,7 +34,8 @@ OfferList.propTypes = {
     price: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
   })
-  )
+  ),
+  _onCardNameClick: PropTypes.func
 };
 
 export default OfferList;
