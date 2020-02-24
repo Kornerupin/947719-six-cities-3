@@ -19,3 +19,15 @@ it(`It expect an Object that contains the following properties`, () => {
   );
 
 });
+
+it(`Should card name be clicked`, () => {
+  const _onCardNameClick = jest.fn();
+  const offerDetails = shallow(
+      <Card
+        card={card}
+        _onCardNameClick={_onCardNameClick}
+      />);
+
+  offerDetails.find(`.place-card__name`).simulate(`click`);
+  expect(_onCardNameClick).toHaveBeenCalledTimes(1);
+});
