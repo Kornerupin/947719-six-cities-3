@@ -5,10 +5,10 @@ import OfferDetail from '../offer-detail/offer-detail';
 class App extends PureComponent {
   constructor(props) {
     super(props);
-    this._onCardNameClick = this._onCardNameClick.bind(this);
+    this.onCardNameClick = this.onCardNameClick.bind(this);
   }
 
-  _onCardNameClick(offer) {
+  onCardNameClick(offer) {
     this.setState(() => (offer));
   }
 
@@ -20,7 +20,7 @@ class App extends PureComponent {
       return (<OfferDetail offer={this.state} />);
     }
 
-    return (<Main offers={offers} _onCardNameClick={this._onCardNameClick} />);
+    return (<Main offers={offers} onCardNameClick={this.onCardNameClick} />);
   }
 
   render() {

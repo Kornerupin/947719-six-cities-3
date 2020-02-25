@@ -1,11 +1,7 @@
 import OfferList from "../offer-list/offer-list";
 
 const Main = (props) => {
-  const {offers, _onCardNameClick} = props;
-
-  // if simple "const offersNumber = offers.length;"
-  // it'll get error TypeError: Cannot read property 'length' of undefined
-  const offersNumber = offers ? offers.length : null;
+  const {offers, onCardNameClick} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -75,11 +71,11 @@ const Main = (props) => {
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">
-                {offersNumber} places to stay in Amsterdam
+                {offers.length} places to stay in Amsterdam
               </b>
               <div className="cities__places-list places__list tabs__content">
 
-                {<OfferList offers={offers} _onCardNameClick={_onCardNameClick} />}
+                {<OfferList offers={offers} onCardNameClick={onCardNameClick} />}
 
               </div>
             </section>
@@ -106,7 +102,7 @@ Main.propTypes = {
   })
   ),
   offersNumber: PropTypes.number.isRequired,
-  _onCardNameClick: PropTypes.func
+  onCardNameClick: PropTypes.func
 };
 
 export default Main;

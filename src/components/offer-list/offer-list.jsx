@@ -6,24 +6,13 @@ class OfferList extends PureComponent {
   }
 
   render() {
-    const {offers, _onCardNameClick} = this.props;
+    const { offers, onCardNameClick } = this.props;
 
-    if (offers) {
-
-      const getOffers = offers.map((card, index) =>
-        <Card
-          key={index}
-          card={card}
-          _onCardMouseOver={(offer) => {
-            this.setState(() => (offer));
-          }}
-          _onCardNameClick={_onCardNameClick}
-        />);
-
-      return (<> {getOffers} </>);
-    }
-
-    return null;
+    return offers.map((card, index) => <Card
+      key={index}
+      card={card}
+      onCardMouseOver={(offer) => { this.setState(() => (offer)) }}
+      onCardNameClick={onCardNameClick} />);
   }
 }
 
@@ -35,7 +24,7 @@ OfferList.propTypes = {
     name: PropTypes.string.isRequired
   })
   ),
-  _onCardNameClick: PropTypes.func
+  onCardNameClick: PropTypes.func
 };
 
 export default OfferList;

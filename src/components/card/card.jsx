@@ -1,12 +1,12 @@
 import {getStars} from "../../utils";
 
 const Card = (props) => {
-  const { card, _onCardMouseOver, _onCardNameClick } = props;
+  const { card, onCardMouseOver, onCardNameClick } = props;
   const { image, type, price, rating, name } = card;
   
   return (
     <article className="cities__place-card place-card" onMouseOver={() => {
-      _onCardMouseOver(card);
+      onCardMouseOver(card);
     }}>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -45,7 +45,7 @@ const Card = (props) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onClick={() => _onCardNameClick(card)}>
+        <h2 className="place-card__name" onClick={() => onCardNameClick(card)}>
           <a href="#">{name}</a>
         </h2>
         <p className="place-card__type">{type}</p>
@@ -61,8 +61,8 @@ Card.propTypes = {
     price: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
   }),
-  _onCardMouseOver: PropTypes.func,
-  _onCardNameClick: PropTypes.func
+  onCardMouseOver: PropTypes.func,
+  onCardNameClick: PropTypes.func
 };
 
 export default Card;
