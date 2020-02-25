@@ -71,7 +71,7 @@ const Main = (props) => {
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">
-                {offers.length} places to stay in Amsterdam
+                {offers ? offers.length : 0} places to stay in Amsterdam
               </b>
               <div className="cities__places-list places__list tabs__content">
 
