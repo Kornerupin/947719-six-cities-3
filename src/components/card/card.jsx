@@ -1,9 +1,9 @@
 import {getStars} from "../../utils";
 
 const Card = (props) => {
-  const { card, onCardMouseOver, onCardNameClick } = props;
-  const { image, type, price, rating, name } = card;
-  
+  const {card, onCardMouseOver, onCardNameClick} = props;
+  const {image, type, price, rating, name} = card;
+
   return (
     <article className="cities__place-card place-card" onMouseOver={() => {
       onCardMouseOver(card);
@@ -59,10 +59,11 @@ Card.propTypes = {
     image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     type: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired
   }),
-  onCardMouseOver: PropTypes.func,
-  onCardNameClick: PropTypes.func
+  onCardMouseOver: PropTypes.func.isRequired,
+  onCardNameClick: PropTypes.func.isRequired
 };
 
 export default Card;

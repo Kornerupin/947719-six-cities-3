@@ -4,6 +4,8 @@ import offers from '../../mocks/offers';
 it(`It expect an Object that contains the following properties`, () => {
   shallow(<OfferList
     offers={offers}
+    onCardMouseOver={() => { }}
+    onCardNameClick={() => { }}
   />);
 
   offers.map((offer) => {

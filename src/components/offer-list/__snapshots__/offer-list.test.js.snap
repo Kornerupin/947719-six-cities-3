@@ -2,7 +2,6 @@
 
 exports[`OfferList /> Should render list of offers 1`] = `
 Array [
-  " ",
   <article
     className="cities__place-card place-card"
     onMouseOver={[Function]}
@@ -72,7 +71,7 @@ Array [
           <span
             style={
               Object {
-                "width": "80%",
+                "width": "60%",
               }
             }
           />
@@ -169,7 +168,7 @@ Array [
           <span
             style={
               Object {
-                "width": "80%",
+                "width": "40%",
               }
             }
           />
@@ -363,7 +362,7 @@ Array [
           <span
             style={
               Object {
-                "width": "80%",
+                "width": "100%",
               }
             }
           />
@@ -391,6 +390,5 @@ Array [
       </p>
     </div>
   </article>,
-  " ",
 ]
 `;

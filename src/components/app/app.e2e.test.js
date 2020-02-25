@@ -7,12 +7,18 @@ it(`It expect an Array contains Object with the following properties`, () => {
     cards={offers}
   />);
 
-  expect(cards).toEqual(
-      expect.arrayContaining([
+  cards.map((offer) => {
+    expect(offer).toEqual(
         expect.objectContaining({
+          image: expect.arrayContaining([expect.any(String)]),
+          type: expect.any(String),
+          price: expect.any(String),
+          rating: expect.any(Number),
           name: expect.any(String)
         })
-      ])
-  );
+    );
+  });
 
 });
+
+

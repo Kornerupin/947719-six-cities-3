@@ -19,7 +19,7 @@ const Main = (props) => {
                   <a className="header__nav-link header__nav-link--profile" href="#">
                     <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                     <span className="header__user-name user__name">
-                        Oliver.conner@gmail.com
+                      Oliver.conner@gmail.com
                     </span>
                   </a>
                 </li>
@@ -75,7 +75,7 @@ const Main = (props) => {
               </b>
               <div className="cities__places-list places__list tabs__content">
 
-                {<OfferList offers={offers} onCardNameClick={onCardNameClick} />}
+                {<OfferList offers={offers} onCardNameClick={onCardNameClick} onCardMouseOver={() => { }} />}
 
               </div>
             </section>
@@ -102,7 +102,7 @@ Main.propTypes = {
   })
   ),
   offersNumber: PropTypes.number.isRequired,
-  onCardNameClick: PropTypes.func
+  onCardNameClick: PropTypes.func.isRequired
 };
 
 export default Main;

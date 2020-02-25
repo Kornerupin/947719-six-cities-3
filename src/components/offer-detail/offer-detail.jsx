@@ -2,7 +2,7 @@ import {getStars} from "../../utils";
 
 const OfferDetail = (props) => {
   const {type, price, rating, name} = props.offer;
-    
+
   return (
     <div className="page">
       <header className="header">
@@ -326,6 +326,7 @@ OfferDetail.propTypes = {
     image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     type: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired
   })
 };
