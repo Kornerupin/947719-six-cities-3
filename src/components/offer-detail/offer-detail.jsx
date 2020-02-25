@@ -1,8 +1,8 @@
+import {getStars} from "../../utils";
+
 const OfferDetail = (props) => {
-
-  const offer = props;
-  const {type, price, name} = offer;
-
+  const {type, price, rating, name} = props.offer;
+    
   return (
     <div className="page">
       <header className="header">
@@ -69,10 +69,10 @@ const OfferDetail = (props) => {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{width: `80%`}} />
+                  <span style={{width: `${getStars(rating)}%`}} />
                   <span className="visually-hidden">Rating</span>
                 </div>
-                <span className="property__rating-value rating__value">4.8</span>
+                <span className="property__rating-value rating__value">{rating}</span>
               </div>
               <ul className="property__features">
                 <li className="property__feature property__feature--entire">
