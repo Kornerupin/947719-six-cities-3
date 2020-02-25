@@ -1,7 +1,7 @@
 import Main from './main';
-import mockCards from '../../mocks/mock-cards';
+import offers from '../../mocks/offers';
 
-const cards = mockCards;
+const cards = offers;
 
 it(`Expected an Array`, () => {
   shallow(<Main

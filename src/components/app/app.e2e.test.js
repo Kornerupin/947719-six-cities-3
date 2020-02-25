@@ -1,10 +1,10 @@
 import App from './app';
-import mockCards from '../../mocks/mock-cards';
+import offers from '../../mocks/offers';
 
 it(`It expect an Array contains Object with the following properties`, () => {
-  const cards = mockCards;
+  const cards = offers;
   shallow(<App
-    cards={cards}
+    cards={offers}
   />);
 
   expect(cards).toEqual(

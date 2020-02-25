@@ -1,8 +1,11 @@
 import OfferList from "../offer-list/offer-list";
 
 const Main = (props) => {
-  const {offers} = props;
-  const offersNumber = offers.length;
+  const {offers, _onCardNameClick} = props;
+
+  // if simple "const offersNumber = offers.length;"
+  // it'll get error TypeError: Cannot read property 'length' of undefined
+  const offersNumber = offers ? offers.length : null;
 
   return (
     <div className="page page--gray page--main">
@@ -20,7 +23,7 @@ const Main = (props) => {
                   <a className="header__nav-link header__nav-link--profile" href="#">
                     <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                     <span className="header__user-name user__name">
-                      Oliver.conner@gmail.com
+                        Oliver.conner@gmail.com
                     </span>
                   </a>
                 </li>
@@ -76,7 +79,7 @@ const Main = (props) => {
               </b>
               <div className="cities__places-list places__list tabs__content">
 
-                {<OfferList offers={offers} />}
+                {<OfferList offers={offers} _onCardNameClick={_onCardNameClick} />}
 
               </div>
             </section>
@@ -95,8 +98,15 @@ Main.defaultProps = {
 };
 
 Main.propTypes = {
+  offers: PropTypes.arrayOf(PropTypes.shape({
+    image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    type: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  })
+  ),
   offersNumber: PropTypes.number.isRequired,
-  offers: PropTypes.array.isRequired
+  _onCardNameClick: PropTypes.func
 };
 
 export default Main;

@@ -170,8 +170,10 @@ exports[`Main /> should render cards 1`] = `
           <div
             className="cities__places-list places__list tabs__content"
           >
+             
             <article
               className="cities__place-card place-card"
+              onMouseOver={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -183,7 +185,7 @@ exports[`Main /> should render cards 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/room.jpg"
+                    src="img/apartment-01.jpg"
                     width="260"
                   />
                 </a>
@@ -200,7 +202,8 @@ exports[`Main /> should render cards 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €80
+                      €
+                      80
                     </b>
                     <span
                       className="place-card__price-text"
@@ -250,6 +253,7 @@ exports[`Main /> should render cards 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"
@@ -260,12 +264,13 @@ exports[`Main /> should render cards 1`] = `
                 <p
                   className="place-card__type"
                 >
-                  Private room
+                  Apartment
                 </p>
               </div>
             </article>
             <article
               className="cities__place-card place-card"
+              onMouseOver={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -294,7 +299,8 @@ exports[`Main /> should render cards 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €80
+                      €
+                      132
                     </b>
                     <span
                       className="place-card__price-text"
@@ -344,6 +350,7 @@ exports[`Main /> should render cards 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"
@@ -360,6 +367,7 @@ exports[`Main /> should render cards 1`] = `
             </article>
             <article
               className="cities__place-card place-card"
+              onMouseOver={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -371,7 +379,7 @@ exports[`Main /> should render cards 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/room.jpg"
+                    src="img/apartment-02.jpg"
                     width="260"
                   />
                 </a>
@@ -388,7 +396,8 @@ exports[`Main /> should render cards 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €80
+                      €
+                      180
                     </b>
                     <span
                       className="place-card__price-text"
@@ -438,6 +447,7 @@ exports[`Main /> should render cards 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"
@@ -448,12 +458,13 @@ exports[`Main /> should render cards 1`] = `
                 <p
                   className="place-card__type"
                 >
-                  Private room
+                  Apartment
                 </p>
               </div>
             </article>
             <article
               className="cities__place-card place-card"
+              onMouseOver={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -465,7 +476,7 @@ exports[`Main /> should render cards 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/room.jpg"
+                    src="img/apartment-03.jpg"
                     width="260"
                   />
                 </a>
@@ -482,7 +493,8 @@ exports[`Main /> should render cards 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €80
+                      €
+                      80
                     </b>
                     <span
                       className="place-card__price-text"
@@ -532,6 +544,7 @@ exports[`Main /> should render cards 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"
@@ -542,10 +555,11 @@ exports[`Main /> should render cards 1`] = `
                 <p
                   className="place-card__type"
                 >
-                  Private room
+                  Apartment
                 </p>
               </div>
             </article>
+             
           </div>
         </section>
         <div
