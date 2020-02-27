@@ -7,7 +7,6 @@ class Map extends PureComponent {
     this.Map = {
       CITY: [52.38333, 4.9],
       ZOOM: 12,
-      OFFER_CORDS: [52.3709553943508, 4.89309666406198],
       ICON: leaflet.icon({
         iconUrl: `img/pin.svg`,
         iconSize: [30, 30]
@@ -36,7 +35,7 @@ class Map extends PureComponent {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
     }).addTo(map);
 
-    leaflet.marker(this.Map.OFFER_CORDS, this.Map.ICON).addTo(map);
+    this.props.offers.map((offer) => leaflet.marker(offer.coords, this.Map.ICON).addTo(map));
   }
 }
 
