@@ -1,6 +1,7 @@
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
+import {OfferProperties} from "../../proptypes.js";
 
 class App extends PureComponent {
   constructor(props) {
@@ -41,13 +42,7 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired
-  })
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)
   )
 };
 

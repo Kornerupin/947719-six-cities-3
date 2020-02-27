@@ -1,5 +1,6 @@
 import OfferList from "../offer-list/offer-list";
 import Map from "../map/map";
+import {OfferProperties} from "../../proptypes.js";
 
 const Main = ({offers, onCardNameClick}) => {
 
@@ -81,7 +82,7 @@ const Main = ({offers, onCardNameClick}) => {
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-              {<Map offers={offers}/>}
+                {<Map offers={offers}/>}
               </section>
             </div>
           </div>
@@ -96,13 +97,7 @@ Main.defaultProps = {
 };
 
 Main.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-  })
-  ),
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   offersNumber: PropTypes.number.isRequired,
   onCardNameClick: PropTypes.func.isRequired
 };

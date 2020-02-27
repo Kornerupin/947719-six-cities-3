@@ -1,4 +1,5 @@
 import Card from "../card/card";
+import {OfferProperties} from "../../proptypes.js";
 
 class OfferList extends PureComponent {
   constructor(props) {
@@ -19,13 +20,7 @@ class OfferList extends PureComponent {
 }
 
 OfferList.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-  })
-  ),
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   onCardMouseOver: PropTypes.func.isRequired,
   onCardNameClick: PropTypes.func.isRequired
 };

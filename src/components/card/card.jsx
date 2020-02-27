@@ -1,4 +1,5 @@
 import {getStars} from "../../utils";
+import {OfferProperties} from "../../proptypes.js";
 
 const Card = ({card, onCardMouseOver, onCardNameClick}) => {
   const {image, type, price, rating, name} = card;
@@ -54,13 +55,7 @@ const Card = ({card, onCardMouseOver, onCardNameClick}) => {
 };
 
 Card.propTypes = {
-  card: PropTypes.shape({
-    image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired
-  }),
+  card: PropTypes.shape(OfferProperties),
   onCardMouseOver: PropTypes.func.isRequired,
   onCardNameClick: PropTypes.func.isRequired
 };

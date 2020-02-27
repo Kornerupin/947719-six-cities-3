@@ -1,6 +1,7 @@
 import {getStars} from "../../utils";
+import {OfferProperties} from "../../proptypes.js";
 
-const OfferDetail = ({offer}) => {  
+const OfferDetail = ({offer}) => {
   const {type, price, rating, name} = offer;
 
   return (
@@ -322,13 +323,7 @@ const OfferDetail = ({offer}) => {
 };
 
 OfferDetail.propTypes = {
-  offer: PropTypes.shape({
-    image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired
-  })
+  offer: PropTypes.shape(OfferProperties)
 };
 
 export default OfferDetail;
