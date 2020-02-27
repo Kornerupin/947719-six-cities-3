@@ -1,7 +1,6 @@
 import {getStars} from "../../utils";
 
-const Card = (props) => {
-  const {card, onCardMouseOver, onCardNameClick} = props;
+const Card = ({card, onCardMouseOver, onCardNameClick}) => {
   const {image, type, price, rating, name} = card;
 
   return (

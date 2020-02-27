@@ -1,7 +1,7 @@
 import {getStars} from "../../utils";
 
-const OfferDetail = (props) => {
-  const {type, price, rating, name} = props.offer;
+const OfferDetail = ({offer}) => {  
+  const {type, price, rating, name} = offer;
 
   return (
     <div className="page">

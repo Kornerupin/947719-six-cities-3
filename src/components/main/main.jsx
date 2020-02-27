@@ -1,8 +1,7 @@
 import OfferList from "../offer-list/offer-list";
 import Map from "../map/map";
 
-const Main = (props) => {
-  const {offers, onCardNameClick} = props;
+const Main = ({offers, onCardNameClick}) => {
 
   return (
     <div className="page page--gray page--main">
