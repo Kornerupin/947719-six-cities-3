@@ -1,4 +1,5 @@
 import Card from "../card/card";
+import {OfferProperties} from "../../proptypes.js";
 
 class OfferList extends PureComponent {
   constructor(props) {
@@ -6,36 +7,22 @@ class OfferList extends PureComponent {
   }
 
   render() {
-    const {offers, _onCardNameClick} = this.props;
+    const {offers, onCardNameClick} = this.props;
 
-    if (offers) {
-
-      const getOffers = offers.map((card, index) =>
-        <Card
-          key={index}
-          card={card}
-          _onCardMouseOver={(offer) => {
-            this.setState(() => (offer));
-          }}
-          _onCardNameClick={_onCardNameClick}
-        />);
-
-      return (<> {getOffers} </>);
-    }
-
-    return null;
+    return offers.map((card, index) => <Card
+      key={index}
+      card={card}
+      onCardMouseOver={(offer) => {
+        this.setState(() => (offer));
+      }}
+      onCardNameClick={onCardNameClick} />);
   }
 }
 
 OfferList.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-  })
-  ),
-  _onCardNameClick: PropTypes.func
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
+  onCardMouseOver: PropTypes.func.isRequired,
+  onCardNameClick: PropTypes.func.isRequired
 };
 
 export default OfferList;

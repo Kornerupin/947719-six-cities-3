@@ -1,12 +1,12 @@
-const Card = (props) => {
+import {getStars} from "../../utils";
+import {OfferProperties} from "../../proptypes.js";
 
-  const {card, _onCardMouseOver, _onCardNameClick} = props;
-  const {image, type, price, name} = card;
-  // const {image, type, price, name} = card ? card : null;
+const Card = ({card, onCardMouseOver, onCardNameClick}) => {
+  const {image, type, price, rating, name} = card;
 
   return (
     <article className="cities__place-card place-card" onMouseOver={() => {
-      _onCardMouseOver(card);
+      onCardMouseOver(card);
     }}>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -24,7 +24,7 @@ const Card = (props) => {
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">
-                &#47;&nbsp;night
+              &#47;&nbsp;night
             </span>
           </div>
           <button
@@ -41,11 +41,11 @@ const Card = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `80%`}}></span>
+            <span style={{width: `${getStars(rating)}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onClick={() => _onCardNameClick(card)}>
+        <h2 className="place-card__name" onClick={() => onCardNameClick(card)}>
           <a href="#">{name}</a>
         </h2>
         <p className="place-card__type">{type}</p>
@@ -55,14 +55,9 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-  card: PropTypes.shape({
-    image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-  }),
-  _onCardMouseOver: PropTypes.func,
-  _onCardNameClick: PropTypes.func
+  card: PropTypes.shape(OfferProperties),
+  onCardMouseOver: PropTypes.func.isRequired,
+  onCardNameClick: PropTypes.func.isRequired
 };
 
 export default Card;

@@ -1,14 +1,15 @@
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
+import {OfferProperties} from "../../proptypes.js";
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
-    this._onCardNameClick = this._onCardNameClick.bind(this);
+    this.onCardNameClick = this.onCardNameClick.bind(this);
   }
 
-  _onCardNameClick(offer) {
+  onCardNameClick(offer) {
     this.setState(() => (offer));
   }
 
@@ -20,7 +21,7 @@ class App extends PureComponent {
       return (<OfferDetail offer={this.state} />);
     }
 
-    return (<Main offers={offers} _onCardNameClick={this._onCardNameClick} />);
+    return (<Main offers={offers} onCardNameClick={this.onCardNameClick} />);
   }
 
   render() {
@@ -41,12 +42,7 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-  })
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)
   )
 };
 

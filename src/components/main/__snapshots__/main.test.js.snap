@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Main /> should render cards 1`] = `
+exports[`<Main /> should render cards 1`] = `
 <div
   className="page page--gray page--main"
 >
@@ -170,7 +170,6 @@ exports[`Main /> should render cards 1`] = `
           <div
             className="cities__places-list places__list tabs__content"
           >
-             
             <article
               className="cities__place-card place-card"
               onMouseOver={[Function]}
@@ -240,7 +239,7 @@ exports[`Main /> should render cards 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "80%",
+                          "width": "60%",
                         }
                       }
                     />
@@ -337,7 +336,7 @@ exports[`Main /> should render cards 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "80%",
+                          "width": "40%",
                         }
                       }
                     />
@@ -531,7 +530,7 @@ exports[`Main /> should render cards 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "80%",
+                          "width": "100%",
                         }
                       }
                     />
@@ -559,7 +558,6 @@ exports[`Main /> should render cards 1`] = `
                 </p>
               </div>
             </article>
-             
           </div>
         </section>
         <div
@@ -567,7 +565,17 @@ exports[`Main /> should render cards 1`] = `
         >
           <section
             className="cities__map map"
-          />
+          >
+            <div
+              id="map"
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            />
+          </section>
         </div>
       </div>
     </div>
