@@ -27,3 +27,4 @@ globals:
   PropTypes: true
   shallow: true
   renderer: true
+  mount: true
