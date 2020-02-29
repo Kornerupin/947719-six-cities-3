@@ -5,7 +5,7 @@ import {OfferProperties} from "../../proptypes.js";
 const Main = ({offers, onCardNameClick}) => {
 
   const coordinates = offers.length ? offers.map((offer) => offer.coords) : null;
-  
+
   return (
     <div className="page page--gray page--main">
       <header className="header">

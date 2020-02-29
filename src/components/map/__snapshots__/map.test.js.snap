@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Map /> Should render the map 1`] = `
+exports[`<Map/>:  should render 1`] = `
 <div
   id="map"
   style={

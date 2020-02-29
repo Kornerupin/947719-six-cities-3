@@ -1,5 +1,4 @@
 import leaflet from "leaflet";
-import {OfferProperties} from "../../proptypes.js";
 
 class Map extends PureComponent {
   constructor(props) {
@@ -41,7 +40,7 @@ class Map extends PureComponent {
 }
 
 Map.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties))
+  coordinates: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
 };
 
 export default Map;

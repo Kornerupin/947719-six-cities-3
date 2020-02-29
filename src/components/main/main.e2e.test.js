@@ -1,16 +1,14 @@
 import Main from './main';
 import offers from '../../mocks/offers';
 
-const cards = offers;
-
 it(`Expected an Array`, () => {
   shallow(<Main
-    cards={cards}
+    offers={offers}
     onCardMouseOver={() => { }}
     onCardNameClick={() => { }}
   />);
 
-  cards.map((offer) => {
+  offers.map((offer) => {
     expect(offer).toEqual(
         expect.objectContaining({
           image: expect.arrayContaining([expect.any(String)]),
