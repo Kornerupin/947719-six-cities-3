@@ -4,6 +4,8 @@ import {OfferProperties} from "../../proptypes.js";
 
 const Main = ({offers, onCardNameClick}) => {
 
+  const coordinates = offers.length ? offers.map((offer) => offer.coords) : null;
+  
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -82,7 +84,7 @@ const Main = ({offers, onCardNameClick}) => {
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                {<Map offers={offers}/>}
+                {<Map coordinates={coordinates}/>}
               </section>
             </div>
           </div>

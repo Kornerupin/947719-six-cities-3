@@ -36,7 +36,7 @@ class Map extends PureComponent {
       attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
     }).addTo(map);
 
-    this.props.offers.map((offer) => leaflet.marker(offer.coords, this.Map.ICON).addTo(map));
+    this.props.coordinates.map((coordinates) => leaflet.marker(coordinates, this.Map.ICON).addTo(map));
   }
 }
 
