@@ -1,11 +1,11 @@
 import OfferList from './offer-list';
-import offers from '../../mocks/offers';
+import offersMock from '../../mocks/offers-mock';
 
 it(`<OfferList /> Should render list of offers`, () => {
   const tree = renderer.create(<OfferList
-    offers={offers}
-    onCardMouseOver={() => { }}
-    onCardNameClick={() => { }}
+    offers={offersMock}
+    onOfferMouseOver={() => { }}
+    onOfferNameClick={() => { }}
   />).toJSON();
 
   expect(tree).toMatchSnapshot();

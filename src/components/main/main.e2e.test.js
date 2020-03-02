@@ -1,11 +1,11 @@
 import Main from './main';
-import offers from '../../mocks/offers';
+import offersMock from '../../mocks/offers-mock';
 
 it(`Expected an Array`, () => {
   shallow(<Main
-    offers={offers}
-    onCardMouseOver={() => { }}
-    onCardNameClick={() => { }}
+    offers={offersMock}
+    onOfferMouseOver={() => { }}
+    onOfferNameClick={() => { }}
   />);
 
   offers.map((offer) => {

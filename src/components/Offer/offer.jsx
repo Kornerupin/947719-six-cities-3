@@ -1,12 +1,12 @@
-import {getStars} from "../../utils";
-import {OfferProperties} from "../../properties.js";
+import {getStars} from '../../utils';
+import {OfferProperties} from '../../offer-properties.js';
 
-const Card = ({card, onCardMouseOver, onCardNameClick}) => {
-  const {image, type, price, rating, name} = card;
+const Offer = ({offer, onOfferMouseOver, onOfferNameClick}) => {
+  const {image, type, price, rating, name} = offer;
 
   return (
     <article className="cities__place-card place-card" onMouseOver={() => {
-      onCardMouseOver(card);
+      onOfferMouseOver(offer);
     }}>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -45,7 +45,7 @@ const Card = ({card, onCardMouseOver, onCardNameClick}) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onClick={() => onCardNameClick(card)}>
+        <h2 className="place-card__name" onClick={() => onOfferNameClick(offer)}>
           <a href="#">{name}</a>
         </h2>
         <p className="place-card__type">{type}</p>
@@ -54,10 +54,10 @@ const Card = ({card, onCardMouseOver, onCardNameClick}) => {
   );
 };
 
-Card.propTypes = {
-  card: PropTypes.shape(OfferProperties),
-  onCardMouseOver: PropTypes.func.isRequired,
-  onCardNameClick: PropTypes.func.isRequired
+Offer.propTypes = {
+  offer: PropTypes.shape(OfferProperties),
+  onOfferMouseOver: PropTypes.func.isRequired,
+  onOfferNameClick: PropTypes.func.isRequired
 };
 
-export default Card;
+export default Offer;

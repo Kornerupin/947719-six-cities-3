@@ -1,9 +1,9 @@
 import ReviewsList from '../reviews-list/reviews-list'
 import { getStars } from '../../utils';
-import { OfferProperties } from '../../properties.js';
+import { OfferProperties } from '../../offer-properties.js';
 
 const OfferDetail = ({ offer }) => {
-  const { type, price, rating, name } = offer;
+  const { type, price, rating, name, reviews } = offer;
 
   return (
     <div className="page">
@@ -11,7 +11,7 @@ const OfferDetail = ({ offer }) => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link" href="main.html">
+              <a className="header__logo-link" href="/">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width={81} height={41} />
               </a>
             </div>
@@ -146,7 +146,7 @@ const OfferDetail = ({ offer }) => {
                 </div>
               </div>
               <section className="property__reviews reviews">
-                <ReviewsList />
+                <ReviewsList reviews={reviews} />
               </section>
             </div>
           </div>

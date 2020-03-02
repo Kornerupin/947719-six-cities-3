@@ -1,8 +1,8 @@
 import OfferList from "../offer-list/offer-list";
 import Map from "../map/map";
-import {OfferProperties} from "../../properties.js";
+import {OfferProperties} from "../../offer-properties.js";
 
-const Main = ({offers, onCardNameClick}) => {
+const Main = ({offers, onOfferNameClick}) => {
 
   const coordinates = offers.length ? offers.map((offer) => offer.coords) : null;
 
@@ -78,7 +78,7 @@ const Main = ({offers, onCardNameClick}) => {
               </b>
               <div className="cities__places-list places__list tabs__content">
 
-                {<OfferList offers={offers} onCardNameClick={onCardNameClick} onCardMouseOver={() => { }} />}
+                {<OfferList offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} />}
 
               </div>
             </section>
@@ -101,7 +101,7 @@ Main.defaultProps = {
 Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   offersNumber: PropTypes.number.isRequired,
-  onCardNameClick: PropTypes.func.isRequired
+  onOfferNameClick: PropTypes.func.isRequired
 };
 
 export default Main;

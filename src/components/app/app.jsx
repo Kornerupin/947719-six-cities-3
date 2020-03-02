@@ -1,27 +1,27 @@
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
-import {OfferProperties} from "../../properties.js";
+import { OfferProperties } from '../../offer-properties.js';
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
-    this.onCardNameClick = this.onCardNameClick.bind(this);
+    this.onOfferNameClick = this.onOfferNameClick.bind(this);
   }
 
-  onCardNameClick(offer) {
+  onOfferNameClick(offer) {
     this.setState(() => (offer));
   }
 
   _renderApp() {
-    const {offers} = this.props;
+    const { offers } = this.props;
 
     if (this.state) {
 
       return (<OfferDetail offer={this.state} />);
     }
 
-    return (<Main offers={offers} onCardNameClick={this.onCardNameClick} />);
+    return (<Main offers={offers} onOfferNameClick={this.onOfferNameClick} />);
   }
 
   render() {

@@ -1,14 +1,14 @@
 import App from './app';
-import offers from '../../mocks/offers';
+import offersMock from '../../mocks/offers-mock';
 
 it(`It expect an Array contains Object with the following properties`, () => {
-  const cards = offers;
+  const offers = offersMock;
   shallow(<App
-    cards={offers}
+    offers={offers}
   />);
 
-  cards.map((card) => {
-    expect(card).toEqual(
+  cards.map((offer) => {
+    expect(offer).toEqual(
         expect.objectContaining({
           image: expect.arrayContaining([expect.any(String)]),
           type: expect.any(String),
