@@ -82,7 +82,9 @@ const Main = ({offers, onOfferNameClick}) => {
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
+
                 {<Map coordinates={offers ? offers.map((offer) => offer.coords) : [[0]]} />}
+
               </section>
             </div>
           </div>

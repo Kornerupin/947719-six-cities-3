@@ -37,6 +37,10 @@ class Map extends PureComponent {
 
     this.props.coordinates.map((coordinates) => leaflet.marker(coordinates, this.Map.ICON).addTo(map));
   }
+
+  // componentWillUnmount() {
+  //   this.mapRef.current = null;
+  // }
 }
 
 Map.propTypes = {

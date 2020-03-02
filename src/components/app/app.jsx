@@ -7,6 +7,7 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     this.onOfferNameClick = this.onOfferNameClick.bind(this);
+
   }
 
   onOfferNameClick(offer) {
@@ -18,7 +19,7 @@ class App extends PureComponent {
 
     if (this.state) {
 
-      return (<OfferDetail offer={this.state} />);
+      return (<OfferDetail offer={this.state} offers={this.props} onOfferNameClick={this.onOfferNameClick}/>);
     }
 
     return (<Main offers={offers} onOfferNameClick={this.onOfferNameClick} />);

@@ -1,11 +1,14 @@
 import Reviews from '../reviews/reviews';
 
 const ReviewsList = ({reviews}) => {
+  const REVIEWS_MAX = 10;
 
   return (<>
     <h2 className="reviews__title">Reviews · <span className="reviews__amount">{reviews && reviews.length}</span></h2>
     <ul className="reviews__list">
-      {reviews.map((review, index) => <Reviews key={index} review={review} />)}
+
+      {reviews.slice(0, REVIEWS_MAX).map((review, index) => <Reviews key={index} review={review} />)}
+
     </ul>
     <form className="reviews__form form" action="#" method="post">
       <label className="reviews__label form__label" htmlFor="review">Your review</label>

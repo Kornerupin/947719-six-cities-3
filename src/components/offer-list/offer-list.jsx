@@ -1,4 +1,4 @@
-import Offer from "../Offer/offer";
+import Offer from "../offer/offer";
 import {OfferProperties} from "../../offer-properties.js";
 
 class OfferList extends PureComponent {
