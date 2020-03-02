@@ -1,5 +1,5 @@
 import Card from "../card/card";
-import {OfferProperties} from "../../proptypes.js";
+import {OfferProperties} from "../../properties.js";
 
 class OfferList extends PureComponent {
   constructor(props) {

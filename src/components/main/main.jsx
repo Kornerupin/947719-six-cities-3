@@ -1,6 +1,6 @@
 import OfferList from "../offer-list/offer-list";
 import Map from "../map/map";
-import {OfferProperties} from "../../proptypes.js";
+import {OfferProperties} from "../../properties.js";
 
 const Main = ({offers, onCardNameClick}) => {
 

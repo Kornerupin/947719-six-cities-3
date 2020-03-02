@@ -1,7 +1,7 @@
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
-import {OfferProperties} from "../../proptypes.js";
+import {OfferProperties} from "../../properties.js";
 
 class App extends PureComponent {
   constructor(props) {
