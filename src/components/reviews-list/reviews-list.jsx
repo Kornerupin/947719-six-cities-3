@@ -1,9 +1,7 @@
-
 import Reviews from '../reviews/reviews';
 
-const ReviewsList = (props) => {
-  const { reviews } = props;
-  
+const ReviewsList = ({reviews}) => {
+
   return (<>
     <h2 className="reviews__title">Reviews · <span className="reviews__amount">{reviews && reviews.length}</span></h2>
     <ul className="reviews__list">
@@ -47,12 +45,12 @@ const ReviewsList = (props) => {
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.
-            </p>
+        </p>
         <button className="reviews__submit form__submit button" type="submit" disabled>Submit</button>
       </div>
     </form>
   </>
-  )
-}
+  );
+};
 
 export default ReviewsList;

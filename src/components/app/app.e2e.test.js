@@ -7,7 +7,7 @@ it(`It expect an Array contains Object with the following properties`, () => {
     offers={offers}
   />);
 
-  cards.map((offer) => {
+  offers.map((offer) => {
     expect(offer).toEqual(
         expect.objectContaining({
           image: expect.arrayContaining([expect.any(String)]),

@@ -1,9 +1,9 @@
-import ReviewsList from '../reviews-list/reviews-list'
-import { getStars } from '../../utils';
-import { OfferProperties } from '../../offer-properties.js';
+import ReviewsList from '../reviews-list/reviews-list';
+import {getStars} from '../../utils';
+import {OfferProperties} from '../../offer-properties.js';
 
-const OfferDetail = ({ offer }) => {
-  const { type, price, rating, name, reviews } = offer;
+const OfferDetail = ({offer}) => {
+  const {type, price, rating, name, reviews} = offer;
 
   return (
     <div className="page">
@@ -71,7 +71,7 @@ const OfferDetail = ({ offer }) => {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{ width: `${getStars(rating)}%` }} />
+                  <span style={{width: `${getStars(rating)}%`}} />
                   <span className="visually-hidden">Rating</span>
                 </div>
                 <span className="property__rating-value rating__value">{rating}</span>
@@ -177,7 +177,7 @@ const OfferDetail = ({ offer }) => {
                   </div>
                   <div className="place-card__rating rating">
                     <div className="place-card__stars rating__stars">
-                      <span style={{ width: `80%` }} />
+                      <span style={{width: `80%`}} />
                       <span className="visually-hidden">Rating</span>
                     </div>
                   </div>
@@ -208,7 +208,7 @@ const OfferDetail = ({ offer }) => {
                   </div>
                   <div className="place-card__rating rating">
                     <div className="place-card__stars rating__stars">
-                      <span style={{ width: `80%` }} />
+                      <span style={{width: `80%`}} />
                       <span className="visually-hidden">Rating</span>
                     </div>
                   </div>
@@ -239,7 +239,7 @@ const OfferDetail = ({ offer }) => {
                   </div>
                   <div className="place-card__rating rating">
                     <div className="place-card__stars rating__stars">
-                      <span style={{ width: `100%` }} />
+                      <span style={{width: `100%`}} />
                       <span className="visually-hidden">Rating</span>
                     </div>
                   </div>

@@ -1,13 +1,13 @@
-import { getStars } from '../../utils';
+import {getStars} from '../../utils';
 
-const Reviews = (props) => {
- const {avatar, name, rating, text, time} = props.review;
-   
+const Reviews = ({review}) => {
+  const {avatar, name, rating, text, time} = review;
+
   return (<>
     <li className="reviews__item">
       <div className="reviews__user user">
         <div className="reviews__avatar-wrapper user__avatar-wrapper">
-          <img className="reviews__avatar user__avatar" src={ avatar } alt="Reviews avatar" width={54} height={54} />
+          <img className="reviews__avatar user__avatar" src={avatar} alt="Reviews avatar" width={54} height={54} />
         </div>
         <span className="reviews__user-name">
           {name}
@@ -16,7 +16,7 @@ const Reviews = (props) => {
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{ width: `${getStars(rating)}%` }} />
+            <span style={{width: `${getStars(rating)}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
@@ -27,7 +27,7 @@ const Reviews = (props) => {
       </div>
     </li>
   </>
-  )
-}
+  );
+};
 
 export default Reviews;

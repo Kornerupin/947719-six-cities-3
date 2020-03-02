@@ -8,7 +8,7 @@ it(`It expect an Object that contains the following properties`, () => {
     onOfferNameClick={() => { }}
   />);
 
-  offers.map((offer) => {
+  offersMock.map((offer) => {
     expect(offer).toEqual(
         expect.objectContaining({
           image: expect.arrayContaining([expect.any(String)]),

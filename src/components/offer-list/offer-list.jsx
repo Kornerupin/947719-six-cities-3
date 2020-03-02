@@ -12,7 +12,7 @@ class OfferList extends PureComponent {
     return offers.map((offer, index) => <Offer
       key={index}
       offer={offer}
-      onOfferMouseOver={(offer) => {
+      onOfferMouseOver={() => {
         this.setState(() => (offer));
       }}
       onOfferNameClick={onOfferNameClick} />);

@@ -10,7 +10,7 @@ it(`It expect an Object that contains the following properties`, () => {
     onOfferNameClick={() => { }}
   />);
 
-  expect(card).toEqual(
+  expect(offer).toEqual(
       expect.objectContaining({
         image: expect.arrayContaining([expect.any(String)]),
         type: expect.any(String),
