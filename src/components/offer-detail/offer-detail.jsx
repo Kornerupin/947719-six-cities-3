@@ -13,7 +13,7 @@ class OfferDetail extends PureComponent {
 
   render() {
     const {type, price, rating, name, reviews} = this.props.offer;
-    const OFFER_MAX = 3;
+    const OFFERS_MAX = 3;
 
     return (
       <div className="page">
@@ -164,7 +164,7 @@ class OfferDetail extends PureComponent {
             </div>
             <section className="property__map map">
 
-              {<Map coordinates={offersMock ? offersMock.map((offer) => offer.coords) : [[0]]} />}
+              {<Map coordinates={offersMock ? offersMock.slice(0, OFFERS_MAX).map((offer) => offer.coords) : [[0]]} />}
 
             </section>
             <div className="container">
@@ -172,7 +172,7 @@ class OfferDetail extends PureComponent {
                 <h2 className="near-places__title">Other places in the neighbourhood</h2>
                 <div className="near-places__list places__list">
                   {
-                    offersMock.slice(0, OFFER_MAX).map((offer, index) => <Offer
+                    offersMock.slice(0, OFFERS_MAX).map((offer, index) => <Offer
                       key={index}
                       offer={offer}
                       onOfferMouseOver={() => {
