@@ -1,8 +1,8 @@
-import Offer from "../offer/offer";
-import Map from "../map/map";
+import Offer from '../offer/offer';
+import Map from '../map/map';
 import ReviewsList from '../reviews-list/reviews-list';
-import {getStars} from '../../utils';
-import {OfferProperties} from '../../offer-properties.js';
+import { getStars } from '../../utils';
+import { OfferProperties } from '../../offer-properties.js';
 import offersMock from '../../mocks/offers-mock';
 
 class OfferDetail extends PureComponent {
@@ -12,7 +12,7 @@ class OfferDetail extends PureComponent {
   }
 
   render() {
-    const {type, price, rating, name, reviews} = this.props.offer;
+    const { type, price, rating, name, reviews } = this.props.offer;
     const OFFERS_MAX = 3;
 
     return (
@@ -81,7 +81,7 @@ class OfferDetail extends PureComponent {
                 </div>
                 <div className="property__rating rating">
                   <div className="property__stars rating__stars">
-                    <span style={{width: `${getStars(rating)}%`}} />
+                    <span style={{ width: `${getStars(rating)}%` }} />
                     <span className="visually-hidden">Rating</span>
                   </div>
                   <span className="property__rating-value rating__value">{rating}</span>
@@ -164,7 +164,8 @@ class OfferDetail extends PureComponent {
             </div>
             <section className="property__map map">
 
-              {<Map coordinates={offersMock ? offersMock.slice(0, OFFERS_MAX).map((offer) => offer.coords) : [[0]]} />}
+              {<Map coordinates={offersMock ? offersMock.slice(0, OFFERS_MAX).map((offer) => offer.coords) : [[0]]}
+                currrentCoordinates={this.props.offer.coords} />}
 
             </section>
             <div className="container">

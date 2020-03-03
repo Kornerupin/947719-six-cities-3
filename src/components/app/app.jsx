@@ -7,7 +7,6 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     this.onOfferNameClick = this.onOfferNameClick.bind(this);
-
   }
 
   onOfferNameClick(offer) {
