@@ -1,18 +1,18 @@
-import Offer from '../offer/offer';
+import OfferList from "../offer-list/offer-list";
 import Map from '../map/map';
 import ReviewsList from '../reviews-list/reviews-list';
-import {getStars} from '../../utils';
-import {OfferProperties} from '../../properties.js';
-import offersMock from '../../mocks/offers-mock';
+import { getStars } from '../../utils';
+import { OfferProperties } from '../../properties.js';
 
 class OfferDetail extends PureComponent {
   constructor(props) {
     super(props);
-    this.onOfferNameClick = this.props.onOfferNameClick;
   }
 
   render() {
-    const {type, price, rating, name, reviews} = this.props.offer;
+    const { type, price, rating, name, reviews } = this.props.offer;
+    const { offers } = this.props.offers;
+    const { onOfferNameClick } = this.props.onOfferNameClick;
     const OFFERS_MAX = 3;
 
     return (
@@ -81,7 +81,7 @@ class OfferDetail extends PureComponent {
                 </div>
                 <div className="property__rating rating">
                   <div className="property__stars rating__stars">
-                    <span style={{width: `${getStars(rating)}%`}} />
+                    <span style={{ width: `${getStars(rating)}%` }} />
                     <span className="visually-hidden">Rating</span>
                   </div>
                   <span className="property__rating-value rating__value">{rating}</span>
@@ -163,23 +163,17 @@ class OfferDetail extends PureComponent {
               </div>
             </div>
             <section className="property__map map">
-
-              {<Map coordinates={offersMock ? offersMock.slice(0, OFFERS_MAX).map((offer) => offer.coords) : [[0]]}
-                currrentCoordinates={this.props.offer.coords} />}
-
+              {
+                <Map coordinates={offers ? offers.slice(0, OFFERS_MAX).map((offer) => offer.coords) : []}
+                  currrentCoordinates={this.props.offer.coords} />
+              }
             </section>
             <div className="container">
               <section className="near-places places">
                 <h2 className="near-places__title">Other places in the neighbourhood</h2>
                 <div className="near-places__list places__list">
                   {
-                    offersMock.slice(0, OFFERS_MAX).map((offer, index) => <Offer
-                      key={index}
-                      offer={offer}
-                      onOfferMouseOver={() => {
-                        this.setState(() => (offer));
-                      }}
-                      onOfferNameClick={this.onOfferNameClick} />)
+                    <OfferList offers={offers.slice(0, OFFERS_MAX)} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} />
                   }
                 </div>
               </section>
