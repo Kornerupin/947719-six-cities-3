@@ -1,16 +1,16 @@
-import Card from './card';
-import offers from '../../mocks/offers';
+import Offer from './offer';
+import offersMock from '../../mocks/offers-mock';
 
-const card = offers[0];
+const offer = offersMock[0];
 
 it(`It expect an Object that contains the following properties`, () => {
-  shallow(<Card
-    card={card}
-    onCardMouseOver={() => { }}
-    onCardNameClick={() => { }}
+  shallow(<Offer
+    offer={offer}
+    onOfferMouseOver={() => { }}
+    onOfferNameClick={() => { }}
   />);
 
-  expect(card).toEqual(
+  expect(offer).toEqual(
       expect.objectContaining({
         image: expect.arrayContaining([expect.any(String)]),
         type: expect.any(String),
@@ -22,14 +22,14 @@ it(`It expect an Object that contains the following properties`, () => {
 
 
 it(`Should card name be clicked`, () => {
-  const onCardNameClick = jest.fn();
+  const onOfferNameClick = jest.fn();
   const offerDetails = shallow(
-      <Card
-        card={card}
-        onCardMouseOver={() => { }}
-        onCardNameClick={onCardNameClick}
+      <Offer
+        offer={offer}
+        onOfferMouseOver={() => { }}
+        onOfferNameClick={onOfferNameClick}
       />);
 
   offerDetails.find(`.place-card__name`).simulate(`click`);
-  expect(onCardNameClick).toHaveBeenCalledTimes(1);
+  expect(onOfferNameClick).toHaveBeenCalledTimes(1);
 });

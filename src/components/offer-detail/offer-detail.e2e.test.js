@@ -1,11 +1,12 @@
 import OfferDetail from './offer-detail';
-import offers from '../../mocks/offers';
+import offersMock from '../../mocks/offers-mock';
 
-const offer = offers[0];
+const offer = offersMock[0];
 
 it(`It expect an Object that contains the following properties`, () => {
   shallow(<OfferDetail
     offer={offer}
+    onOfferNameClick={() => { }}
   />);
 
   expect(offer).toEqual(

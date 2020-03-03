@@ -1,11 +1,11 @@
 import Main from './main';
-import offers from '../../mocks/offers';
+import offersMock from '../../mocks/offers-mock';
 
-it(`<Main /> should render cards`, () => {
+it(`<Main /> should render offers`, () => {
   const tree = renderer.create(<Main
-    offers={offers}
-    onCardMouseOver={() => { }}
-    onCardNameClick={() => { }}
+    offers={offersMock}
+    onOfferMouseOver={() => { }}
+    onOfferNameClick={() => { }}
   />).toJSON();
 
   expect(tree).toMatchSnapshot();

@@ -1,12 +1,20 @@
 import Map from './map';
-import offers from '../../mocks/offers';
-import toJson from 'enzyme-to-json';
 
-it(`<Map /> Should render the map`, () => {
-  const div = global.document.createElement(`div`);
-  global.document.body.appendChild(div);
-  const tree = mount(<Map offers={offers} />, {attachTo: div});
+describe(`<Map/>: `, () => {
 
-  expect(toJson(tree, {mode: `deep`})).toMatchSnapshot();
+  const coordinates = [
+    [52.3909553943508, 4.929309666406198],
+    [52.3909553943508, 4.929309666406198],
+    [52.3909553943508, 4.929309666406198],
+    [52.3909553943508, 4.929309666406198],
+  ];
+
+  it(`should render`, () => {
+    const tree = renderer.create(
+        <Map coordinates={coordinates} />,
+        {createNodeMock: () => document.createElement(`section`)}
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });
-

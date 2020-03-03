@@ -1,12 +1,12 @@
-import {getStars} from "../../utils";
-import {OfferProperties} from "../../proptypes.js";
+import {getStars} from '../../utils';
+import {OfferProperties} from '../../properties.js';
 
-const Card = ({card, onCardMouseOver, onCardNameClick}) => {
-  const {image, type, price, rating, name} = card;
+const Offer = ({offer, onOfferMouseOver, onOfferNameClick}) => {
+  const {image, type, price, rating, name} = offer;
 
   return (
     <article className="cities__place-card place-card" onMouseOver={() => {
-      onCardMouseOver(card);
+      onOfferMouseOver(offer);
     }}>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -30,11 +30,8 @@ const Card = ({card, onCardMouseOver, onCardNameClick}) => {
           <button
             className="place-card__bookmark-button place-card__bookmark-button--active button"
             type="button">
-            <svg
-              className="place-card__bookmark-icon"
-              width="18"
-              height="19">
-              <use xlinkHref="#icon-bookmark-active"></use>
+            <svg className="place-card__bookmark-icon" width="18" height="19" id="icon-bookmark" viewBox="0 0 17 18">
+              <path d="M3.993 2.185l.017-.092V2c0-.554.449-1 .99-1h10c.522 0 .957.41.997.923l-2.736 14.59-4.814-2.407-.39-.195-.408.153L1.31 16.44 3.993 2.185z"></path>
             </svg>
             <span className="visually-hidden">In bookmarks</span>
           </button>
@@ -45,7 +42,7 @@ const Card = ({card, onCardMouseOver, onCardNameClick}) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onClick={() => onCardNameClick(card)}>
+        <h2 className="place-card__name" onClick={() => onOfferNameClick(offer)}>
           <a href="#">{name}</a>
         </h2>
         <p className="place-card__type">{type}</p>
@@ -54,10 +51,10 @@ const Card = ({card, onCardMouseOver, onCardNameClick}) => {
   );
 };
 
-Card.propTypes = {
-  card: PropTypes.shape(OfferProperties),
-  onCardMouseOver: PropTypes.func.isRequired,
-  onCardNameClick: PropTypes.func.isRequired
+Offer.propTypes = {
+  offer: PropTypes.shape(OfferProperties),
+  onOfferMouseOver: PropTypes.func.isRequired,
+  onOfferNameClick: PropTypes.func.isRequired
 };
 
-export default Card;
+export default Offer;

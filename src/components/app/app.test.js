@@ -1,8 +1,8 @@
 import App from './app';
-import offers from '../../mocks/offers';
+import offersMock from '../../mocks/offers-mock';
 
 it(`<App /> should render cards`, () => {
-  const tree = renderer.create(<App offers={offers} />).toJSON();
+  const tree = renderer.create(<App offers={offersMock} onOfferNameClick={() => { }} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
