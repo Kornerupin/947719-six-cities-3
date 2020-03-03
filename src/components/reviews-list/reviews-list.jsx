@@ -1,4 +1,5 @@
 import Reviews from '../reviews/reviews';
+import {ReviewProperties} from "../../properties.js";
 
 const ReviewsList = ({reviews}) => {
   const REVIEWS_MAX = 10;
@@ -54,6 +55,11 @@ const ReviewsList = ({reviews}) => {
     </form>
   </>
   );
+};
+
+
+ReviewsList.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.shape(ReviewProperties))
 };
 
 export default ReviewsList;

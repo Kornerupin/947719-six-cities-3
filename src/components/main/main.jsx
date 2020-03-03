@@ -1,6 +1,6 @@
 import OfferList from "../offer-list/offer-list";
 import Map from "../map/map";
-import {OfferProperties} from "../../offer-properties.js";
+import {OfferProperties} from "../../properties.js";
 
 const Main = ({offers, onOfferNameClick}) => {
 
@@ -83,7 +83,7 @@ const Main = ({offers, onOfferNameClick}) => {
             <div className="cities__right-section">
               <section className="cities__map map">
 
-                {<Map coordinates={offers ? offers.map((offer) => offer.coords) : [[0]]} />}
+                {<Map coordinates={offers ? offers.map((offer) => offer.coords) : [[0]]} currrentCoordinates={[]} />}
 
               </section>
             </div>

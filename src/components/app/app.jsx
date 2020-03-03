@@ -1,7 +1,7 @@
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
-import {OfferProperties} from '../../offer-properties.js';
+import {OfferProperties} from '../../properties';
 
 class App extends PureComponent {
   constructor(props) {
@@ -42,8 +42,7 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)
-  )
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties))
 };
 
 export default App;

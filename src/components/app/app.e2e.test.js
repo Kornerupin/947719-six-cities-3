@@ -5,6 +5,7 @@ it(`It expect an Array contains Object with the following properties`, () => {
   const offers = offersMock;
   shallow(<App
     offers={offers}
+    onOfferNameClick={() => { }}
   />);
 
   offers.map((offer) => {

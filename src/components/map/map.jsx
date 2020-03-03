@@ -23,8 +23,12 @@ class Map extends PureComponent {
   render() {
 
     return (
-      <div id="map" style={{ height: `100%` }} ref={this.mapRef}></div>
+      <div id="map" style={{height: `100%`}} ref={this.mapRef}></div>
     );
+  }
+
+  setPins() {
+
   }
 
   componentDidMount() {
@@ -42,15 +46,20 @@ class Map extends PureComponent {
     }).addTo(map);
 
     this.props.coordinates.map((coordinates) => {
-      coordinates === this.props.currrentCoordinates
-        ? leaflet.marker(coordinates, { icon: MAP.ICON_ACTIVE }).addTo(map)
-        : leaflet.marker(coordinates, { icon: MAP.ICON }).addTo(map);
+      return (coordinates === this.props.currrentCoordinates)
+        ? leaflet.marker(coordinates, {icon: MAP.ICON_ACTIVE}).addTo(map)
+        : leaflet.marker(coordinates, {icon: MAP.ICON}).addTo(map);
     });
   }
 }
 
+Map.defaultProps = {
+  currrentCoordinates: []
+};
+
 Map.propTypes = {
   coordinates: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  currrentCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired
 };
 
 export default Map;

@@ -1,5 +1,5 @@
 import {getStars} from '../../utils';
-import {OfferProperties} from '../../offer-properties.js';
+import {OfferProperties} from '../../properties.js';
 
 const Offer = ({offer, onOfferMouseOver, onOfferNameClick}) => {
   const {image, type, price, rating, name} = offer;

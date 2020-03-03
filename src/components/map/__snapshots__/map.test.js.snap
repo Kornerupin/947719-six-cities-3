@@ -6,7 +6,6 @@ exports[`<Map/>:  should render 1`] = `
   style={
     Object {
       "height": "100%",
-      "width": "100%",
     }
   }
 />

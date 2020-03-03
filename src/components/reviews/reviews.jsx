@@ -1,4 +1,5 @@
 import {getStars} from '../../utils';
+import {ReviewProperties} from "../../properties.js";
 
 const Reviews = ({review}) => {
   const {avatar, name, rating, text, time} = review;
@@ -28,6 +29,10 @@ const Reviews = ({review}) => {
     </li>
   </>
   );
+};
+
+Reviews.propTypes = {
+  review: (PropTypes.shape(ReviewProperties))
 };
 
 export default Reviews;
