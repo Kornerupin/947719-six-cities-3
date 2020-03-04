@@ -1,14 +1,14 @@
-import { getStars } from '../../utils';
-import { ReviewProperties } from "../../properties.js";
+import {getStars} from '../../utils';
+import {ReviewProperties} from "../../properties.js";
 
 const getFormatDate = (utc) => {
   const date = new Date(utc);
 
-  return `${date.toLocaleString(`default`, { month: `long` })} ${date.getDate()}, ${date.getFullYear()}`;
+  return `${date.toLocaleString(`default`, {month: `long`})} ${date.getDate()}, ${date.getFullYear()}`;
 };
 
-const Reviews = ({ review }) => {
-  const { avatar, name, rating, text, time } = review;
+const Reviews = ({review}) => {
+  const {avatar, name, rating, text, time} = review;
 
   return (<>
     <li className="reviews__item">
@@ -23,7 +23,7 @@ const Reviews = ({ review }) => {
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{ width: `${getStars(rating)}%` }} />
+            <span style={{width: `${getStars(rating)}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
