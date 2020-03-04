@@ -15,21 +15,21 @@ export default [
       name: `Max`,
       rating: 4.1,
       text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-      time: `April 2019`
+      time: 1569006474313
     },
     {
       avatar: `https://api.adorable.io/avatars/128/0.33908914729720996`,
       name: `Sax`,
       rating: 4.5,
       text: `It is my favorite hotel. I have been staying her for several years and can confirm that service level remains at the same high level.`,
-      time: `April 2019`
+      time: 1571598485610
     },
     {
       avatar: `https://api.adorable.io/avatars/128/0.06997580364137201`,
       name: `Rax`,
       rating: 3.8,
       text: `Emplacement parfait, beaucoup de commerces à proximité, le tout dans un lieu traditionnel et agréable, j'ai adoré mon court séjour et aimerait beaucoup y retourner un jour!`,
-      time: `April 2019`
+      time: 1574276894250
     }]
   },
   {
@@ -44,7 +44,7 @@ export default [
       name: `Wax`,
       rating: 3.8,
       text: `Very nice hotel, helpful and friendly staff (thank you guys for everything), good breakfast, clean and comfy room.`,
-      time: `May 2019`
+      time: 1576868903507
     }]
   },
   {
@@ -59,7 +59,7 @@ export default [
       name: `Tax`,
       rating: 4.5,
       text: `Breakfast was excellent. Everything was really tasty. Location perfect, in a walking distance from everything. Staff was friendly and welcoming. Hotel was really silent.`,
-      time: `June 2019`
+      time: 1576868903507
     }]
   },
   {
@@ -74,7 +74,7 @@ export default [
       name: `Bax`,
       rating: 3.2,
       text: `The only drawback for me was that I could hear the traffic through the window in my room. It was therefore not often i opened the window to get fresh air.`,
-      time: `July 2019`
+      time: 1576868903507
     }]
   },
 ];

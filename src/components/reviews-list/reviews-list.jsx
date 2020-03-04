@@ -2,13 +2,12 @@ import Reviews from '../reviews/reviews';
 import {ReviewProperties} from "../../properties.js";
 
 const ReviewsList = ({reviews}) => {
-  const REVIEWS_MAX = 10;
 
   return (<>
     <h2 className="reviews__title">Reviews · <span className="reviews__amount">{reviews && reviews.length}</span></h2>
     <ul className="reviews__list">
 
-      {reviews.slice(0, REVIEWS_MAX).map((review, index) => <Reviews key={index} review={review} />)}
+      {reviews.map((review, index) => <Reviews key={index} review={review} />)}
 
     </ul>
     <form className="reviews__form form" action="#" method="post">

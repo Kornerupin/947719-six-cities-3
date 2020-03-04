@@ -4,6 +4,8 @@ import ReviewsList from '../reviews-list/reviews-list';
 import { getStars } from '../../utils';
 import { OfferProperties } from '../../properties.js';
 
+const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time);
+
 class OfferDetail extends PureComponent {
   constructor(props) {
     super(props);
@@ -13,7 +15,8 @@ class OfferDetail extends PureComponent {
     const { type, price, rating, name, reviews } = this.props.offer;
     const { offers } = this.props.offers;
     const { onOfferNameClick } = this.props.onOfferNameClick;
-    const OFFERS_MAX = 3;
+    const OFFERS_MAX = 4;
+    const REVIEWS_MAX = 10;
 
     return (
       <div className="page">
@@ -157,7 +160,7 @@ class OfferDetail extends PureComponent {
                 </div>
                 <section className="property__reviews reviews">
 
-                  <ReviewsList reviews={reviews} />
+                  <ReviewsList reviews={sortReviews(reviews).slice(0, REVIEWS_MAX)} />
 
                 </section>
               </div>
