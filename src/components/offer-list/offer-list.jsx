@@ -4,7 +4,6 @@ import {OfferProperties} from "../../properties.js";
 class OfferList extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {offer: null};
   }
 
   render() {
@@ -13,9 +12,7 @@ class OfferList extends PureComponent {
     return offers.map((offer, index) => <Offer
       key={index}
       offer={offer}
-      onOfferMouseOver={() => this.setState(() => {
-        offer: offer;
-      })}
+      onOfferMouseOver={() => this.setState(() => offer)}
       onOfferNameClick={onOfferNameClick} />
     );
   }

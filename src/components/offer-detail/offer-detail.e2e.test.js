@@ -6,6 +6,7 @@ const offer = offersMock[0];
 it(`It expect an Object that contains the following properties`, () => {
   shallow(<OfferDetail
     offer={offer}
+    offers={offersMock}
     onOfferNameClick={() => { }}
   />);
 

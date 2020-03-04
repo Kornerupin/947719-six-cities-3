@@ -10,7 +10,7 @@ class App extends PureComponent {
   }
 
   onOfferNameClick(offer) {
-    this.setState(() => (offer));
+    this.setState(() => offer);
   }
 
   _renderApp() {
@@ -18,7 +18,7 @@ class App extends PureComponent {
 
     if (this.state) {
 
-      return (<OfferDetail offer={this.state} offers={this.props} onOfferNameClick={this.onOfferNameClick}/>);
+      return (<OfferDetail offer={this.state} offers={offers} onOfferNameClick={this.onOfferNameClick}/>);
     }
 
     return (<Main offers={offers} onOfferNameClick={this.onOfferNameClick} />);

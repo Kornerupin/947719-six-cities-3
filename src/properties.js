@@ -12,5 +12,5 @@ export const ReviewProperties = {
   name: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
+  time: PropTypes.number.isRequired,
 };

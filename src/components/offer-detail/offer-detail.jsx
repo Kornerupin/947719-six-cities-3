@@ -13,8 +13,8 @@ class OfferDetail extends PureComponent {
 
   render() {
     const {type, price, rating, name, reviews} = this.props.offer;
-    const {offers} = this.props.offers;
-    const {onOfferNameClick} = this.props.onOfferNameClick;
+    const {offers} = this.props;
+    const {onOfferNameClick} = this.props;
     const OFFERS_MAX = 4;
     const REVIEWS_MAX = 10;
 
@@ -194,6 +194,7 @@ OfferDetail.defaultProps = {
 
 OfferDetail.propTypes = {
   offer: PropTypes.shape(OfferProperties),
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   currrentCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   onOfferNameClick: PropTypes.func
 };
