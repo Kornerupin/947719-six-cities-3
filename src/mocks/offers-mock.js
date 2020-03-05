@@ -1,5 +1,7 @@
 export default [
   {
+    id: 1,
+    city: `Amsterdam`,
     image: [
       `img/apartment-01.jpg`,
       `img/apartment-02.jpg`,
@@ -33,6 +35,8 @@ export default [
     }]
   },
   {
+    id: 2,
+    city: `Amsterdam`,
     image: [`img/room.jpg`],
     type: `Private room`,
     price: `132`,
@@ -48,6 +52,8 @@ export default [
     }]
   },
   {
+    id: 3,
+    city: `Amsterdam`,
     image: [`img/apartment-02.jpg`],
     type: `Apartment`,
     price: `180`,
@@ -63,6 +69,8 @@ export default [
     }]
   },
   {
+    id: 4,
+    city: `Amsterdam`,
     image: [`img/apartment-03.jpg`],
     type: `Apartment`,
     price: `80`,

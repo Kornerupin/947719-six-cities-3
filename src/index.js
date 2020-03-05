@@ -7,6 +7,6 @@ import { reducer } from './reducer';
 
 ReactDOM.render(
     <Provider store={store}>
-        <App offers={offersMock} />
+        <App  />
     </Provider>,
 document.getElementById(`root`));
