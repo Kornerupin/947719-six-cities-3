@@ -1,20 +1,18 @@
-import offersMock from '../mocks/offers-mock';
-import {ActionType} from '../reducer/actions';
+import { offersMock, cities } from '../mocks/offers';
+import { ActionType } from '../reducer/actions';
 
 const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
 
-const cities = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`]
-
 const initialState = {
   offers: offersMock,
   offer: null,
-  city: cities[3]
+  cities: cities
 };
 
 export const reducer = (state = initialState, action) => {
-  // console.log(`action.payload:`);
+    // console.log(`action.payload:`);
   // console.log(action.payload);
   // console.log(`action.type: ${action.type}`);
 

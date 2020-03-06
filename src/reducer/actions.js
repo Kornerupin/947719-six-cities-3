@@ -8,5 +8,5 @@ export const ActionCreator = {
   showOffer: (offer) => ({
     type: ActionType.SHOW_OFFER,
     payload: offer
-  })
+  }),
 };

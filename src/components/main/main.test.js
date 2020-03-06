@@ -1,5 +1,5 @@
 import Main from './main';
-import offersMock from '../../mocks/offers-mock';
+import {offersMock} from '../mocks/offers';
 
 it(`<Main /> should render <Offers />`, () => {
   const tree = renderer.create(<Main

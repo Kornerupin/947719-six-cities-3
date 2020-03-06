@@ -1,7 +1,7 @@
 import App from './app';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
-import offersMock from '../../mocks/offers-mock';
+import {offersMock} from '../mocks/offers';
 
 const mockStore = configureStore([]);
 

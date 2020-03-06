@@ -1,5 +1,5 @@
 import Main from './main';
-import offersMock from '../../mocks/offers-mock';
+import {offersMock} from '../mocks/offers';
 
 it(`Expected an Array`, () => {
   shallow(<Main
