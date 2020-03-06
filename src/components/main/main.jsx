@@ -1,9 +1,9 @@
 import OfferList from "../offer-list/offer-list";
 import Map from "../map/map";
-import {OfferProperties} from "../../properties.js";
+import {OfferProperties} from "../../proptypes/properties";
 
 const Main = ({offers, onOfferNameClick}) => {
-
+    
   return (
     <div className="page page--gray page--main">
       <header className="header">

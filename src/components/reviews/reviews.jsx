@@ -1,5 +1,5 @@
 import {getStars} from '../../utils';
-import {ReviewProperties} from "../../properties.js";
+import {ReviewProperties} from "../../proptypes/properties";
 
 const getFormatDate = (utc) => {
   const date = new Date(utc);

@@ -1,5 +1,5 @@
 import Reviews from '../reviews/reviews';
-import {ReviewProperties} from "../../properties.js";
+import {ReviewProperties} from "../../proptypes/properties";
 
 const ReviewsList = ({reviews}) => {
 

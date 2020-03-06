@@ -10,12 +10,15 @@ it(`It expect an Object that contains the following properties`, () => {
 
   offersMock.map((offer) => {
     expect(offer).toEqual(
-        expect.objectContaining({
-          image: expect.arrayContaining([expect.any(String)]),
-          type: expect.any(String),
-          price: expect.any(String),
-          name: expect.any(String)
-        })
+      expect.objectContaining({
+        id: expect.any(Number),
+        city: expect.any(String),
+        image: expect.arrayContaining([expect.any(String)]),
+        type: expect.any(String),
+        price: expect.any(String),
+        rating: expect.any(Number),
+        name: expect.any(String)
+      })
     );
   });
 });

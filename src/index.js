@@ -1,14 +1,8 @@
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 import App from './components/app/app';
-import offersMock from './mocks/offers-mock';
-
-export const extend = (a, b) => {
-    return Object.assign({}, a, b);
-};
-
-const reducer = () => Object.assign({}, { offersMock }, {});
+import {reducer} from './reducer/reducer';
 
 const store = createStore(
     reducer,
@@ -17,6 +11,6 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+      <App />
     </Provider>,
     document.getElementById(`root`));

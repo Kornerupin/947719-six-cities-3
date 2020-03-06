@@ -1,15 +1,26 @@
 import App from './app';
-import OfferDetail from '../offer-detail/offer-detail';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
 import offersMock from '../../mocks/offers-mock';
 
-it(`<App /> should render cards`, () => {
-  const tree = renderer.create(<App offers={offersMock} onOfferNameClick={() => { }} />).toJSON();
+const mockStore = configureStore([]);
 
-  expect(tree).toMatchSnapshot();
-});
+it(`<App /> should render <Main />`, () => {
+  const store = mockStore({});
 
-it(`<App /> should render <OfferDetail />`, () => {
-  const tree = renderer.create(<OfferDetail offers={offersMock} offer={offersMock[0]} onOfferNameClick={() => { }} />).toJSON();
+  const tree = renderer
+    .create(<Provider store={store}>
+      <App
+        offers={offersMock}
+        offer={null}
+        onOfferNameClick={() => {}}
+        onOfferMouseOver={() => {}}
+      />
+    </Provider>, {
+      createNodeMock: () => {
+        return document.createElement(`div`);
+      }
+    }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

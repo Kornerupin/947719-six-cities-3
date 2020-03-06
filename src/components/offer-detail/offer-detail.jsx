@@ -2,7 +2,7 @@ import OfferList from "../offer-list/offer-list";
 import Map from '../map/map';
 import ReviewsList from '../reviews-list/reviews-list';
 import {getStars} from '../../utils';
-import {OfferProperties} from '../../properties.js';
+import {OfferProperties} from '../../proptypes/properties';
 
 const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time);
 
