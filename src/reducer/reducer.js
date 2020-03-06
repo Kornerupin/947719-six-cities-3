@@ -8,11 +8,12 @@ const extend = (a, b) => {
 const initialState = {
   offers: offersMock,
   offer: null,
-  cities: cities
+  cities: cities,
+  city: cities[3]
 };
 
 export const reducer = (state = initialState, action) => {
-    // console.log(`action.payload:`);
+  // console.log(`action.payload:`);
   // console.log(action.payload);
   // console.log(`action.type: ${action.type}`);
 
@@ -20,6 +21,10 @@ export const reducer = (state = initialState, action) => {
     case ActionType.SHOW_OFFER:
       return extend(state, {
         offer: action.payload
+      });
+    case ActionType.CHANGE_CITY:      
+      return extend(state, {
+          city: action.payload
       });
   }
 

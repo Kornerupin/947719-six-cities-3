@@ -42,17 +42,18 @@ App.propTypes = {
 const mapStateToProps = (state) => ({
   offers: state.offers,
   offer: state.offer,
-  cities: state.cities
+  cities: state.cities,
+  city: state.city
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onOfferNameClick(offer) {
     dispatch(ActionCreator.showOffer(offer));
   },
-  onCityClick(city) {
+  onCityClick(city) {    
     dispatch(ActionCreator.changeCity(city));
   }
 });
 
-export {App};
+// export {App}; - WTF?
 export default connect(mapStateToProps, mapDispatchToProps)(App);

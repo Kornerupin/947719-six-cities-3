@@ -3,7 +3,7 @@ import OfferList from "../offer-list/offer-list";
 import Map from "../map/map";
 import { OfferProperties } from "../../proptypes/properties";
 
-const Main = ({ offers, cities, onOfferNameClick }) => {
+const Main = ({ offers, cities, onOfferNameClick, onCityClick }) => {
 
   return (
     <div className="page page--gray page--main">
@@ -35,7 +35,7 @@ const Main = ({ offers, cities, onOfferNameClick }) => {
         <div className="tabs">
           <section className="locations container">
 
-            {<CityList cities={cities}/>}
+            {<CityList cities={cities} onCityClick={onCityClick} />}
 
           </section>
         </div>

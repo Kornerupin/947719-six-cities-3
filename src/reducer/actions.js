@@ -9,4 +9,8 @@ export const ActionCreator = {
     type: ActionType.SHOW_OFFER,
     payload: offer
   }),
+  changeCity: (city) => ({
+    type: ActionType.CHANGE_CITY,
+    payload: city
+  }),
 };
