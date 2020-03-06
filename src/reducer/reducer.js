@@ -5,9 +5,12 @@ const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
 
+const cities = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`]
+
 const initialState = {
   offers: offersMock,
-  offer: null
+  offer: null,
+  city: cities[3]
 };
 
 export const reducer = (state = initialState, action) => {

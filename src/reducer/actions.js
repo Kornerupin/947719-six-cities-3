@@ -1,5 +1,7 @@
 export const ActionType = {
-  SHOW_OFFER: `SHOW_OFFER`
+  SHOW_OFFER: `SHOW_OFFER`,
+  CHANGE_CITY: `CHANGE_CITY`,
+  GET_OFFERS: `GET_OFFERS`,
 };
 
 export const ActionCreator = {
