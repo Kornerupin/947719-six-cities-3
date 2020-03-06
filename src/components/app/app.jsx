@@ -1,4 +1,5 @@
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
 import {OfferProperties} from '../../properties';
@@ -7,6 +8,8 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     this.onOfferNameClick = this.onOfferNameClick.bind(this);
+    console.log(this.props);
+    
   }
 
   onOfferNameClick(offer) {
@@ -45,4 +48,9 @@ App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties))
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  offers: state.offersMock
+});
+
+export {App};
+export default connect(mapStateToProps)(App);
