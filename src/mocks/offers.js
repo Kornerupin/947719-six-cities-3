@@ -2,6 +2,8 @@ export const cities = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `
 
 const offers = [
   {
+    id: 1,
+    city: `Amsterdam`,
     image: [
       `img/apartment-01.jpg`,
       `img/apartment-02.jpg`,
@@ -35,6 +37,8 @@ const offers = [
     }]
   },
   {
+    id: 2,
+    city: `Brussels`,
     image: [`img/room.jpg`],
     type: `Private room`,
     price: `132`,
@@ -50,6 +54,8 @@ const offers = [
     }]
   },
   {
+    id: 3,
+    city: `Hamburg`,
     image: [`img/apartment-02.jpg`],
     type: `Apartment`,
     price: `180`,
@@ -65,6 +71,8 @@ const offers = [
     }]
   },
   {
+    id: 4,
+    city: `Cologne`,
     image: [`img/apartment-03.jpg`],
     type: `Apartment`,
     price: `80`,

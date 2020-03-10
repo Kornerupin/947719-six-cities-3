@@ -1,22 +1,30 @@
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
-import {ActionCreator} from '../../reducer/actions';
-import {OfferProperties} from '../../proptypes/properties';
+import { ActionCreator } from '../../reducer/actions';
+import { OfferProperties } from '../../proptypes/properties';
 
-const App = ({offers, offer, cities, onOfferNameClick, onCityClick}) => {  
-  
+const App = ({ offers, offer, cities, city, onOfferNameClick, onCityClick }) => {
+
   const _renderApp = () => {
+
     if (offer) {
-      return (<OfferDetail offer={offer} offers={offers} onOfferNameClick={onOfferNameClick} />);
+
+      return (<OfferDetail
+        offer={offer}
+        offers={offers}
+        onOfferNameClick={onOfferNameClick} />);
     }
-    
-    return (<Main
-      offers={offers}
-      cities={cities}
-      onOfferNameClick={onOfferNameClick} 
-      onCityClick={onCityClick} />);
+
+    if (city) {
+
+      return (<Main
+        offers={offers.filter((element) => element.city === city ? element : false)}
+        cities={cities}
+        onOfferNameClick={onOfferNameClick}
+        onCityClick={onCityClick} />);
+    }
   };
 
   return (
@@ -50,7 +58,7 @@ const mapDispatchToProps = (dispatch) => ({
   onOfferNameClick(offer) {
     dispatch(ActionCreator.showOffer(offer));
   },
-  onCityClick(city) {    
+  onCityClick(city) {
     dispatch(ActionCreator.changeCity(city));
   }
 });
