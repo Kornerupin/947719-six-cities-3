@@ -1,9 +1,10 @@
+import Cities from "../cities/cities";
+import MainEmpty from "../main-empty/main-empty";
 import CityList from "../city-list/city-list";
-import OfferList from "../offer-list/offer-list";
-import Map from "../map/map";
 import { OfferProperties } from "../../proptypes/properties";
 
-const Main = ({ offers, cities, onOfferNameClick, onCityClick }) => {
+const Main = ({ offers, cities, city, onOfferNameClick, onCityClick }) => {
+  const isOffers = offers.length !== 0;
 
   return (
     <div className="page page--gray page--main">
@@ -30,7 +31,7 @@ const Main = ({ offers, cities, onOfferNameClick, onCityClick }) => {
           </div>
         </div>
       </header>
-      <main className="page__main page__main--index">
+      <main className={`page__main page__main--index ${isOffers || `page__main--index-empty`}`}>
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
           <section className="locations container">
@@ -40,26 +41,9 @@ const Main = ({ offers, cities, onOfferNameClick, onCityClick }) => {
           </section>
         </div>
         <div className="cities">
-          <div className="cities__places-container container">
-            <section className="cities__places places">
-              <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">
-                {offers && offers.length} places to stay in Amsterdam
-              </b>
-              <div className="cities__places-list places__list tabs__content">
 
-                {<OfferList offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} />}
+          {isOffers ? <Cities offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} /> : <MainEmpty city={city}/>}
 
-              </div>
-            </section>
-            <div className="cities__right-section">
-              <section className="cities__map map">
-
-                {<Map coordinates={offers ? offers.map((offer) => offer.coords) : [[0]]} currrentCoordinates={[]} />}
-
-              </section>
-            </div>
-          </div>
         </div>
       </main>
     </div>

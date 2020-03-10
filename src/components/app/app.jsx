@@ -22,6 +22,7 @@ const App = ({ offers, offer, cities, city, onOfferNameClick, onCityClick }) => 
       return (<Main
         offers={offers.filter((element) => element.city === city ? element : false)}
         cities={cities}
+        city={city}
         onOfferNameClick={onOfferNameClick}
         onCityClick={onCityClick} />);
     }
