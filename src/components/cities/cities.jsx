@@ -1,7 +1,8 @@
 import OfferList from "../offer-list/offer-list";
 import Map from "../map/map";
+import {OfferProperties} from '../../proptypes/properties';
 
-const Cities = ({ offers, onOfferNameClick }) => {
+const Cities = ({offers, onOfferNameClick}) => {
 
   return (
     <div className="cities__places-container container">
@@ -21,12 +22,17 @@ const Cities = ({ offers, onOfferNameClick }) => {
       <div className="cities__right-section">
         <section className="cities__map map">
 
-          {offers.length > 0 ? <Map coordinates={offers ? offers.map((offer) => offer.coords) : [[0]]} currrentCoordinates={[]} /> : ``}
+          {offers.length > 0 ? <Map coordinates={offers ? offers.map((offer) => offer.coords) : [[0]]} currentCoordinates={[]} /> : ``}
 
         </section>
       </div>
     </div>
   );
-}
+};
+
+Cities.propTypes = {
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
+  onOfferNameClick: PropTypes.func.isRequired
+};
 
 export default Cities;

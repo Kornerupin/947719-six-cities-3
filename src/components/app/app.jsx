@@ -1,11 +1,11 @@
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
-import { ActionCreator } from '../../reducer/actions';
-import { OfferProperties } from '../../proptypes/properties';
+import {ActionCreator} from '../../reducer/actions';
+import {OfferProperties} from '../../proptypes/properties';
 
-const App = ({ offers, offer, cities, city, onOfferNameClick, onCityClick }) => {
+const App = ({offers, offer, cities, city, onOfferNameClick, onCityClick}) => {
 
   const _renderApp = () => {
 
@@ -17,15 +17,12 @@ const App = ({ offers, offer, cities, city, onOfferNameClick, onCityClick }) => 
         onOfferNameClick={onOfferNameClick} />);
     }
 
-    if (city) {
-
-      return (<Main
-        offers={offers.filter((element) => element.city === city ? element : false)}
-        cities={cities}
-        city={city}
-        onOfferNameClick={onOfferNameClick}
-        onCityClick={onCityClick} />);
-    }
+    return (<Main
+      offers={offers.filter((element) => element.city === city ? element : false)}
+      cities={cities}
+      city={city}
+      onOfferNameClick={onOfferNameClick}
+      onCityClick={onCityClick} />);
   };
 
   return (
@@ -43,9 +40,12 @@ const App = ({ offers, offer, cities, city, onOfferNameClick, onCityClick }) => 
 };
 
 App.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)).isRequired,
   offer: PropTypes.object,
-  onOfferNameClick: PropTypes.func.isRequired
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
+  cities: PropTypes.arrayOf(PropTypes.string.isRequired),
+  city: PropTypes.string.isRequired,
+  onOfferNameClick: PropTypes.func.isRequired,
+  onCityClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -64,5 +64,5 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-// export {App}; - WTF?
+export {App};
 export default connect(mapStateToProps, mapDispatchToProps)(App);

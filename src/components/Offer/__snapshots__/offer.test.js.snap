@@ -15,7 +15,7 @@ exports[`<Offer /> Should render one offer 1`] = `
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/apartment-01.jpg"
+        src=""
         width="260"
       />
     </a>
@@ -33,7 +33,6 @@ exports[`<Offer /> Should render one offer 1`] = `
           className="place-card__price-value"
         >
           €
-          80
         </b>
         <span
           className="place-card__price-text"
@@ -72,7 +71,7 @@ exports[`<Offer /> Should render one offer 1`] = `
         <span
           style={
             Object {
-              "width": "60%",
+              "width": "NaN%",
             }
           }
         />
@@ -89,15 +88,11 @@ exports[`<Offer /> Should render one offer 1`] = `
     >
       <a
         href="#"
-      >
-        Beautiful &amp; luxurious apartment at great location
-      </a>
+      />
     </h2>
     <p
       className="place-card__type"
-    >
-      Apartment
-    </p>
+    />
   </div>
 </article>
 `;

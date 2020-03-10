@@ -1,9 +1,10 @@
 import Cities from "../cities/cities";
 import MainEmpty from "../main-empty/main-empty";
 import CityList from "../city-list/city-list";
-import { OfferProperties } from "../../proptypes/properties";
+import {OfferProperties} from "../../proptypes/properties";
 
-const Main = ({ offers, cities, city, onOfferNameClick, onCityClick }) => {
+const Main = ({offers, cities, city, onOfferNameClick, onCityClick}) => {
+
   const isOffers = offers.length !== 0;
 
   return (
@@ -42,7 +43,7 @@ const Main = ({ offers, cities, city, onOfferNameClick, onCityClick }) => {
         </div>
         <div className="cities">
 
-          {isOffers ? <Cities offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} /> : <MainEmpty city={city}/>}
+          {isOffers ? <Cities offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} /> : <MainEmpty city={city} />}
 
         </div>
       </main>
@@ -50,14 +51,12 @@ const Main = ({ offers, cities, city, onOfferNameClick, onCityClick }) => {
   );
 };
 
-Main.defaultProps = {
-  offersNumber: 0
-};
-
 Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
-  offersNumber: PropTypes.number.isRequired,
-  onOfferNameClick: PropTypes.func.isRequired
+  cities: PropTypes.arrayOf(PropTypes.string.isRequired),
+  city: PropTypes.string.isRequired,
+  onOfferNameClick: PropTypes.func.isRequired,
+  onCityClick: PropTypes.func.isRequired,
 };
 
 export default Main;

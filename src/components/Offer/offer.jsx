@@ -12,7 +12,7 @@ const Offer = ({offer, onOfferMouseOver, onOfferNameClick}) => {
         <a href="#">
           <img
             className="place-card__image"
-            src={image[0]}
+            src={image ? image[0] : ``}
             width="260"
             height="200"
             alt="Place image"
@@ -52,7 +52,8 @@ const Offer = ({offer, onOfferMouseOver, onOfferNameClick}) => {
 };
 
 Offer.propTypes = {
-  offer: PropTypes.shape(OfferProperties),
+  offer: PropTypes.object.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired
 };
