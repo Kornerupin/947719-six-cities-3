@@ -3,7 +3,7 @@ import MainEmpty from "../main-empty/main-empty";
 import Locations from "../locations/locations";
 import { OfferProperties } from "../../proptypes/properties";
 
-const Main = ({ offers, cities, city, onOfferNameClick, onCityClick }) => {
+const Main = ({ offers, cities, city, activePin, onOfferMouseOver, onOfferNameClick, onCityClick }) => {
 
   const isOffers = offers.length !== 0;
 
@@ -43,7 +43,13 @@ const Main = ({ offers, cities, city, onOfferNameClick, onCityClick }) => {
         </div>
         <div className="cities">
           {
-            isOffers ? <Cities offers={offers} city={city} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} /> : <MainEmpty city={city} />
+            isOffers ? <Cities
+              offers={offers}
+              city={city}
+              activePin={activePin}
+              onOfferNameClick={onOfferNameClick}
+              onOfferMouseOver={onOfferMouseOver} />
+              : <MainEmpty city={city} />
           }
         </div>
       </main>

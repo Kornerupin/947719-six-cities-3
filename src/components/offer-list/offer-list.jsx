@@ -1,12 +1,12 @@
 import Offer from "../offer/offer";
 
-const OfferList = ({offers, onOfferNameClick}) => {
+const OfferList = ({offers, onOfferMouseOver, onOfferNameClick}) => {
 
   return offers.map((offer, index) => <Offer
     key={index}
     offer={offer}
     offers={offers}
-    onOfferMouseOver={() => { }}
+    onOfferMouseOver={onOfferMouseOver}
     onOfferNameClick={onOfferNameClick} />
   );
 };

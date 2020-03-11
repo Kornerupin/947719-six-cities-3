@@ -2,7 +2,7 @@ import OfferList from "../offer-list/offer-list";
 import Sorting from "../sorting/sorting";
 import Map from "../map/map";
 
-const Cities = ({ offers, city, onOfferNameClick }) => {
+const Cities = ({ offers, city, activePin, onOfferMouseOver, onOfferNameClick }) => {
 
   return (
     <div className="cities__places-container container">
@@ -16,7 +16,7 @@ const Cities = ({ offers, city, onOfferNameClick }) => {
         }
         <div className="cities__places-list places__list tabs__content">
           {
-            <OfferList offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} />
+            <OfferList offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={onOfferMouseOver} />
           }
         </div>
 
@@ -24,7 +24,12 @@ const Cities = ({ offers, city, onOfferNameClick }) => {
       <div className="cities__right-section">
         <section className="cities__map map">
           {
-            offers.length > 0 ? <Map coordinates={offers ? offers.map((offer) => offer.coords) : [[0]]} currentCoordinates={[]} /> : ``
+            offers.length ?
+            <Map
+            coordinates={offers ? offers.map((offer) => offer.coords) : []}
+            currentCoordinates={[]}
+            activePin={activePin ? activePin.coords : null}/>
+            : ``
           }
         </section>
       </div>

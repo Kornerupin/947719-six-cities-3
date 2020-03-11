@@ -5,24 +5,30 @@ import OfferDetail from '../offer-detail/offer-detail';
 import {ActionCreator} from '../../reducer/actions';
 import {OfferProperties} from '../../proptypes/properties';
 
-const App = ({offers, offer, cities, city, onOfferNameClick, onCityClick}) => {
-
+const App = (props) => {
+  const {offers, offer, cities, city, activePin, onOfferMouseOver, onOfferNameClick, onCityClick} = props;
+  
   const filteredOffers = offers ? offers.filter((element) => element.city === city ? element : false) : false;
 
   const _renderApp = () => {
 
     if (offer) {
 
-      return (<OfferDetail
+      return (
+      <OfferDetail
         offer={offer}
         offers={offers}
-        onOfferNameClick={onOfferNameClick} />);
+        onOfferMouseOver={(onOfferMouseOver)}
+        onOfferNameClick={onOfferNameClick}
+         />);
     }
 
     return (<Main
       offers={filteredOffers}
       cities={cities}
       city={city}
+      activePin={activePin}
+      onOfferMouseOver={onOfferMouseOver}
       onOfferNameClick={onOfferNameClick}
       onCityClick={onCityClick} />);
   };
@@ -54,10 +60,14 @@ const mapStateToProps = (state) => ({
   offers: state.offers,
   offer: state.offer,
   cities: state.cities,
-  city: state.city
+  city: state.city,
+  activePin: state.activePin
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  onOfferMouseOver(activePin) {
+    dispatch(ActionCreator.showActivePin(activePin));
+  },
   onOfferNameClick(offer) {
     dispatch(ActionCreator.showOffer(offer));
   },
