@@ -2,51 +2,50 @@
 
 exports[`<Offer /> Should render one offer 1`] = `
 <article
-  className="cities__place-card place-card"
+  classNameName="cities__place-card place-card"
   onMouseOver={[Function]}
 >
   <div
-    className="cities__image-wrapper place-card__image-wrapper"
+    classNameName="cities__image-wrapper place-card__image-wrapper"
   >
     <a
       href="#"
     >
       <img
         alt="Place image"
-        className="place-card__image"
+        classNameName="place-card__image"
         height="200"
-        src="img/apartment-01.jpg"
+        src=""
         width="260"
       />
     </a>
   </div>
   <div
-    className="place-card__info"
+    classNameName="place-card__info"
   >
     <div
-      className="place-card__price-wrapper"
+      classNameName="place-card__price-wrapper"
     >
       <div
-        className="place-card__price"
+        classNameName="place-card__price"
       >
         <b
-          className="place-card__price-value"
+          classNameName="place-card__price-value"
         >
           €
-          80
         </b>
         <span
-          className="place-card__price-text"
+          classNameName="place-card__price-text"
         >
           / night
         </span>
       </div>
       <button
-        className="place-card__bookmark-button place-card__bookmark-button--active button"
+        classNameName="place-card__bookmark-button place-card__bookmark-button--active button"
         type="button"
       >
         <svg
-          className="place-card__bookmark-icon"
+          classNameName="place-card__bookmark-icon"
           height="19"
           id="icon-bookmark"
           viewBox="0 0 17 18"
@@ -57,47 +56,43 @@ exports[`<Offer /> Should render one offer 1`] = `
           />
         </svg>
         <span
-          className="visually-hidden"
+          classNameName="visually-hidden"
         >
           In bookmarks
         </span>
       </button>
     </div>
     <div
-      className="place-card__rating rating"
+      classNameName="place-card__rating rating"
     >
       <div
-        className="place-card__stars rating__stars"
+        classNameName="place-card__stars rating__stars"
       >
         <span
           style={
             Object {
-              "width": "60%",
+              "width": "NaN%",
             }
           }
         />
         <span
-          className="visually-hidden"
+          classNameName="visually-hidden"
         >
           Rating
         </span>
       </div>
     </div>
     <h2
-      className="place-card__name"
+      classNameName="place-card__name"
       onClick={[Function]}
     >
       <a
         href="#"
-      >
-        Beautiful &amp; luxurious apartment at great location
-      </a>
+      />
     </h2>
     <p
-      className="place-card__type"
-    >
-      Apartment
-    </p>
+      classNameName="place-card__type"
+    />
   </div>
 </article>
 `;

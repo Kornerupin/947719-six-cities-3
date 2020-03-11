@@ -1,26 +1,18 @@
 import Offer from "../offer/offer";
-import { OfferProperties } from "../../properties.js";
 
-class OfferList extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {offer: null};
-  }
+const OfferList = ({offers, onOfferNameClick}) => {
 
-  render() {
-    const { offers, onOfferNameClick } = this.props;
-
-    return offers.map((offer, index) => <Offer
-      key={index}
-      offer={offer}
-      onOfferMouseOver={() => this.setState(() => { offer: offer })}
-      onOfferNameClick={onOfferNameClick} />
-    )
-  }
-}
+  return offers.map((offer, index) => <Offer
+    key={index}
+    offer={offer}
+    offers={offers}
+    onOfferMouseOver={() => { }}
+    onOfferNameClick={onOfferNameClick} />
+  );
+};
 
 OfferList.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
+  offers: PropTypes.array.isRequired,
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired
 };

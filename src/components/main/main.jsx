@@ -1,8 +1,11 @@
-import OfferList from "../offer-list/offer-list";
-import Map from "../map/map";
-import {OfferProperties} from "../../properties.js";
+import Cities from "../cities/cities";
+import MainEmpty from "../main-empty/main-empty";
+import Locations from "../locations/locations";
+import { OfferProperties } from "../../proptypes/properties";
 
-const Main = ({offers, onOfferNameClick}) => {
+const Main = ({ offers, cities, city, onOfferNameClick, onCityClick }) => {
+
+  const isOffers = offers.length !== 0;
 
   return (
     <div className="page page--gray page--main">
@@ -29,79 +32,31 @@ const Main = ({offers, onOfferNameClick}) => {
           </div>
         </div>
       </header>
-      <main className="page__main page__main--index">
+      <main className={`page__main page__main--index ${isOffers || `page__main--index-empty`}`}>
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
           <section className="locations container">
-            <ul className="locations__list tabs__list">
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Paris</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Cologne</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Brussels</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item tabs__item--active">
-                  <span>Amsterdam</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Hamburg</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Dusseldorf</span>
-                </a>
-              </li>
-            </ul>
+            {
+              <Locations cities={cities} onCityClick={onCityClick} />
+            }
           </section>
         </div>
         <div className="cities">
-          <div className="cities__places-container container">
-            <section className="cities__places places">
-              <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">
-                {offers && offers.length} places to stay in Amsterdam
-              </b>
-              <div className="cities__places-list places__list tabs__content">
-
-                {<OfferList offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} />}
-
-              </div>
-            </section>
-            <div className="cities__right-section">
-              <section className="cities__map map">
-
-                {<Map coordinates={offers ? offers.map((offer) => offer.coords) : [[0]]} currrentCoordinates={[]} />}
-
-              </section>
-            </div>
-          </div>
+          {
+            isOffers ? <Cities offers={offers} city={city} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} /> : <MainEmpty city={city} />
+          }
         </div>
       </main>
     </div>
   );
 };
 
-Main.defaultProps = {
-  offersNumber: 0
-};
-
 Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
-  offersNumber: PropTypes.number.isRequired,
-  onOfferNameClick: PropTypes.func.isRequired
+  cities: PropTypes.arrayOf(PropTypes.string.isRequired),
+  city: PropTypes.string.isRequired,
+  onOfferNameClick: PropTypes.func.isRequired,
+  onCityClick: PropTypes.func.isRequired,
 };
 
 export default Main;

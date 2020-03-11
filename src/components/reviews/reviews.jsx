@@ -1,5 +1,11 @@
 import {getStars} from '../../utils';
-import {ReviewProperties} from "../../properties.js";
+import {ReviewProperties} from "../../proptypes/properties";
+
+const getFormatDate = (utc) => {
+  const date = new Date(utc);
+
+  return `${date.toLocaleString(`default`, {month: `long`})} ${date.getDate()}, ${date.getFullYear()}`;
+};
 
 const Reviews = ({review}) => {
   const {avatar, name, rating, text, time} = review;
@@ -24,7 +30,7 @@ const Reviews = ({review}) => {
         <p className="reviews__text">
           {text}
         </p>
-        <time className="reviews__time" dateTime="2019-04-24">{time}</time>
+        <time className="reviews__time" dateTime="2019-04-24">{getFormatDate(time)}</time>
       </div>
     </li>
   </>

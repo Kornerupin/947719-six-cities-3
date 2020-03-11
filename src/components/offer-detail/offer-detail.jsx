@@ -1,8 +1,10 @@
 import OfferList from "../offer-list/offer-list";
 import Map from '../map/map';
 import ReviewsList from '../reviews-list/reviews-list';
-import { getStars } from '../../utils';
-import { OfferProperties } from '../../properties.js';
+import {getStars} from '../../utils';
+import {OfferProperties} from '../../proptypes/properties';
+
+const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time);
 
 class OfferDetail extends PureComponent {
   constructor(props) {
@@ -10,10 +12,11 @@ class OfferDetail extends PureComponent {
   }
 
   render() {
-    const { type, price, rating, name, reviews } = this.props.offer;
-    const { offers } = this.props.offers;
-    const { onOfferNameClick } = this.props.onOfferNameClick;
-    const OFFERS_MAX = 3;
+    const {type, price, rating, name, reviews} = this.props.offer;
+    const {offers} = this.props;
+    const {onOfferNameClick} = this.props;
+    const OFFERS_MAX = 4;
+    const REVIEWS_MAX = 10;
 
     return (
       <div className="page">
@@ -81,7 +84,7 @@ class OfferDetail extends PureComponent {
                 </div>
                 <div className="property__rating rating">
                   <div className="property__stars rating__stars">
-                    <span style={{ width: `${getStars(rating)}%` }} />
+                    <span style={{width: `${getStars(rating)}%`}} />
                     <span className="visually-hidden">Rating</span>
                   </div>
                   <span className="property__rating-value rating__value">{rating}</span>
@@ -157,7 +160,7 @@ class OfferDetail extends PureComponent {
                 </div>
                 <section className="property__reviews reviews">
 
-                  <ReviewsList reviews={reviews} />
+                  <ReviewsList reviews={sortReviews(reviews).slice(0, REVIEWS_MAX)} />
 
                 </section>
               </div>
@@ -191,6 +194,7 @@ OfferDetail.defaultProps = {
 
 OfferDetail.propTypes = {
   offer: PropTypes.shape(OfferProperties),
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   currrentCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   onOfferNameClick: PropTypes.func
 };

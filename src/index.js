@@ -1,5 +1,16 @@
 import ReactDOM from 'react-dom';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 import App from './components/app/app';
-import offersMock from './mocks/offers-mock';
+import {reducer} from './reducer/reducer';
 
-ReactDOM.render(<App offers={offersMock} />, document.getElementById(`root`));
+const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+);
+
+ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById(`root`));

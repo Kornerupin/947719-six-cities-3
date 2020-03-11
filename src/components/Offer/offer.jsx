@@ -1,5 +1,4 @@
 import {getStars} from '../../utils';
-import {OfferProperties} from '../../properties.js';
 
 const Offer = ({offer, onOfferMouseOver, onOfferNameClick}) => {
   const {image, type, price, rating, name} = offer;
@@ -12,7 +11,7 @@ const Offer = ({offer, onOfferMouseOver, onOfferNameClick}) => {
         <a href="#">
           <img
             className="place-card__image"
-            src={image[0]}
+            src={image ? image[0] : ``}
             width="260"
             height="200"
             alt="Place image"
@@ -52,7 +51,8 @@ const Offer = ({offer, onOfferMouseOver, onOfferNameClick}) => {
 };
 
 Offer.propTypes = {
-  offer: PropTypes.shape(OfferProperties),
+  offer: PropTypes.object.isRequired,
+  offers: PropTypes.array.isRequired,
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired
 };
