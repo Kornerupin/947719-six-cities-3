@@ -5,16 +5,22 @@ const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
 
+// state
 const initialState = {
   offers: offersMock,
   offer: null,
   cities,
-  city: cities[3]
+  city: cities[3],
+  activePin: null
 };
 
 export const reducer = (state = initialState, action) => {
-
+        
   switch (action.type) {
+    case ActionType.SHOW_ACTIVE_PIN:
+      return extend(state, {
+        activePin: action.payload
+      });
     case ActionType.SHOW_OFFER:
       return extend(state, {
         offer: action.payload
@@ -27,4 +33,3 @@ export const reducer = (state = initialState, action) => {
 
   return state;
 };
-

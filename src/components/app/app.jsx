@@ -7,7 +7,7 @@ import {OfferProperties} from '../../proptypes/properties';
 
 const App = (props) => {
   const {offers, offer, cities, city, activePin, onOfferMouseOver, onOfferNameClick, onCityClick} = props;
-  
+
   const filteredOffers = offers ? offers.filter((element) => element.city === city ? element : false) : false;
 
   const _renderApp = () => {

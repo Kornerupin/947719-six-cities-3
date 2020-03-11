@@ -17,15 +17,6 @@ class Map extends PureComponent {
   constructor(props) {
     super(props);
     this.mapRef = React.createRef();
-    console.log(this.props);
-
-  }
-
-  render() {
-
-    return (
-      <div id="map" style={{ height: `100%` }} ref={this.mapRef}></div>
-    );
   }
 
   componentDidMount() {
@@ -52,7 +43,9 @@ class Map extends PureComponent {
     });
   }
 
-  componentDidUpdate({ activePin }) {
+  componentDidUpdate() {
+    
+    const { activePin } = this.props;
 
     this._layerGroup.clearLayers();
 
@@ -71,6 +64,14 @@ class Map extends PureComponent {
 
   componentWillUnmount() {
     this._map.remove();
+  }
+
+
+  render() {
+
+    return (
+      <div id="map" style={{ height: `100%` }} ref={this.mapRef}></div>
+    );
   }
 }
 

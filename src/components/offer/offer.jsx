@@ -2,10 +2,13 @@ import { getStars } from '../../utils';
 
 const Offer = ({ offer, onOfferMouseOver, onOfferNameClick }) => {
 
-  const { image, type, price, rating, name } = offer;
+  const { image, type, price, rating, name, coords } = offer;
 
   return (
-    <article className="cities__place-card place-card" onMouseOver={() => onOfferMouseOver(offer)}>
+    <article className="cities__place-card place-card"
+      onMouseOver={() => onOfferMouseOver(coords)}
+      onMouseLeave={() => onOfferMouseOver(null)}
+    >
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img

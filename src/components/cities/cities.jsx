@@ -28,7 +28,7 @@ const Cities = ({ offers, city, activePin, onOfferMouseOver, onOfferNameClick })
             <Map
             coordinates={offers ? offers.map((offer) => offer.coords) : []}
             currentCoordinates={[]}
-            activePin={activePin ? activePin.coords : null}/>
+            activePin={activePin ? activePin : null}/>
             : ``
           }
         </section>
