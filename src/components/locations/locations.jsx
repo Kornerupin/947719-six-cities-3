@@ -1,4 +1,4 @@
-const Locations = ({cities, onCityClick}) => {
+const Locations = ({ cities, onCityClick }) => {
 
   cities = cities ? cities.map((city, index) => {
 
@@ -11,13 +11,13 @@ const Locations = ({cities, onCityClick}) => {
         </a>
       </li>
     );
-  }).slice(0, 6) : false;
+  }).slice(0, 7) : false;
 
   return (
     <ul className="locations__list tabs__list">
-
-      { cities }
-
+      {
+        cities
+      }
     </ul>
   );
 };

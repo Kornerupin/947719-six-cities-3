@@ -2,26 +2,26 @@
 
 exports[`<Main /> should render offers 1`] = `
 <div
-  className="page page--gray page--main"
+  classNameName="page page--gray page--main"
 >
   <header
-    className="header"
+    classNameName="header"
   >
     <div
-      className="container"
+      classNameName="container"
     >
       <div
-        className="header__wrapper"
+        classNameName="header__wrapper"
       >
         <div
-          className="header__left"
+          classNameName="header__left"
         >
           <a
-            className="header__logo-link header__logo-link--active"
+            classNameName="header__logo-link header__logo-link--active"
           >
             <img
               alt="6 cities logo"
-              className="header__logo"
+              classNameName="header__logo"
               height="41"
               src="img/logo.svg"
               width="81"
@@ -29,23 +29,23 @@ exports[`<Main /> should render offers 1`] = `
           </a>
         </div>
         <nav
-          className="header__nav"
+          classNameName="header__nav"
         >
           <ul
-            className="header__nav-list"
+            classNameName="header__nav-list"
           >
             <li
-              className="header__nav-item user"
+              classNameName="header__nav-item user"
             >
               <a
-                className="header__nav-link header__nav-link--profile"
+                classNameName="header__nav-link header__nav-link--profile"
                 href="#"
               >
                 <div
-                  className="header__avatar-wrapper user__avatar-wrapper"
+                  classNameName="header__avatar-wrapper user__avatar-wrapper"
                 />
                 <span
-                  className="header__user-name user__name"
+                  classNameName="header__user-name user__name"
                 >
                   Oliver.conner@gmail.com
                 </span>
@@ -57,27 +57,27 @@ exports[`<Main /> should render offers 1`] = `
     </div>
   </header>
   <main
-    className="page__main page__main--index true"
+    classNameName="page__main page__main--index true"
   >
     <h1
-      className="visually-hidden"
+      classNameName="visually-hidden"
     >
       Cities
     </h1>
     <div
-      className="tabs"
+      classNameName="tabs"
     >
       <section
-        className="locations container"
+        classNameName="locations container"
       >
         <ul
-          className="locations__list tabs__list"
+          classNameName="locations__list tabs__list"
         >
           <li
-            className="locations__item"
+            classNameName="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              classNameName="locations__item-link tabs__item"
               href="#"
               onClick={[Function]}
             >
@@ -87,10 +87,10 @@ exports[`<Main /> should render offers 1`] = `
             </a>
           </li>
           <li
-            className="locations__item"
+            classNameName="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              classNameName="locations__item-link tabs__item"
               href="#"
               onClick={[Function]}
             >
@@ -100,10 +100,10 @@ exports[`<Main /> should render offers 1`] = `
             </a>
           </li>
           <li
-            className="locations__item"
+            classNameName="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              classNameName="locations__item-link tabs__item"
               href="#"
               onClick={[Function]}
             >
@@ -113,10 +113,10 @@ exports[`<Main /> should render offers 1`] = `
             </a>
           </li>
           <li
-            className="locations__item"
+            classNameName="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              classNameName="locations__item-link tabs__item"
               href="#"
               onClick={[Function]}
             >
@@ -126,10 +126,10 @@ exports[`<Main /> should render offers 1`] = `
             </a>
           </li>
           <li
-            className="locations__item"
+            classNameName="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              classNameName="locations__item-link tabs__item"
               href="#"
               onClick={[Function]}
             >
@@ -139,10 +139,10 @@ exports[`<Main /> should render offers 1`] = `
             </a>
           </li>
           <li
-            className="locations__item"
+            classNameName="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              classNameName="locations__item-link tabs__item"
               href="#"
               onClick={[Function]}
             >
@@ -155,40 +155,40 @@ exports[`<Main /> should render offers 1`] = `
       </section>
     </div>
     <div
-      className="cities"
+      classNameName="cities"
     >
       <div
-        className="cities__places-container container"
+        classNameName="cities__places-container container"
       >
         <section
-          className="cities__places places"
+          classNameName="cities__places places"
         >
           <h2
-            className="visually-hidden"
+            classNameName="visually-hidden"
           >
             Places
           </h2>
           <b
-            className="places__found"
+            classNameName="places__found"
           >
             2 places to stay in Amsterdam
           </b>
           <div
-            className="cities__places-list places__list tabs__content"
+            classNameName="cities__places-list places__list tabs__content"
           >
             <article
-              className="cities__place-card place-card"
+              classNameName="cities__place-card place-card"
               onMouseOver={[Function]}
             >
               <div
-                className="cities__image-wrapper place-card__image-wrapper"
+                classNameName="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
                 >
                   <img
                     alt="Place image"
-                    className="place-card__image"
+                    classNameName="place-card__image"
                     height="200"
                     src="img/apartment-01.jpg"
                     width="260"
@@ -196,32 +196,32 @@ exports[`<Main /> should render offers 1`] = `
                 </a>
               </div>
               <div
-                className="place-card__info"
+                classNameName="place-card__info"
               >
                 <div
-                  className="place-card__price-wrapper"
+                  classNameName="place-card__price-wrapper"
                 >
                   <div
-                    className="place-card__price"
+                    classNameName="place-card__price"
                   >
                     <b
-                      className="place-card__price-value"
+                      classNameName="place-card__price-value"
                     >
                       €
                       80
                     </b>
                     <span
-                      className="place-card__price-text"
+                      classNameName="place-card__price-text"
                     >
                       / night
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button place-card__bookmark-button--active button"
+                    classNameName="place-card__bookmark-button place-card__bookmark-button--active button"
                     type="button"
                   >
                     <svg
-                      className="place-card__bookmark-icon"
+                      classNameName="place-card__bookmark-icon"
                       height="19"
                       id="icon-bookmark"
                       viewBox="0 0 17 18"
@@ -232,17 +232,17 @@ exports[`<Main /> should render offers 1`] = `
                       />
                     </svg>
                     <span
-                      className="visually-hidden"
+                      classNameName="visually-hidden"
                     >
                       In bookmarks
                     </span>
                   </button>
                 </div>
                 <div
-                  className="place-card__rating rating"
+                  classNameName="place-card__rating rating"
                 >
                   <div
-                    className="place-card__stars rating__stars"
+                    classNameName="place-card__stars rating__stars"
                   >
                     <span
                       style={
@@ -252,14 +252,14 @@ exports[`<Main /> should render offers 1`] = `
                       }
                     />
                     <span
-                      className="visually-hidden"
+                      classNameName="visually-hidden"
                     >
                       Rating
                     </span>
                   </div>
                 </div>
                 <h2
-                  className="place-card__name"
+                  classNameName="place-card__name"
                   onClick={[Function]}
                 >
                   <a
@@ -269,25 +269,25 @@ exports[`<Main /> should render offers 1`] = `
                   </a>
                 </h2>
                 <p
-                  className="place-card__type"
+                  classNameName="place-card__type"
                 >
                   Apartment
                 </p>
               </div>
             </article>
             <article
-              className="cities__place-card place-card"
+              classNameName="cities__place-card place-card"
               onMouseOver={[Function]}
             >
               <div
-                className="cities__image-wrapper place-card__image-wrapper"
+                classNameName="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
                 >
                   <img
                     alt="Place image"
-                    className="place-card__image"
+                    classNameName="place-card__image"
                     height="200"
                     src="img/room.jpg"
                     width="260"
@@ -295,32 +295,32 @@ exports[`<Main /> should render offers 1`] = `
                 </a>
               </div>
               <div
-                className="place-card__info"
+                classNameName="place-card__info"
               >
                 <div
-                  className="place-card__price-wrapper"
+                  classNameName="place-card__price-wrapper"
                 >
                   <div
-                    className="place-card__price"
+                    classNameName="place-card__price"
                   >
                     <b
-                      className="place-card__price-value"
+                      classNameName="place-card__price-value"
                     >
                       €
                       132
                     </b>
                     <span
-                      className="place-card__price-text"
+                      classNameName="place-card__price-text"
                     >
                       / night
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button place-card__bookmark-button--active button"
+                    classNameName="place-card__bookmark-button place-card__bookmark-button--active button"
                     type="button"
                   >
                     <svg
-                      className="place-card__bookmark-icon"
+                      classNameName="place-card__bookmark-icon"
                       height="19"
                       id="icon-bookmark"
                       viewBox="0 0 17 18"
@@ -331,17 +331,17 @@ exports[`<Main /> should render offers 1`] = `
                       />
                     </svg>
                     <span
-                      className="visually-hidden"
+                      classNameName="visually-hidden"
                     >
                       In bookmarks
                     </span>
                   </button>
                 </div>
                 <div
-                  className="place-card__rating rating"
+                  classNameName="place-card__rating rating"
                 >
                   <div
-                    className="place-card__stars rating__stars"
+                    classNameName="place-card__stars rating__stars"
                   >
                     <span
                       style={
@@ -351,14 +351,14 @@ exports[`<Main /> should render offers 1`] = `
                       }
                     />
                     <span
-                      className="visually-hidden"
+                      classNameName="visually-hidden"
                     >
                       Rating
                     </span>
                   </div>
                 </div>
                 <h2
-                  className="place-card__name"
+                  classNameName="place-card__name"
                   onClick={[Function]}
                 >
                   <a
@@ -368,7 +368,7 @@ exports[`<Main /> should render offers 1`] = `
                   </a>
                 </h2>
                 <p
-                  className="place-card__type"
+                  classNameName="place-card__type"
                 >
                   Private room
                 </p>
@@ -377,10 +377,10 @@ exports[`<Main /> should render offers 1`] = `
           </div>
         </section>
         <div
-          className="cities__right-section"
+          classNameName="cities__right-section"
         >
           <section
-            className="cities__map map"
+            classNameName="cities__map map"
           >
             <div
               id="map"

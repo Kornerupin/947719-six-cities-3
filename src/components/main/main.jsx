@@ -1,9 +1,9 @@
 import Cities from "../cities/cities";
 import MainEmpty from "../main-empty/main-empty";
 import Locations from "../locations/locations";
-import {OfferProperties} from "../../proptypes/properties";
+import { OfferProperties } from "../../proptypes/properties";
 
-const Main = ({offers, cities, city, onOfferNameClick, onCityClick}) => {
+const Main = ({ offers, cities, city, onOfferNameClick, onCityClick }) => {
 
   const isOffers = offers.length !== 0;
 
@@ -36,15 +36,15 @@ const Main = ({offers, cities, city, onOfferNameClick, onCityClick}) => {
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
           <section className="locations container">
-
-            {<Locations cities={cities} onCityClick={onCityClick} />}
-
+            {
+              <Locations cities={cities} onCityClick={onCityClick} />
+            }
           </section>
         </div>
         <div className="cities">
-
-          {isOffers ? <Cities offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} /> : <MainEmpty city={city} />}
-
+          {
+            isOffers ? <Cities offers={offers} city={city} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} /> : <MainEmpty city={city} />
+          }
         </div>
       </main>
     </div>
