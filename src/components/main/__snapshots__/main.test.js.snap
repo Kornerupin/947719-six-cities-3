@@ -134,7 +134,7 @@ exports[`<Main /> should render offers 1`] = `
               onClick={[Function]}
             >
               <span>
-                Hamburg
+                Brussels
               </span>
             </a>
           </li>
@@ -147,7 +147,7 @@ exports[`<Main /> should render offers 1`] = `
               onClick={[Function]}
             >
               <span>
-                Dusseldorf
+                Hamburg
               </span>
             </a>
           </li>

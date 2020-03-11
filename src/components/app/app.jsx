@@ -7,6 +7,8 @@ import {OfferProperties} from '../../proptypes/properties';
 
 const App = ({offers, offer, cities, city, onOfferNameClick, onCityClick}) => {
 
+  const filteredOffers = offers ? offers.filter((element) => element.city === city ? element : false) : false;
+
   const _renderApp = () => {
 
     if (offer) {
@@ -18,7 +20,7 @@ const App = ({offers, offer, cities, city, onOfferNameClick, onCityClick}) => {
     }
 
     return (<Main
-      offers={offers.filter((element) => element.city === city ? element : false)}
+      offers={filteredOffers}
       cities={cities}
       city={city}
       onOfferNameClick={onOfferNameClick}

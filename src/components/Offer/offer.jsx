@@ -1,5 +1,4 @@
 import {getStars} from '../../utils';
-import {OfferProperties} from '../../proptypes/properties';
 
 const Offer = ({offer, onOfferMouseOver, onOfferNameClick}) => {
   const {image, type, price, rating, name} = offer;
@@ -53,7 +52,7 @@ const Offer = ({offer, onOfferMouseOver, onOfferNameClick}) => {
 
 Offer.propTypes = {
   offer: PropTypes.object.isRequired,
-  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
+  offers: PropTypes.array.isRequired,
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired
 };

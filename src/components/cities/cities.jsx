@@ -1,6 +1,5 @@
 import OfferList from "../offer-list/offer-list";
 import Map from "../map/map";
-import {OfferProperties} from '../../proptypes/properties';
 
 const Cities = ({offers, onOfferNameClick}) => {
 
@@ -31,7 +30,7 @@ const Cities = ({offers, onOfferNameClick}) => {
 };
 
 Cities.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
+  offers: PropTypes.array.isRequired,
   onOfferNameClick: PropTypes.func.isRequired
 };
 

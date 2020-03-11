@@ -1,6 +1,6 @@
 import Cities from "../cities/cities";
 import MainEmpty from "../main-empty/main-empty";
-import CityList from "../city-list/city-list";
+import Locations from "../locations/locations";
 import {OfferProperties} from "../../proptypes/properties";
 
 const Main = ({offers, cities, city, onOfferNameClick, onCityClick}) => {
@@ -37,7 +37,7 @@ const Main = ({offers, cities, city, onOfferNameClick, onCityClick}) => {
         <div className="tabs">
           <section className="locations container">
 
-            {<CityList cities={cities} onCityClick={onCityClick} />}
+            {<Locations cities={cities} onCityClick={onCityClick} />}
 
           </section>
         </div>
