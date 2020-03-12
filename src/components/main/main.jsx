@@ -1,9 +1,21 @@
-import Cities from "../cities/cities";
-import MainEmpty from "../main-empty/main-empty";
-import Locations from "../locations/locations";
+import Menu from "../menu/menu";
+import OffersContainerEmpty from "../offers-container-empty/offers-container-empty";
+import OffersContainer from "../offers-container/offers-container";
 import { OfferProperties } from "../../proptypes/properties";
 
-const Main = ({ offers, cities, city, onOfferNameClick, onCityClick }) => {
+const Main = ({
+  offers,
+  cities,
+  city,
+  activePin,
+  onOfferMouseOver,
+  onOfferNameClick,
+  onCityClick,
+  onSortClick,
+  isSortOpened,
+  onSortOptionClick,
+  currentOption
+}) => {
 
   const isOffers = offers.length !== 0;
 
@@ -37,13 +49,25 @@ const Main = ({ offers, cities, city, onOfferNameClick, onCityClick }) => {
         <div className="tabs">
           <section className="locations container">
             {
-              <Locations cities={cities} onCityClick={onCityClick} />
+              <Menu cities={cities} onCityClick={onCityClick} />
             }
           </section>
         </div>
         <div className="cities">
           {
-            isOffers ? <Cities offers={offers} city={city} onOfferNameClick={onOfferNameClick} onOfferMouseOver={() => { }} /> : <MainEmpty city={city} />
+            isOffers
+              ? <OffersContainer
+                offers={offers}
+                city={city}
+                activePin={activePin}
+                onOfferNameClick={onOfferNameClick}
+                onOfferMouseOver={onOfferMouseOver}
+                onSortClick={onSortClick}
+                isSortOpened={isSortOpened}
+                onSortOptionClick={onSortOptionClick}
+                currentOption={currentOption}
+              />
+              : <OffersContainerEmpty city={city} />
           }
         </div>
       </main>

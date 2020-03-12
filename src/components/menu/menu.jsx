@@ -1,4 +1,4 @@
-const Locations = ({ cities, onCityClick }) => {
+const Menu = ({ cities, onCityClick }) => {
 
   cities = cities ? cities.map((city, index) => {
 
@@ -11,7 +11,7 @@ const Locations = ({ cities, onCityClick }) => {
         </a>
       </li>
     );
-  }).slice(0, 7) : false;
+  }).slice(0, 6) : false;
 
   return (
     <ul className="locations__list tabs__list">
@@ -22,9 +22,9 @@ const Locations = ({ cities, onCityClick }) => {
   );
 };
 
-Locations.propTypes = {
+Menu.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string.isRequired),
   onCityClick: PropTypes.func.isRequired,
 };
 
-export default Locations;
+export default Menu;

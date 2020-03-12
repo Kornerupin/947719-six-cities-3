@@ -1,4 +1,4 @@
-const MainEmpty = ({city}) => {
+const OffersContainerEmpty = ({city}) => {
 
   return (
     <div className="cities__places-container cities__places-container--empty container">
@@ -13,8 +13,8 @@ const MainEmpty = ({city}) => {
   );
 };
 
-MainEmpty.propTypes = {
+OffersContainerEmpty.propTypes = {
   city: PropTypes.string.isRequired
 };
 
-export default MainEmpty;
+export default OffersContainerEmpty;
