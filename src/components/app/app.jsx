@@ -1,12 +1,24 @@
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
-import {ActionCreator} from '../../reducer/actions';
-import {OfferProperties} from '../../proptypes/properties';
+import { ActionCreator } from '../../reducer/actions';
+import { OfferProperties } from '../../proptypes/properties';
 
-const App = (props) => {
-  const {offers, offer, cities, city, activePin, onOfferMouseOver, onOfferNameClick, onCityClick, onSortOptionsClick, isOpened} = props;
+const App = ({
+  offers,
+  offer,
+  cities,
+  city,
+  activePin,
+  onOfferMouseOver,
+  onOfferNameClick,
+  onCityClick,
+  onSortClick,
+  isSortOpened,
+  onSortOptionClick,
+  currentOption
+}) => {
 
   const filteredOffers = offers ? offers.filter((element) => element.city === city ? element : false) : false;
 
@@ -15,12 +27,12 @@ const App = (props) => {
     if (offer) {
 
       return (
-      <OfferDetail
-        offer={offer}
-        offers={offers}
-        onOfferMouseOver={(onOfferMouseOver)}
-        onOfferNameClick={onOfferNameClick}
-         />);
+        <OfferDetail
+          offer={offer}
+          offers={offers}
+          onOfferMouseOver={(onOfferMouseOver)}
+          onOfferNameClick={onOfferNameClick}
+        />);
     }
 
     return (<Main
@@ -31,9 +43,11 @@ const App = (props) => {
       onOfferMouseOver={onOfferMouseOver}
       onOfferNameClick={onOfferNameClick}
       onCityClick={onCityClick}
-      onSortOptionsClick={onSortOptionsClick}
-      isOpened={isOpened}
-       />);
+      onSortClick={onSortClick}
+      isSortOpened={isSortOpened}
+      onSortOptionClick={onSortOptionClick}
+      currentOption={currentOption}
+    />);
   };
 
   return (
@@ -65,7 +79,8 @@ const mapStateToProps = (state) => ({
   cities: state.cities,
   city: state.city,
   activePin: state.activePin,
-  isOpened: state.isOpened
+  isSortOpened: state.isSortOpened,
+  currentOption: state.currentOption
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -78,10 +93,13 @@ const mapDispatchToProps = (dispatch) => ({
   onCityClick(city) {
     dispatch(ActionCreator.changeCity(city));
   },
-  onSortOptionsClick(isOpened) {
-    dispatch(ActionCreator.toggleSortOptions(isOpened));
+  onSortClick(isSortOpened) {
+    dispatch(ActionCreator.toggleSortOptions(isSortOpened));
+  },
+  onSortOptionClick(currentOption) {
+    dispatch(ActionCreator.changeSortOptions(currentOption));
   }
 });
 
-export {App};
+export { App };
 export default connect(mapStateToProps, mapDispatchToProps)(App);

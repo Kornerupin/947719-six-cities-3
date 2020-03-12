@@ -2,7 +2,17 @@ import OffersList from "../offers-list/offers-list";
 import OffersSort from "../offers-sort/offers-sort";
 import Map from "../map/map";
 
-const OffersContainer = ({ offers, city, activePin, onOfferMouseOver, onOfferNameClick, onSortOptionsClick, isOpened }) => {
+const OffersContainer = ({
+  offers,
+  city,
+  activePin,
+  onOfferMouseOver,
+  onOfferNameClick,
+  onSortClick,
+  isSortOpened,
+  onSortOptionClick,
+  currentOption
+ }) => {
 
   return (
     <div className="cities__places-container container">
@@ -12,7 +22,12 @@ const OffersContainer = ({ offers, city, activePin, onOfferMouseOver, onOfferNam
           {offers.length ? `${offers.length} places to stay in ${city}` : ``}
         </b>
         {
-          <OffersSort onSortOptionsClick={onSortOptionsClick} isOpened={isOpened}/>
+          <OffersSort
+          onSortClick={onSortClick}
+          isSortOpened={isSortOpened}
+          onSortOptionClick={onSortOptionClick}
+          currentOption={currentOption}
+          />
         }
         <div className="cities__places-list places__list tabs__content">
           {

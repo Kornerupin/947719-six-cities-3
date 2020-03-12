@@ -11,7 +11,7 @@ const Menu = ({ cities, onCityClick }) => {
         </a>
       </li>
     );
-  }).slice(0, 7) : false;
+  }).slice(0, 6) : false;
 
   return (
     <ul className="locations__list tabs__list">

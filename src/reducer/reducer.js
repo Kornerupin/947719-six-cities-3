@@ -1,18 +1,21 @@
-import {offersMock, cities} from '../mocks/offers';
+import {offersMock} from '../mocks/offers';
 import {ActionType} from '../reducer/actions';
 
 const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
 
-// state
+const cities = [...new Set(offersMock.map((offer)  => offer.city))]
+.concat([`Dusseldorf`,`Berlin`,`Rome`,`Prague`,`Vienna`,`Brussels`]);
+
 const initialState = {
   offers: offersMock,
   offer: null,
-  cities,
-  city: cities[3],
+  cities: cities,
+  city: `Amsterdam`,
   activePin: null,
-  isOpened: false
+  isSortOpened: false,
+  currentOption: `Popular`
 };
 
 export const reducer = (state = initialState, action) => {
@@ -32,7 +35,11 @@ export const reducer = (state = initialState, action) => {
       });
     case ActionType.TOGGLE_SORT_OPTIONS:
       return extend(state, {
-        isOpened: action.payload
+        isSortOpened: action.payload
+      });
+    case ActionType.CHANGE_SORT_OPTION:
+      return extend(state, {
+        currentOption: action.payload
       });
   }
 

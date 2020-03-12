@@ -13,7 +13,11 @@ const getSortedOffers = (offers, currentSortType) => {
   return offers;
 };
 
-const OffersList = ({offers, onOfferMouseOver, onOfferNameClick}) => {
+const OffersList = ({
+  offers,
+  onOfferMouseOver,
+  onOfferNameClick
+}) => {
 
   return offers.map((offer, index) => <Offer
     key={index}

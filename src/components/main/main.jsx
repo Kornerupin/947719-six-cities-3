@@ -3,7 +3,19 @@ import OffersContainerEmpty from "../offers-container-empty/offers-container-emp
 import OffersContainer from "../offers-container/offers-container";
 import { OfferProperties } from "../../proptypes/properties";
 
-const Main = ({ offers, cities, city, activePin, onOfferMouseOver, onOfferNameClick, onCityClick, onSortOptionsClick, isOpened }) => {
+const Main = ({
+  offers,
+  cities,
+  city,
+  activePin,
+  onOfferMouseOver,
+  onOfferNameClick,
+  onCityClick,
+  onSortClick,
+  isSortOpened,
+  onSortOptionClick,
+  currentOption
+}) => {
 
   const isOffers = offers.length !== 0;
 
@@ -50,8 +62,10 @@ const Main = ({ offers, cities, city, activePin, onOfferMouseOver, onOfferNameCl
                 activePin={activePin}
                 onOfferNameClick={onOfferNameClick}
                 onOfferMouseOver={onOfferMouseOver}
-                onSortOptionsClick={onSortOptionsClick}
-                isOpened={isOpened}
+                onSortClick={onSortClick}
+                isSortOpened={isSortOpened}
+                onSortOptionClick={onSortOptionClick}
+                currentOption={currentOption}
               />
               : <OffersContainerEmpty city={city} />
           }

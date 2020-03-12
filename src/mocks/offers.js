@@ -1,18 +1,3 @@
-export const cities = [
-  `Paris`,
-  `Cologne`,
-  `Brussels`,
-  `Amsterdam`,
-  `Brussels`,
-  `Hamburg`,
-  `Dusseldorf`,
-  `Berlin`,
-  `Rome`,
-  `Prague`,
-  `Vienna`,
-  `Brussels`
-];
-
 const offers = [
   {
     id: 1,
