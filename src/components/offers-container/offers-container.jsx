@@ -12,7 +12,7 @@ const OffersContainer = ({
   isSortOpened,
   onSortOptionClick,
   currentOption
- }) => {
+}) => {
 
   return (
     <div className="cities__places-container container">
@@ -23,15 +23,20 @@ const OffersContainer = ({
         </b>
         {
           <OffersSort
-          onSortClick={onSortClick}
-          isSortOpened={isSortOpened}
-          onSortOptionClick={onSortOptionClick}
-          currentOption={currentOption}
+            onSortClick={onSortClick}
+            isSortOpened={isSortOpened}
+            onSortOptionClick={onSortOptionClick}
+            currentOption={currentOption}
           />
         }
         <div className="cities__places-list places__list tabs__content">
           {
-            <OffersList offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={onOfferMouseOver} />
+            <OffersList
+              offers={offers}
+              onOfferNameClick={onOfferNameClick}
+              onOfferMouseOver={onOfferMouseOver}
+              currentOption={currentOption}
+            />
           }
         </div>
 
@@ -40,11 +45,11 @@ const OffersContainer = ({
         <section className="cities__map map">
           {
             offers.length ?
-            <Map
-            coordinates={offers ? offers.map((offer) => offer.coords) : []}
-            currentCoordinates={[]}
-            activePin={activePin ? activePin : null}/>
-            : ``
+              <Map
+                coordinates={offers ? offers.map((offer) => offer.coords) : []}
+                currentCoordinates={[]}
+                activePin={activePin ? activePin : null} />
+              : ``
           }
         </section>
       </div>

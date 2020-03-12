@@ -1,20 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OfferList /> Should render list of offers 1`] = `
+exports[`<OffersList /> Should render list of offers 1`] = `
 Array [
   <article
-    classNameName="cities__place-card place-card"
+    className="cities__place-card place-card"
+    onMouseLeave={[Function]}
     onMouseOver={[Function]}
   >
     <div
-      classNameName="cities__image-wrapper place-card__image-wrapper"
+      className="cities__image-wrapper place-card__image-wrapper"
     >
       <a
         href="#"
       >
         <img
           alt="Place image"
-          classNameName="place-card__image"
+          className="place-card__image"
           height="200"
           src="img/apartment-01.jpg"
           width="260"
@@ -22,32 +23,32 @@ Array [
       </a>
     </div>
     <div
-      classNameName="place-card__info"
+      className="place-card__info"
     >
       <div
-        classNameName="place-card__price-wrapper"
+        className="place-card__price-wrapper"
       >
         <div
-          classNameName="place-card__price"
+          className="place-card__price"
         >
           <b
-            classNameName="place-card__price-value"
+            className="place-card__price-value"
           >
             €
             80
           </b>
           <span
-            classNameName="place-card__price-text"
+            className="place-card__price-text"
           >
             / night
           </span>
         </div>
         <button
-          classNameName="place-card__bookmark-button place-card__bookmark-button--active button"
+          className="place-card__bookmark-button place-card__bookmark-button--active button"
           type="button"
         >
           <svg
-            classNameName="place-card__bookmark-icon"
+            className="place-card__bookmark-icon"
             height="19"
             id="icon-bookmark"
             viewBox="0 0 17 18"
@@ -58,17 +59,17 @@ Array [
             />
           </svg>
           <span
-            classNameName="visually-hidden"
+            className="visually-hidden"
           >
             In bookmarks
           </span>
         </button>
       </div>
       <div
-        classNameName="place-card__rating rating"
+        className="place-card__rating rating"
       >
         <div
-          classNameName="place-card__stars rating__stars"
+          className="place-card__stars rating__stars"
         >
           <span
             style={
@@ -78,14 +79,14 @@ Array [
             }
           />
           <span
-            classNameName="visually-hidden"
+            className="visually-hidden"
           >
             Rating
           </span>
         </div>
       </div>
       <h2
-        classNameName="place-card__name"
+        className="place-card__name"
         onClick={[Function]}
       >
         <a
@@ -95,25 +96,26 @@ Array [
         </a>
       </h2>
       <p
-        classNameName="place-card__type"
+        className="place-card__type"
       >
         Apartment
       </p>
     </div>
   </article>,
   <article
-    classNameName="cities__place-card place-card"
+    className="cities__place-card place-card"
+    onMouseLeave={[Function]}
     onMouseOver={[Function]}
   >
     <div
-      classNameName="cities__image-wrapper place-card__image-wrapper"
+      className="cities__image-wrapper place-card__image-wrapper"
     >
       <a
         href="#"
       >
         <img
           alt="Place image"
-          classNameName="place-card__image"
+          className="place-card__image"
           height="200"
           src="img/room.jpg"
           width="260"
@@ -121,32 +123,32 @@ Array [
       </a>
     </div>
     <div
-      classNameName="place-card__info"
+      className="place-card__info"
     >
       <div
-        classNameName="place-card__price-wrapper"
+        className="place-card__price-wrapper"
       >
         <div
-          classNameName="place-card__price"
+          className="place-card__price"
         >
           <b
-            classNameName="place-card__price-value"
+            className="place-card__price-value"
           >
             €
             132
           </b>
           <span
-            classNameName="place-card__price-text"
+            className="place-card__price-text"
           >
             / night
           </span>
         </div>
         <button
-          classNameName="place-card__bookmark-button place-card__bookmark-button--active button"
+          className="place-card__bookmark-button place-card__bookmark-button--active button"
           type="button"
         >
           <svg
-            classNameName="place-card__bookmark-icon"
+            className="place-card__bookmark-icon"
             height="19"
             id="icon-bookmark"
             viewBox="0 0 17 18"
@@ -157,17 +159,17 @@ Array [
             />
           </svg>
           <span
-            classNameName="visually-hidden"
+            className="visually-hidden"
           >
             In bookmarks
           </span>
         </button>
       </div>
       <div
-        classNameName="place-card__rating rating"
+        className="place-card__rating rating"
       >
         <div
-          classNameName="place-card__stars rating__stars"
+          className="place-card__stars rating__stars"
         >
           <span
             style={
@@ -177,14 +179,14 @@ Array [
             }
           />
           <span
-            classNameName="visually-hidden"
+            className="visually-hidden"
           >
             Rating
           </span>
         </div>
       </div>
       <h2
-        classNameName="place-card__name"
+        className="place-card__name"
         onClick={[Function]}
       >
         <a
@@ -194,7 +196,7 @@ Array [
         </a>
       </h2>
       <p
-        classNameName="place-card__type"
+        className="place-card__type"
       >
         Private room
       </p>

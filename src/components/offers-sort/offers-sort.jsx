@@ -1,4 +1,4 @@
-const OptionType = [`Popular`, `Price: low to high`, `Price: high to low`, `Top rated first`];
+import { OptionType } from '../../consts';
 
 const OffersSort = ({
     onSortClick,
@@ -6,7 +6,7 @@ const OffersSort = ({
     onSortOptionClick,
     currentOption
 }) => {
-
+    
     return (
         <form className="places__sorting" action="" method="get">
             <span className="places__sorting-caption">Sort by&nbsp;</span>
@@ -21,13 +21,14 @@ const OffersSort = ({
             }>
 
                 {
-                    OptionType.map((option, index) => {
+                    Object.values(OptionType).map((option, index) => {
                         return (
                             <li
                                 key={`option-${index}`}
                                 className={`places__option ${option === currentOption && `places__option--active`}`}
                                 tabIndex={0}
-                                onClick={() => onSortOptionClick(option)}>
+                                onMouseOver={() => onSortOptionClick(option)}
+                                onClick={() => onSortClick(!isSortOpened)}>
                                 {option}
                             </li>
                         )

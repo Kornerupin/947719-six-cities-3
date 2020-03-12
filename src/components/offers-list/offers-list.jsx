@@ -1,12 +1,13 @@
 import Offer from "../offer/offer";
+import { OptionType } from '../../consts';
 
-const getSortedOffers = (offers, currentSortType) => {
-  switch (currentSortType) {
-    case SortType.PRICE_LOW_TO_HIGH:
+const getSortedOffers = (offers, currentOption) => {
+  switch (currentOption) {
+    case OptionType.LOW_TO_HIGH:      
       return offers.slice().sort((a, b) => a.price - b.price);
-    case SortType.PRICE_HIGH_TO_LOW:
+    case OptionType.HIGH_TO_LOW:
       return offers.slice().sort((a, b) => b.price - a.price);
-    case SortType.TOP_RATED:
+    case OptionType.TOP_RATED:
       return offers.slice().sort((a, b) => b.rating - a.rating);
   }
 
@@ -16,11 +17,12 @@ const getSortedOffers = (offers, currentSortType) => {
 const OffersList = ({
   offers,
   onOfferMouseOver,
-  onOfferNameClick
+  onOfferNameClick,
+  currentOption
 }) => {
-
-  return offers.map((offer, index) => <Offer
-    key={index}
+  
+  return getSortedOffers(offers, currentOption).map((offer, index) => <Offer
+    key={`offer-${index}`}
     offer={offer}
     offers={offers}
     onOfferMouseOver={onOfferMouseOver}
