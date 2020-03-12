@@ -1,4 +1,4 @@
-import OfferList from "../offer-list/offer-list";
+import OffersList from "../offers-list/offers-list";
 import Map from '../map/map';
 import ReviewsList from '../reviews-list/reviews-list';
 import {getStars} from '../../utils';
@@ -176,7 +176,7 @@ class OfferDetail extends PureComponent {
                 <h2 className="near-places__title">Other places in the neighbourhood</h2>
                 <div className="near-places__list places__list">
                   {
-                    <OfferList
+                    <OffersList
                     offers={offers.slice(0, OFFERS_MAX)}
                     onOfferNameClick={onOfferNameClick}
                     onOfferMouseOver={onOfferMouseOver} />

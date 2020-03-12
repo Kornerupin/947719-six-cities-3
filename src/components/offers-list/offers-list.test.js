@@ -1,4 +1,4 @@
-import OfferList from './offer-list';
+import OffersList from './offers-list';
 
 const offersMock = [
   {

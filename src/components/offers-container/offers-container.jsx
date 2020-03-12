@@ -1,8 +1,8 @@
-import OfferList from "../offer-list/offer-list";
-import Sorting from "../sorting/sorting";
+import OffersList from "../offers-list/offers-list";
+import OffersSort from "../offers-sort/offers-sort";
 import Map from "../map/map";
 
-const Cities = ({ offers, city, activePin, onOfferMouseOver, onOfferNameClick }) => {
+const OffersContainer = ({ offers, city, activePin, onOfferMouseOver, onOfferNameClick, onSortOptionsClick, isOpened }) => {
 
   return (
     <div className="cities__places-container container">
@@ -12,11 +12,11 @@ const Cities = ({ offers, city, activePin, onOfferMouseOver, onOfferNameClick })
           {offers.length ? `${offers.length} places to stay in ${city}` : ``}
         </b>
         {
-          <Sorting />
+          <OffersSort onSortOptionsClick={onSortOptionsClick} isOpened={isOpened}/>
         }
         <div className="cities__places-list places__list tabs__content">
           {
-            <OfferList offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={onOfferMouseOver} />
+            <OffersList offers={offers} onOfferNameClick={onOfferNameClick} onOfferMouseOver={onOfferMouseOver} />
           }
         </div>
 
@@ -37,9 +37,9 @@ const Cities = ({ offers, city, activePin, onOfferMouseOver, onOfferNameClick })
   );
 };
 
-Cities.propTypes = {
+OffersContainer.propTypes = {
   offers: PropTypes.array.isRequired,
   onOfferNameClick: PropTypes.func.isRequired
 };
 
-export default Cities;
+export default OffersContainer;

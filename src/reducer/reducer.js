@@ -11,11 +11,12 @@ const initialState = {
   offer: null,
   cities,
   city: cities[3],
-  activePin: null
+  activePin: null,
+  isOpened: false
 };
 
 export const reducer = (state = initialState, action) => {
-        
+          
   switch (action.type) {
     case ActionType.SHOW_ACTIVE_PIN:
       return extend(state, {
@@ -28,6 +29,10 @@ export const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_CITY:
       return extend(state, {
         city: action.payload
+      });
+    case ActionType.TOGGLE_SORT_OPTIONS:
+      return extend(state, {
+        isOpened: action.payload
       });
   }
 

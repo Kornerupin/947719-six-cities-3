@@ -6,7 +6,7 @@ import {ActionCreator} from '../../reducer/actions';
 import {OfferProperties} from '../../proptypes/properties';
 
 const App = (props) => {
-  const {offers, offer, cities, city, activePin, onOfferMouseOver, onOfferNameClick, onCityClick} = props;
+  const {offers, offer, cities, city, activePin, onOfferMouseOver, onOfferNameClick, onCityClick, onSortOptionsClick, isOpened} = props;
 
   const filteredOffers = offers ? offers.filter((element) => element.city === city ? element : false) : false;
 
@@ -30,7 +30,10 @@ const App = (props) => {
       activePin={activePin}
       onOfferMouseOver={onOfferMouseOver}
       onOfferNameClick={onOfferNameClick}
-      onCityClick={onCityClick} />);
+      onCityClick={onCityClick}
+      onSortOptionsClick={onSortOptionsClick}
+      isOpened={isOpened}
+       />);
   };
 
   return (
@@ -61,7 +64,8 @@ const mapStateToProps = (state) => ({
   offer: state.offer,
   cities: state.cities,
   city: state.city,
-  activePin: state.activePin
+  activePin: state.activePin,
+  isOpened: state.isOpened
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -73,6 +77,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onCityClick(city) {
     dispatch(ActionCreator.changeCity(city));
+  },
+  onSortOptionsClick(isOpened) {
+    dispatch(ActionCreator.toggleSortOptions(isOpened));
   }
 });
 

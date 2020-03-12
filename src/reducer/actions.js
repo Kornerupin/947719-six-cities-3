@@ -3,6 +3,7 @@ export const ActionType = {
   SHOW_OFFER: `SHOW_OFFER`,
   CHANGE_CITY: `CHANGE_CITY`,
   GET_OFFERS: `GET_OFFERS`,
+  TOGGLE_SORT_OPTIONS: `TOGGLE_SORT_OPTIONS`
 };
 
 export const ActionCreator = {
@@ -17,6 +18,9 @@ export const ActionCreator = {
   changeCity: (city) => ({
     type: ActionType.CHANGE_CITY,
     payload: city
-  }
-  ),
+  }),
+  toggleSortOptions: (isOpened) => ({
+    type: ActionType.TOGGLE_SORT_OPTIONS,
+    payload: isOpened,
+  }),  
 };
