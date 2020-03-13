@@ -1,4 +1,4 @@
-const Menu = ({ cities, onCityClick }) => {
+const Menu = ({cities, onCityClick}) => {
 
   cities = cities ? cities.map((city, index) => {
 

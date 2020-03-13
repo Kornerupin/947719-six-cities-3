@@ -1,20 +1,20 @@
 import Menu from "../menu/menu";
 import OffersContainerEmpty from "../offers-container-empty/offers-container-empty";
 import OffersContainer from "../offers-container/offers-container";
-import { OfferProperties } from "../../proptypes/properties";
+import {OfferProperties} from "../../proptypes/properties";
 
 const Main = ({
   offers,
   cities,
   city,
-  activePin,
+  activeCoordinate,
   onOfferMouseOver,
   onOfferNameClick,
   onCityClick,
   onSortClick,
   isSortOpened,
   onSortOptionClick,
-  currentOption
+  currentSortOption
 }) => {
 
   const isOffers = offers.length !== 0;
@@ -59,13 +59,13 @@ const Main = ({
               ? <OffersContainer
                 offers={offers}
                 city={city}
-                activePin={activePin}
+                activeCoordinate={activeCoordinate}
                 onOfferNameClick={onOfferNameClick}
                 onOfferMouseOver={onOfferMouseOver}
                 onSortClick={onSortClick}
                 isSortOpened={isSortOpened}
                 onSortOptionClick={onSortOptionClick}
-                currentOption={currentOption}
+                currentSortOption={currentSortOption}
               />
               : <OffersContainerEmpty city={city} />
           }
@@ -79,8 +79,14 @@ Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   cities: PropTypes.arrayOf(PropTypes.string.isRequired),
   city: PropTypes.string.isRequired,
+  activeCoordinate: PropTypes.array,
+  onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired,
   onCityClick: PropTypes.func.isRequired,
+  onSortClick: PropTypes.func.isRequired,
+  isSortOpened: PropTypes.bool.isRequired,
+  onSortOptionClick: PropTypes.func.isRequired,
+  currentSortOption: PropTypes.string.isRequired
 };
 
 export default Main;

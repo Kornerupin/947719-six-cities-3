@@ -11,7 +11,7 @@ const offers = [
     price: `80`,
     rating: 3.1,
     name: `Beautiful &amp; luxurious apartment at great location`,
-    coords: [52.3909553943508, 4.85309666406198],
+    coordinates: [52.3909553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.9912918678423135`,
       name: `Max`,
@@ -42,7 +42,7 @@ const offers = [
     price: `132`,
     rating: 1.8,
     name: `Wood and stone place`,
-    coords: [52.369553943508, 4.85309666406198],
+    coordinates: [52.369553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.3963321309597061`,
       name: `Wax`,
@@ -59,7 +59,7 @@ const offers = [
     price: `180`,
     rating: 3.8,
     name: `Canal View Prinsengracht`,
-    coords: [52.3909553943508, 4.929309666406198],
+    coordinates: [52.3909553943508, 4.929309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.1138720045992132`,
       name: `Tax`,
@@ -76,7 +76,7 @@ const offers = [
     price: `80`,
     rating: 4.5,
     name: `Nice, cozy, warm big bed apartment`,
-    coords: [52.3809553943508, 4.939309666406198],
+    coordinates: [52.3809553943508, 4.939309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.477232804299224`,
       name: `Bax`,
@@ -93,7 +93,7 @@ const offers = [
     price: `132`,
     rating: 1.8,
     name: `Wood and stone place`,
-    coords: [52.369553943508, 4.85309666406198],
+    coordinates: [52.369553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.3963321309597061`,
       name: `Wax`,
@@ -110,7 +110,7 @@ const offers = [
     price: `180`,
     rating: 3.8,
     name: `Canal View Prinsengracht`,
-    coords: [52.3909553943508, 4.929309666406198],
+    coordinates: [52.3909553943508, 4.929309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.1138720045992132`,
       name: `Tax`,
@@ -127,7 +127,7 @@ const offers = [
     price: `80`,
     rating: 4.5,
     name: `Nice, cozy, warm big bed apartment`,
-    coords: [52.3809553943508, 4.939309666406198],
+    coordinates: [52.3809553943508, 4.939309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.477232804299224`,
       name: `Bax`,

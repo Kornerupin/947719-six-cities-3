@@ -17,10 +17,12 @@ class Map extends PureComponent {
   constructor(props) {
     super(props);
     this.mapRef = React.createRef();
+    this.coordinates = this.props.coordinates;
+    this.currentCoordinate = this.props.currentCoordinate;
   }
 
   componentDidMount() {
-    this._map = leaflet.map(this.mapRef.current, {
+    this._map = new leaflet.Map(this.mapRef.current, {
       center: MapSettings.CITY,
       zoom: MapSettings.ZOOM,
       zoomControl: false,
@@ -33,33 +35,25 @@ class Map extends PureComponent {
       attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
     }).addTo(this._map);
 
-    this._layerGroup = leaflet.layerGroup().addTo(this._map);
+    this.coordinates.map((coordinate) => {
 
-    this.props.coordinates.map((coordinates) => {
-
-      return (coordinates === this.props.currentCoordinates)
-        ? leaflet.marker(coordinates, { icon: MapSettings.ICON_ACTIVE }).addTo(this._layerGroup)
-        : leaflet.marker(coordinates, { icon: MapSettings.ICON }).addTo(this._layerGroup);
+      return (coordinate === this.currentCoordinate)
+        ? leaflet.marker(coordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this._map)
+        : leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this._map);
     });
+
   }
 
   componentDidUpdate() {
-    
-    const { activePin } = this.props;
+    const {activeCoordinate} = this.props;
 
-    this._layerGroup.clearLayers();
+    this.coordinates.map((coordinate) => {
 
-    this.props.coordinates.map((coordinates) => {
-
-      return (coordinates === this.props.currentCoordinates)
-        ? leaflet.marker(coordinates, { icon: MapSettings.ICON_ACTIVE }).addTo(this._layerGroup)
-        : leaflet.marker(coordinates, { icon: MapSettings.ICON }).addTo(this._layerGroup);
+      return (coordinate === activeCoordinate)
+        ? leaflet.marker(activeCoordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this._map)
+        : leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this._map);
     });
 
-    if (activePin) {
-
-      return leaflet.marker(activePin, { icon: MapSettings.ICON_ACTIVE }).addTo(this._layerGroup);
-    }
   }
 
   componentWillUnmount() {
@@ -70,18 +64,16 @@ class Map extends PureComponent {
   render() {
 
     return (
-      <div id="map" style={{ height: `100%` }} ref={this.mapRef}></div>
+      <div id="map" style={{height: `100%`}} ref={this.mapRef}></div>
     );
   }
-}
 
-Map.defaultProps = {
-  currentCoordinates: []
-};
+}
 
 Map.propTypes = {
   coordinates: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-  currentCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired
+  activeCoordinate: PropTypes.array,
+  currentCoordinate: PropTypes.arrayOf(PropTypes.number).isRequired
 };
 
 export default Map;

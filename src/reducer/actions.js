@@ -8,9 +8,9 @@ export const ActionType = {
 };
 
 export const ActionCreator = {
-  showActivePin: (activePin) => ({
+  showActivePin: (activeCoordinate) => ({
     type: ActionType.SHOW_ACTIVE_PIN,
-    payload: activePin,
+    payload: activeCoordinate,
   }),
   showOffer: (offer) => ({
     type: ActionType.SHOW_OFFER,
@@ -23,9 +23,9 @@ export const ActionCreator = {
   toggleSortOptions: (isSortOpened) => ({
     type: ActionType.TOGGLE_SORT_OPTIONS,
     payload: isSortOpened,
-  }),  
-  changeSortOptions: (currentOption) => ({
+  }),
+  changeSortOptions: (currentSortOption) => ({
     type: ActionType.CHANGE_SORT_OPTION,
-    payload: currentOption,
-  }),  
+    payload: currentSortOption,
+  }),
 };

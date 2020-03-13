@@ -11,7 +11,7 @@ const offersMock = [
     price: `80`,
     rating: 3.1,
     name: `Beautiful &amp; luxurious apartment at great location`,
-    coords: [52.3909553943508, 4.85309666406198],
+    coordinates: [52.3909553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.9912918678423135`,
       name: `Max`,
@@ -28,7 +28,7 @@ const offersMock = [
     price: `132`,
     rating: 1.8,
     name: `Wood and stone place`,
-    coords: [52.369553943508, 4.85309666406198],
+    coordinates: [52.369553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.3963321309597061`,
       name: `Wax`,
@@ -42,12 +42,14 @@ const offersMock = [
 it(`It expect an Object that contains the following properties`, () => {
 
   shallow(<OfferDetail
-    offer={{offer: offersMock[0]}}
     offers={offersMock}
+    offer={offersMock[0]}
+    activeCoordinate={[0, 0]}
+    onOfferMouseOver={() => { }}
     onOfferNameClick={() => { }}
   />);
 
-  expect(offersMock).toEqual(
+  expect(offersMock[0]).toEqual(
       expect.objectContaining({
         id: expect.any(Number),
         city: expect.any(String),
@@ -56,7 +58,7 @@ it(`It expect an Object that contains the following properties`, () => {
         price: expect.any(String),
         rating: expect.any(Number),
         name: expect.any(String),
-        coords: expect.arrayContaining([expect.anything()]),
+        coordinates: expect.arrayContaining([expect.anything()]),
         reviews: expect.arrayContaining([expect.anything()]),
       })
   );

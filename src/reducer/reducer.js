@@ -5,25 +5,25 @@ const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
 
-const cities = [...new Set(offersMock.map((offer)  => offer.city))]
-.concat([`Dusseldorf`,`Berlin`,`Rome`,`Prague`,`Vienna`,`Brussels`]);
+const cities = [...new Set(offersMock.map((offer) => offer.city))]
+.concat([`Dusseldorf`, `Berlin`, `Rome`, `Prague`, `Vienna`, `Brussels`]);
 
 const initialState = {
-  offers: offersMock,
   offer: null,
-  cities: cities,
+  offers: offersMock,
+  cities,
   city: `Amsterdam`,
-  activePin: null,
+  activeCoordinate: [],
   isSortOpened: false,
-  currentOption: `Popular`
+  currentSortOption: `Popular`
 };
 
 export const reducer = (state = initialState, action) => {
-          
+
   switch (action.type) {
     case ActionType.SHOW_ACTIVE_PIN:
       return extend(state, {
-        activePin: action.payload
+        activeCoordinate: action.payload
       });
     case ActionType.SHOW_OFFER:
       return extend(state, {
@@ -39,7 +39,7 @@ export const reducer = (state = initialState, action) => {
       });
     case ActionType.CHANGE_SORT_OPTION:
       return extend(state, {
-        currentOption: action.payload
+        currentSortOption: action.payload
       });
   }
 

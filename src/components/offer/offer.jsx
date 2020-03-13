@@ -1,13 +1,14 @@
-import { getStars } from '../../utils';
+import {getStars} from '../../utils';
+import {OfferProperties} from "../../proptypes/properties";
 
-const Offer = ({ offer, onOfferMouseOver, onOfferNameClick }) => {
-
-  const { image, type, price, rating, name, coords } = offer;
+const Offer = (props) => {
+  const {offer, onOfferMouseOver, onOfferNameClick} = props;
+  const {image, type, price, rating, name, coordinates} = offer;
 
   return (
     <article className="cities__place-card place-card"
-      onMouseOver={() => onOfferMouseOver(coords)}
-      onMouseLeave={() => onOfferMouseOver(null)}
+      onMouseOver={() => onOfferMouseOver(coordinates)}
+      onMouseLeave={() => onOfferMouseOver([0, 0])}
     >
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -39,7 +40,7 @@ const Offer = ({ offer, onOfferMouseOver, onOfferNameClick }) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: `${getStars(rating)}%` }}></span>
+            <span style={{width: `${getStars(rating)}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
@@ -53,8 +54,8 @@ const Offer = ({ offer, onOfferMouseOver, onOfferNameClick }) => {
 };
 
 Offer.propTypes = {
-  offer: PropTypes.object.isRequired,
-  offers: PropTypes.array.isRequired,
+  offer: PropTypes.shape(OfferProperties),
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired
 };
