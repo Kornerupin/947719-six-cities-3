@@ -14,7 +14,6 @@ const initialState = {
   cities,
   city: `Amsterdam`,
   activeCoordinate: [],
-  isSortOpened: false,
   currentSortOption: `Popular`
 };
 
@@ -32,10 +31,6 @@ export const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_CITY:
       return extend(state, {
         city: action.payload
-      });
-    case ActionType.TOGGLE_SORT_OPTIONS:
-      return extend(state, {
-        isSortOpened: action.payload
       });
     case ActionType.CHANGE_SORT_OPTION:
       return extend(state, {

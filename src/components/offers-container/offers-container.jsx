@@ -9,8 +9,6 @@ const OffersContainer = ({
   activeCoordinate,
   onOfferMouseOver,
   onOfferNameClick,
-  onSortClick,
-  isSortOpened,
   onSortOptionClick,
   currentSortOption
 }) => {
@@ -24,8 +22,6 @@ const OffersContainer = ({
         </b>
         {
           <OffersSort
-            onSortClick={onSortClick}
-            isSortOpened={isSortOpened}
             onSortOptionClick={onSortOptionClick}
             currentSortOption={currentSortOption}
           />
@@ -64,8 +60,6 @@ OffersContainer.propTypes = {
   activeCoordinate: PropTypes.array,
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired,
-  onSortClick: PropTypes.func.isRequired,
-  isSortOpened: PropTypes.bool.isRequired,
   onSortOptionClick: PropTypes.func.isRequired,
   currentSortOption: PropTypes.string.isRequired
 };

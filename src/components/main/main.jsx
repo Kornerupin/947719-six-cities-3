@@ -11,8 +11,6 @@ const Main = ({
   onOfferMouseOver,
   onOfferNameClick,
   onCityClick,
-  onSortClick,
-  isSortOpened,
   onSortOptionClick,
   currentSortOption
 }) => {
@@ -62,8 +60,6 @@ const Main = ({
                 activeCoordinate={activeCoordinate}
                 onOfferNameClick={onOfferNameClick}
                 onOfferMouseOver={onOfferMouseOver}
-                onSortClick={onSortClick}
-                isSortOpened={isSortOpened}
                 onSortOptionClick={onSortOptionClick}
                 currentSortOption={currentSortOption}
               />
@@ -83,8 +79,6 @@ Main.propTypes = {
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired,
   onCityClick: PropTypes.func.isRequired,
-  onSortClick: PropTypes.func.isRequired,
-  isSortOpened: PropTypes.bool.isRequired,
   onSortOptionClick: PropTypes.func.isRequired,
   currentSortOption: PropTypes.string.isRequired
 };

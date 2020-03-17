@@ -14,8 +14,6 @@ const App = ({
   onOfferMouseOver,
   onOfferNameClick,
   onCityClick,
-  onSortClick,
-  isSortOpened,
   onSortOptionClick,
   currentSortOption
 }) => {
@@ -44,8 +42,6 @@ const App = ({
       onOfferMouseOver={onOfferMouseOver}
       onOfferNameClick={onOfferNameClick}
       onCityClick={onCityClick}
-      onSortClick={onSortClick}
-      isSortOpened={isSortOpened}
       onSortOptionClick={onSortOptionClick}
       currentSortOption={currentSortOption}
     />);
@@ -75,8 +71,6 @@ App.propTypes = {
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired,
   onCityClick: PropTypes.func.isRequired,
-  onSortClick: PropTypes.func.isRequired,
-  isSortOpened: PropTypes.bool.isRequired,
   onSortOptionClick: PropTypes.func.isRequired,
   currentSortOption: PropTypes.string.isRequired
 };
@@ -87,7 +81,6 @@ const mapStateToProps = (state) => ({
   cities: state.cities,
   city: state.city,
   activeCoordinate: state.activeCoordinate,
-  isSortOpened: state.isSortOpened,
   currentSortOption: state.currentSortOption
 });
 
@@ -100,9 +93,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onCityClick(city) {
     dispatch(ActionCreator.changeCity(city));
-  },
-  onSortClick(isSortOpened) {
-    dispatch(ActionCreator.toggleSortOptions(isSortOpened));
   },
   onSortOptionClick(currentSortOption) {
     dispatch(ActionCreator.changeSortOptions(currentSortOption));
