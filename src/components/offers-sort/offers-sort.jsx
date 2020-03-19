@@ -1,4 +1,4 @@
-import {OptionType} from '../../consts';
+import { OptionType } from '../../consts';
 
 class OffersSort extends React.PureComponent {
   constructor(props) {
@@ -12,13 +12,14 @@ class OffersSort extends React.PureComponent {
   }
 
   _handleToggleSortClick() {
-    this.setState((prevState) => ({
-      isSortOpened: !prevState.isSortOpened
-    }));
+    this.setState({
+      isSortOpened: !this.state.isSortOpened
+    });
   }
 
   render() {
-    const {onSortOptionClick, currentSortOption} = this.props;
+    const { onSortOptionClick, currentSortOption } = this.props;
+    const { isSortOpened } = this.state;
 
     return (
       <form className="places__sorting" action="" method="get">
@@ -30,7 +31,7 @@ class OffersSort extends React.PureComponent {
           </svg>
         </span>
         <ul className={
-          `places__options places__options--custom ${this.state.isSortOpened && `places__options--opened`}`
+          `places__options places__options--custom ${isSortOpened && `places__options--opened`}`
         }>
 
           {
@@ -41,7 +42,7 @@ class OffersSort extends React.PureComponent {
                   className={`places__option ${option === currentSortOption && `places__option--active`}`}
                   tabIndex={0}
                   onMouseOver={() => onSortOptionClick(option)}
-                  onClick={() => { }}>
+                  onClick={this._handleToggleSortClick}>
                   {option}
                 </li>
               );
