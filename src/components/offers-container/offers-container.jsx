@@ -1,7 +1,10 @@
 import OffersList from "../offers-list/offers-list";
 import OffersSort from "../offers-sort/offers-sort";
+import withToggleSort from '../../hocs/with-toggle-sort/with-toogle-sort';
 import Map from "../map/map";
 import {OfferProperties} from '../../proptypes/properties';
+
+const OffersSortWithToggle = withToggleSort(OffersSort);
 
 const OffersContainer = ({
   offers,
@@ -21,7 +24,7 @@ const OffersContainer = ({
           {offers.length ? `${offers.length} places to stay in ${city}` : ``}
         </b>
         {
-          <OffersSort
+          <OffersSortWithToggle
             onSortOptionClick={onSortOptionClick}
             currentSortOption={currentSortOption}
           />

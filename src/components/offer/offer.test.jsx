@@ -20,7 +20,7 @@ const offerObject = {
   }]
 };
 
-it(`<Offer /> Should render one offer`, () => {
+it(`<Offer /> should render 1 offer`, () => {
   const tree = renderer.create(
       <Offer
         offer={offerObject}

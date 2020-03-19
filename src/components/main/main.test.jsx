@@ -38,7 +38,7 @@ const offersArray = [
     }]
   }];
 
-it(`<Main /> should render offers`, () => {
+it(`<Main /> should render <Offers />`, () => {
   const tree = renderer.create(<Main
     offers={offersArray}
     cities={[`Dusseldorf`, `Berlin`, `Rome`, `Prague`, `Vienna`, `Brussels`]}

@@ -58,7 +58,7 @@ const offersArray = [
     }]
   }];
 
-it(`<OfferDetail /> Should render detail offer`, () => {
+it(`<OfferDetail /> should render detail offer`, () => {
   const tree = renderer.create(<OfferDetail offer={offerObject} offers={offersArray} onOfferNameClick={() => { }} activeCoordinate={[0, 0]} />).toJSON();
 
   expect(tree).toMatchSnapshot();

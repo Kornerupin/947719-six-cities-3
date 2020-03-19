@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OfferDetail /> Should render detail offer 1`] = `
+exports[`<OfferDetail /> should render detail offer 1`] = `
 <div
   className="page"
 >

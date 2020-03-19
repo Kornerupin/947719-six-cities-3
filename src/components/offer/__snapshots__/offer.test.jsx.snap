@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Offer /> Should render one offer 1`] = `
+exports[`<Offer /> should render 1 offer 1`] = `
 <article
   className="cities__place-card place-card"
   onMouseLeave={[Function]}

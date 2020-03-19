@@ -1,4 +1,4 @@
-import Reviews from '../reviews/reviews';
+import Review from '../review/review';
 import {ReviewProperties} from "../../proptypes/properties";
 
 const ReviewsList = ({reviews}) => {
@@ -7,7 +7,7 @@ const ReviewsList = ({reviews}) => {
     <h2 className="reviews__title">Reviews · <span className="reviews__amount">{reviews && reviews.length}</span></h2>
     <ul className="reviews__list">
 
-      {reviews.map((review, index) => <Reviews key={`review-${index}`} review={review} />)}
+      {reviews.map((review, index) => <Review key={`review-${index}`} review={review} />)}
 
     </ul>
     <form className="reviews__form form" action="#" method="post">
