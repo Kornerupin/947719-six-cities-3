@@ -1,23 +1,21 @@
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
-import { ActionCreator } from '../../reducer/actions';
-import { OfferProperties } from '../../proptypes/properties';
+import {ActionCreator} from '../../reducer/actions';
+import {OfferProperties} from '../../proptypes/properties';
 
 const App = ({
   offers,
   offer,
   cities,
   city,
-  activePin,
+  activeCoordinate,
   onOfferMouseOver,
   onOfferNameClick,
   onCityClick,
-  onSortClick,
-  isSortOpened,
   onSortOptionClick,
-  currentOption
+  currentSortOption
 }) => {
 
   const filteredOffers = offers ? offers.filter((element) => element.city === city ? element : false) : false;
@@ -32,6 +30,7 @@ const App = ({
           offers={offers}
           onOfferMouseOver={(onOfferMouseOver)}
           onOfferNameClick={onOfferNameClick}
+          activeCoordinate={activeCoordinate}
         />);
     }
 
@@ -39,14 +38,12 @@ const App = ({
       offers={filteredOffers}
       cities={cities}
       city={city}
-      activePin={activePin}
+      activeCoordinate={activeCoordinate}
       onOfferMouseOver={onOfferMouseOver}
       onOfferNameClick={onOfferNameClick}
       onCityClick={onCityClick}
-      onSortClick={onSortClick}
-      isSortOpened={isSortOpened}
       onSortOptionClick={onSortOptionClick}
-      currentOption={currentOption}
+      currentSortOption={currentSortOption}
     />);
   };
 
@@ -65,12 +62,17 @@ const App = ({
 };
 
 App.propTypes = {
-  offer: PropTypes.object,
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
+  offer: PropTypes.object,
   cities: PropTypes.arrayOf(PropTypes.string.isRequired),
   city: PropTypes.string.isRequired,
+  activeCoordinate: PropTypes.array,
+  currentCityCoords: PropTypes.array,
+  onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired,
   onCityClick: PropTypes.func.isRequired,
+  onSortOptionClick: PropTypes.func.isRequired,
+  currentSortOption: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -78,14 +80,13 @@ const mapStateToProps = (state) => ({
   offer: state.offer,
   cities: state.cities,
   city: state.city,
-  activePin: state.activePin,
-  isSortOpened: state.isSortOpened,
-  currentOption: state.currentOption
+  activeCoordinate: state.activeCoordinate,
+  currentSortOption: state.currentSortOption
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onOfferMouseOver(activePin) {
-    dispatch(ActionCreator.showActivePin(activePin));
+  onOfferMouseOver(activeCoordinate) {
+    dispatch(ActionCreator.showActivePin(activeCoordinate));
   },
   onOfferNameClick(offer) {
     dispatch(ActionCreator.showOffer(offer));
@@ -93,13 +94,10 @@ const mapDispatchToProps = (dispatch) => ({
   onCityClick(city) {
     dispatch(ActionCreator.changeCity(city));
   },
-  onSortClick(isSortOpened) {
-    dispatch(ActionCreator.toggleSortOptions(isSortOpened));
-  },
-  onSortOptionClick(currentOption) {
-    dispatch(ActionCreator.changeSortOptions(currentOption));
+  onSortOptionClick(currentSortOption) {
+    dispatch(ActionCreator.changeSortOptions(currentSortOption));
   }
 });
 
-export { App };
+export {App};
 export default connect(mapStateToProps, mapDispatchToProps)(App);

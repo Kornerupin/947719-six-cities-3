@@ -1,6 +1,26 @@
-import Main from './main';
+import OfferDetail from './offer-detail';
 
-const offersMock = [
+const offerObject = {
+  id: 1,
+  city: `Amsterdam`,
+  image: [
+    `img/apartment-01.jpg`
+  ],
+  type: `Apartment`,
+  price: `80`,
+  rating: 3.1,
+  name: `Beautiful &amp; luxurious apartment at great location`,
+  coordinates: [52.3909553943508, 4.85309666406198],
+  reviews: [{
+    avatar: `https://api.adorable.io/avatars/128/0.9912918678423135`,
+    name: `Max`,
+    rating: 4.1,
+    text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+    time: 1569006474313
+  }]
+};
+
+const offersArray = [
   {
     id: 1,
     city: `Amsterdam`,
@@ -11,7 +31,7 @@ const offersMock = [
     price: `80`,
     rating: 3.1,
     name: `Beautiful &amp; luxurious apartment at great location`,
-    coords: [52.3909553943508, 4.85309666406198],
+    coordinates: [52.3909553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.9912918678423135`,
       name: `Max`,
@@ -28,7 +48,7 @@ const offersMock = [
     price: `132`,
     rating: 1.8,
     name: `Wood and stone place`,
-    coords: [52.369553943508, 4.85309666406198],
+    coordinates: [52.369553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.3963321309597061`,
       name: `Wax`,
@@ -38,27 +58,8 @@ const offersMock = [
     }]
   }];
 
-it(`Expected an Array`, () => {
-  shallow(<Main
-    offers={offersMock}
-    onOfferMouseOver={() => { }}
-    onOfferNameClick={() => { }}
-  />);
+it(`<OfferDetail /> should render detail offer`, () => {
+  const tree = renderer.create(<OfferDetail offer={offerObject} offers={offersArray} onOfferNameClick={() => { }} activeCoordinate={[0, 0]} />).toJSON();
 
-  offersMock.map((offer) => {
-    expect(offer).toEqual(
-        expect.objectContaining({
-          id: expect.any(Number),
-          city: expect.any(String),
-          image: expect.arrayContaining([expect.any(String)]),
-          type: expect.any(String),
-          price: expect.any(String),
-          rating: expect.any(Number),
-          name: expect.any(String),
-          coords: expect.arrayContaining([expect.anything()]),
-          reviews: expect.arrayContaining([expect.anything()]),
-        })
-    );
-  });
-
+  expect(tree).toMatchSnapshot();
 });

@@ -1,9 +1,10 @@
 import Offer from "../offer/offer";
-import { OptionType } from '../../consts';
+import {OptionType} from '../../consts';
+import {OfferProperties} from "../../proptypes/properties";
 
-const getSortedOffers = (offers, currentOption) => {
-  switch (currentOption) {
-    case OptionType.LOW_TO_HIGH:      
+const getSortedOffers = (offers, currentSortOption) => {
+  switch (currentSortOption) {
+    case OptionType.LOW_TO_HIGH:
       return offers.slice().sort((a, b) => a.price - b.price);
     case OptionType.HIGH_TO_LOW:
       return offers.slice().sort((a, b) => b.price - a.price);
@@ -14,24 +15,27 @@ const getSortedOffers = (offers, currentOption) => {
   return offers;
 };
 
-const OffersList = ({
-  offers,
-  onOfferMouseOver,
-  onOfferNameClick,
-  currentOption
-}) => {
-  
-  return getSortedOffers(offers, currentOption).map((offer, index) => <Offer
+const OffersList = (props) => {
+
+  const {
+    offers,
+    onOfferMouseOver,
+    onOfferNameClick,
+    currentSortOption
+  } = props;
+
+  const sortedOffers = getSortedOffers(offers, currentSortOption);
+
+  return sortedOffers.map((offer, index) => <Offer
     key={`offer-${index}`}
     offer={offer}
-    offers={offers}
     onOfferMouseOver={onOfferMouseOver}
     onOfferNameClick={onOfferNameClick} />
   );
 };
 
 OffersList.propTypes = {
-  offers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired
 };

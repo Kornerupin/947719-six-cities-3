@@ -1,28 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OfferDetail /> Should render detail offer 1`] = `
+exports[`<OfferDetail /> should render detail offer 1`] = `
 <div
-  classNameName="page"
+  className="page"
 >
   <header
-    classNameName="header"
+    className="header"
   >
     <div
-      classNameName="container"
+      className="container"
     >
       <div
-        classNameName="header__wrapper"
+        className="header__wrapper"
       >
         <div
-          classNameName="header__left"
+          className="header__left"
         >
           <a
-            classNameName="header__logo-link"
+            className="header__logo-link"
             href="/"
           >
             <img
               alt="6 cities logo"
-              classNameName="header__logo"
+              className="header__logo"
               height={41}
               src="img/logo.svg"
               width={81}
@@ -30,23 +30,23 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
           </a>
         </div>
         <nav
-          classNameName="header__nav"
+          className="header__nav"
         >
           <ul
-            classNameName="header__nav-list"
+            className="header__nav-list"
           >
             <li
-              classNameName="header__nav-item user"
+              className="header__nav-item user"
             >
               <a
-                classNameName="header__nav-link header__nav-link--profile"
+                className="header__nav-link header__nav-link--profile"
                 href="#"
               >
                 <div
-                  classNameName="header__avatar-wrapper user__avatar-wrapper"
+                  className="header__avatar-wrapper user__avatar-wrapper"
                 />
                 <span
-                  classNameName="header__user-name user__name"
+                  className="header__user-name user__name"
                 >
                   Oliver.conner@gmail.com
                 </span>
@@ -58,100 +58,100 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
     </div>
   </header>
   <main
-    classNameName="page__main page__main--property"
+    className="page__main page__main--property"
   >
     <section
-      classNameName="property"
+      className="property"
     >
       <div
-        classNameName="property__gallery-container container"
+        className="property__gallery-container container"
       >
         <div
-          classNameName="property__gallery"
+          className="property__gallery"
         >
           <div
-            classNameName="property__image-wrapper"
+            className="property__image-wrapper"
           >
             <img
               alt="Photo studio"
-              classNameName="property__image"
+              className="property__image"
               src="img/room.jpg"
             />
           </div>
           <div
-            classNameName="property__image-wrapper"
+            className="property__image-wrapper"
           >
             <img
               alt="Photo studio"
-              classNameName="property__image"
+              className="property__image"
               src="img/apartment-01.jpg"
             />
           </div>
           <div
-            classNameName="property__image-wrapper"
+            className="property__image-wrapper"
           >
             <img
               alt="Photo studio"
-              classNameName="property__image"
+              className="property__image"
               src="img/apartment-02.jpg"
             />
           </div>
           <div
-            classNameName="property__image-wrapper"
+            className="property__image-wrapper"
           >
             <img
               alt="Photo studio"
-              classNameName="property__image"
+              className="property__image"
               src="img/apartment-03.jpg"
             />
           </div>
           <div
-            classNameName="property__image-wrapper"
+            className="property__image-wrapper"
           >
             <img
               alt="Photo studio"
-              classNameName="property__image"
+              className="property__image"
               src="img/studio-01.jpg"
             />
           </div>
           <div
-            classNameName="property__image-wrapper"
+            className="property__image-wrapper"
           >
             <img
               alt="Photo studio"
-              classNameName="property__image"
+              className="property__image"
               src="img/apartment-01.jpg"
             />
           </div>
         </div>
       </div>
       <div
-        classNameName="property__container container"
+        className="property__container container"
       >
         <div
-          classNameName="property__wrapper"
+          className="property__wrapper"
         >
           <div
-            classNameName="property__mark"
+            className="property__mark"
           >
             <span>
               Premium
             </span>
           </div>
           <div
-            classNameName="property__name-wrapper"
+            className="property__name-wrapper"
           >
             <h1
-              classNameName="property__name"
+              className="property__name"
             >
               Beautiful &amp; luxurious apartment at great location
             </h1>
             <button
-              classNameName="property__bookmark-button button"
+              className="property__bookmark-button button"
               type="button"
             >
               <svg
-                classNameName="property__bookmark-icon"
+                className="property__bookmark-icon"
                 height={33}
                 width={31}
               >
@@ -160,17 +160,17 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                 />
               </svg>
               <span
-                classNameName="visually-hidden"
+                className="visually-hidden"
               >
                 To bookmarks
               </span>
             </button>
           </div>
           <div
-            classNameName="property__rating rating"
+            className="property__rating rating"
           >
             <div
-              classNameName="property__stars rating__stars"
+              className="property__stars rating__stars"
             >
               <span
                 style={
@@ -180,204 +180,204 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                 }
               />
               <span
-                classNameName="visually-hidden"
+                className="visually-hidden"
               >
                 Rating
               </span>
             </div>
             <span
-              classNameName="property__rating-value rating__value"
+              className="property__rating-value rating__value"
             >
               3.1
             </span>
           </div>
           <ul
-            classNameName="property__features"
+            className="property__features"
           >
             <li
-              classNameName="property__feature property__feature--entire"
+              className="property__feature property__feature--entire"
             >
               Apartment
             </li>
             <li
-              classNameName="property__feature property__feature--bedrooms"
+              className="property__feature property__feature--bedrooms"
             >
               3 Bedrooms
             </li>
             <li
-              classNameName="property__feature property__feature--adults"
+              className="property__feature property__feature--adults"
             >
               Max 4 adults
             </li>
           </ul>
           <div
-            classNameName="property__price"
+            className="property__price"
           >
             <b
-              classNameName="property__price-value"
+              className="property__price-value"
             >
               €
               80
             </b>
             <span
-              classNameName="property__price-text"
+              className="property__price-text"
             >
                night
             </span>
           </div>
           <div
-            classNameName="property__inside"
+            className="property__inside"
           >
             <h2
-              classNameName="property__inside-title"
+              className="property__inside-title"
             >
               What's inside
             </h2>
             <ul
-              classNameName="property__inside-list"
+              className="property__inside-list"
             >
               <li
-                classNameName="property__inside-item"
+                className="property__inside-item"
               >
                 Wi-Fi
               </li>
               <li
-                classNameName="property__inside-item"
+                className="property__inside-item"
               >
                 Washing machine
               </li>
               <li
-                classNameName="property__inside-item"
+                className="property__inside-item"
               >
                 Towels
               </li>
               <li
-                classNameName="property__inside-item"
+                className="property__inside-item"
               >
                 Heating
               </li>
               <li
-                classNameName="property__inside-item"
+                className="property__inside-item"
               >
                 Coffee machine
               </li>
               <li
-                classNameName="property__inside-item"
+                className="property__inside-item"
               >
                 Baby seat
               </li>
               <li
-                classNameName="property__inside-item"
+                className="property__inside-item"
               >
                 Kitchen
               </li>
               <li
-                classNameName="property__inside-item"
+                className="property__inside-item"
               >
                 Dishwasher
               </li>
               <li
-                classNameName="property__inside-item"
+                className="property__inside-item"
               >
                 Cabel TV
               </li>
               <li
-                classNameName="property__inside-item"
+                className="property__inside-item"
               >
                 Fridge
               </li>
             </ul>
           </div>
           <div
-            classNameName="property__host"
+            className="property__host"
           >
             <h2
-              classNameName="property__host-title"
+              className="property__host-title"
             >
               Meet the host
             </h2>
             <div
-              classNameName="property__host-user user"
+              className="property__host-user user"
             >
               <div
-                classNameName="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper"
+                className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper"
               >
                 <img
                   alt="Host avatar"
-                  classNameName="property__avatar user__avatar"
+                  className="property__avatar user__avatar"
                   height={74}
                   src="img/avatar-angelina.jpg"
                   width={74}
                 />
               </div>
               <span
-                classNameName="property__user-name"
+                className="property__user-name"
               >
                 Angelina
               </span>
             </div>
             <div
-              classNameName="property__description"
+              className="property__description"
             >
               <p
-                classNameName="property__text"
+                className="property__text"
               >
                 A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
               </p>
               <p
-                classNameName="property__text"
+                className="property__text"
               >
                 An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
               </p>
             </div>
           </div>
           <section
-            classNameName="property__reviews reviews"
+            className="property__reviews reviews"
           >
             <h2
-              classNameName="reviews__title"
+              className="reviews__title"
             >
               Reviews · 
               <span
-                classNameName="reviews__amount"
+                className="reviews__amount"
               >
                 1
               </span>
             </h2>
             <ul
-              classNameName="reviews__list"
+              className="reviews__list"
             >
               <li
-                classNameName="reviews__item"
+                className="reviews__item"
               >
                 <div
-                  classNameName="reviews__user user"
+                  className="reviews__user user"
                 >
                   <div
-                    classNameName="reviews__avatar-wrapper user__avatar-wrapper"
+                    className="reviews__avatar-wrapper user__avatar-wrapper"
                   >
                     <img
                       alt="Reviews avatar"
-                      classNameName="reviews__avatar user__avatar"
+                      className="reviews__avatar user__avatar"
                       height={54}
                       src="https://api.adorable.io/avatars/128/0.9912918678423135"
                       width={54}
                     />
                   </div>
                   <span
-                    classNameName="reviews__user-name"
+                    className="reviews__user-name"
                   >
                     Max
                   </span>
                 </div>
                 <div
-                  classNameName="reviews__info"
+                  className="reviews__info"
                 >
                   <div
-                    classNameName="reviews__rating rating"
+                    className="reviews__rating rating"
                   >
                     <div
-                      classNameName="reviews__stars rating__stars"
+                      className="reviews__stars rating__stars"
                     >
                       <span
                         style={
@@ -387,19 +387,19 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                         }
                       />
                       <span
-                        classNameName="visually-hidden"
+                        className="visually-hidden"
                       >
                         Rating
                       </span>
                     </div>
                   </div>
                   <p
-                    classNameName="reviews__text"
+                    className="reviews__text"
                   >
                     A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
                   </p>
                   <time
-                    classNameName="reviews__time"
+                    className="reviews__time"
                     dateTime="2019-04-24"
                   >
                     September 20, 2019
@@ -409,32 +409,32 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
             </ul>
             <form
               action="#"
-              classNameName="reviews__form form"
+              className="reviews__form form"
               method="post"
             >
               <label
-                classNameName="reviews__label form__label"
+                className="reviews__label form__label"
                 htmlFor="review"
               >
                 Your review
               </label>
               <div
-                classNameName="reviews__rating-form form__rating"
+                className="reviews__rating-form form__rating"
               >
                 <input
-                  classNameName="form__rating-input visually-hidden"
+                  className="form__rating-input visually-hidden"
                   defaultValue={5}
                   id="5-stars"
                   name="rating"
                   type="radio"
                 />
                 <label
-                  classNameName="reviews__rating-label form__rating-label"
+                  className="reviews__rating-label form__rating-label"
                   htmlFor="5-stars"
                   title="perfect"
                 >
                   <svg
-                    classNameName="form__star-image"
+                    className="form__star-image"
                     height={33}
                     width={37}
                   >
@@ -444,19 +444,19 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                   </svg>
                 </label>
                 <input
-                  classNameName="form__rating-input visually-hidden"
+                  className="form__rating-input visually-hidden"
                   defaultValue={4}
                   id="4-stars"
                   name="rating"
                   type="radio"
                 />
                 <label
-                  classNameName="reviews__rating-label form__rating-label"
+                  className="reviews__rating-label form__rating-label"
                   htmlFor="4-stars"
                   title="good"
                 >
                   <svg
-                    classNameName="form__star-image"
+                    className="form__star-image"
                     height={33}
                     width={37}
                   >
@@ -466,19 +466,19 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                   </svg>
                 </label>
                 <input
-                  classNameName="form__rating-input visually-hidden"
+                  className="form__rating-input visually-hidden"
                   defaultValue={3}
                   id="3-stars"
                   name="rating"
                   type="radio"
                 />
                 <label
-                  classNameName="reviews__rating-label form__rating-label"
+                  className="reviews__rating-label form__rating-label"
                   htmlFor="3-stars"
                   title="not bad"
                 >
                   <svg
-                    classNameName="form__star-image"
+                    className="form__star-image"
                     height={33}
                     width={37}
                   >
@@ -488,19 +488,19 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                   </svg>
                 </label>
                 <input
-                  classNameName="form__rating-input visually-hidden"
+                  className="form__rating-input visually-hidden"
                   defaultValue={2}
                   id="2-stars"
                   name="rating"
                   type="radio"
                 />
                 <label
-                  classNameName="reviews__rating-label form__rating-label"
+                  className="reviews__rating-label form__rating-label"
                   htmlFor="2-stars"
                   title="badly"
                 >
                   <svg
-                    classNameName="form__star-image"
+                    className="form__star-image"
                     height={33}
                     width={37}
                   >
@@ -510,19 +510,19 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                   </svg>
                 </label>
                 <input
-                  classNameName="form__rating-input visually-hidden"
+                  className="form__rating-input visually-hidden"
                   defaultValue={1}
                   id="1-star"
                   name="rating"
                   type="radio"
                 />
                 <label
-                  classNameName="reviews__rating-label form__rating-label"
+                  className="reviews__rating-label form__rating-label"
                   htmlFor="1-star"
                   title="terribly"
                 >
                   <svg
-                    classNameName="form__star-image"
+                    className="form__star-image"
                     height={33}
                     width={37}
                   >
@@ -533,34 +533,34 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                 </label>
               </div>
               <textarea
-                classNameName="reviews__textarea form__textarea"
+                className="reviews__textarea form__textarea"
                 defaultValue=""
                 id="review"
                 name="review"
                 placeholder="Tell how was your stay, what you like and what can be improved"
               />
               <div
-                classNameName="reviews__button-wrapper"
+                className="reviews__button-wrapper"
               >
                 <p
-                  classNameName="reviews__help"
+                  className="reviews__help"
                 >
                   To submit review please make sure to set 
                   <span
-                    classNameName="reviews__star"
+                    className="reviews__star"
                   >
                     rating
                   </span>
                    and describe your stay with at least 
                   <b
-                    classNameName="reviews__text-amount"
+                    className="reviews__text-amount"
                   >
                     50 characters
                   </b>
                   .
                 </p>
                 <button
-                  classNameName="reviews__submit form__submit button"
+                  className="reviews__submit form__submit button"
                   disabled={true}
                   type="submit"
                 >
@@ -572,7 +572,7 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
         </div>
       </div>
       <section
-        classNameName="property__map map"
+        className="property__map map"
       >
         <div
           id="map"
@@ -584,32 +584,33 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
         />
       </section>
       <div
-        classNameName="container"
+        className="container"
       >
         <section
-          classNameName="near-places places"
+          className="near-places places"
         >
           <h2
-            classNameName="near-places__title"
+            className="near-places__title"
           >
             Other places in the neighbourhood
           </h2>
           <div
-            classNameName="near-places__list places__list"
+            className="near-places__list places__list"
           >
             <article
-              classNameName="cities__place-card place-card"
+              className="cities__place-card place-card"
+              onMouseLeave={[Function]}
               onMouseOver={[Function]}
             >
               <div
-                classNameName="cities__image-wrapper place-card__image-wrapper"
+                className="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
                 >
                   <img
                     alt="Place image"
-                    classNameName="place-card__image"
+                    className="place-card__image"
                     height="200"
                     src="img/apartment-01.jpg"
                     width="260"
@@ -617,32 +618,32 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                 </a>
               </div>
               <div
-                classNameName="place-card__info"
+                className="place-card__info"
               >
                 <div
-                  classNameName="place-card__price-wrapper"
+                  className="place-card__price-wrapper"
                 >
                   <div
-                    classNameName="place-card__price"
+                    className="place-card__price"
                   >
                     <b
-                      classNameName="place-card__price-value"
+                      className="place-card__price-value"
                     >
                       €
                       80
                     </b>
                     <span
-                      classNameName="place-card__price-text"
+                      className="place-card__price-text"
                     >
                       / night
                     </span>
                   </div>
                   <button
-                    classNameName="place-card__bookmark-button place-card__bookmark-button--active button"
+                    className="place-card__bookmark-button place-card__bookmark-button--active button"
                     type="button"
                   >
                     <svg
-                      classNameName="place-card__bookmark-icon"
+                      className="place-card__bookmark-icon"
                       height="19"
                       id="icon-bookmark"
                       viewBox="0 0 17 18"
@@ -653,17 +654,17 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                       />
                     </svg>
                     <span
-                      classNameName="visually-hidden"
+                      className="visually-hidden"
                     >
                       In bookmarks
                     </span>
                   </button>
                 </div>
                 <div
-                  classNameName="place-card__rating rating"
+                  className="place-card__rating rating"
                 >
                   <div
-                    classNameName="place-card__stars rating__stars"
+                    className="place-card__stars rating__stars"
                   >
                     <span
                       style={
@@ -673,14 +674,14 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                       }
                     />
                     <span
-                      classNameName="visually-hidden"
+                      className="visually-hidden"
                     >
                       Rating
                     </span>
                   </div>
                 </div>
                 <h2
-                  classNameName="place-card__name"
+                  className="place-card__name"
                   onClick={[Function]}
                 >
                   <a
@@ -690,25 +691,26 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                   </a>
                 </h2>
                 <p
-                  classNameName="place-card__type"
+                  className="place-card__type"
                 >
                   Apartment
                 </p>
               </div>
             </article>
             <article
-              classNameName="cities__place-card place-card"
+              className="cities__place-card place-card"
+              onMouseLeave={[Function]}
               onMouseOver={[Function]}
             >
               <div
-                classNameName="cities__image-wrapper place-card__image-wrapper"
+                className="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
                 >
                   <img
                     alt="Place image"
-                    classNameName="place-card__image"
+                    className="place-card__image"
                     height="200"
                     src="img/room.jpg"
                     width="260"
@@ -716,32 +718,32 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                 </a>
               </div>
               <div
-                classNameName="place-card__info"
+                className="place-card__info"
               >
                 <div
-                  classNameName="place-card__price-wrapper"
+                  className="place-card__price-wrapper"
                 >
                   <div
-                    classNameName="place-card__price"
+                    className="place-card__price"
                   >
                     <b
-                      classNameName="place-card__price-value"
+                      className="place-card__price-value"
                     >
                       €
                       132
                     </b>
                     <span
-                      classNameName="place-card__price-text"
+                      className="place-card__price-text"
                     >
                       / night
                     </span>
                   </div>
                   <button
-                    classNameName="place-card__bookmark-button place-card__bookmark-button--active button"
+                    className="place-card__bookmark-button place-card__bookmark-button--active button"
                     type="button"
                   >
                     <svg
-                      classNameName="place-card__bookmark-icon"
+                      className="place-card__bookmark-icon"
                       height="19"
                       id="icon-bookmark"
                       viewBox="0 0 17 18"
@@ -752,17 +754,17 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                       />
                     </svg>
                     <span
-                      classNameName="visually-hidden"
+                      className="visually-hidden"
                     >
                       In bookmarks
                     </span>
                   </button>
                 </div>
                 <div
-                  classNameName="place-card__rating rating"
+                  className="place-card__rating rating"
                 >
                   <div
-                    classNameName="place-card__stars rating__stars"
+                    className="place-card__stars rating__stars"
                   >
                     <span
                       style={
@@ -772,14 +774,14 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                       }
                     />
                     <span
-                      classNameName="visually-hidden"
+                      className="visually-hidden"
                     >
                       Rating
                     </span>
                   </div>
                 </div>
                 <h2
-                  classNameName="place-card__name"
+                  className="place-card__name"
                   onClick={[Function]}
                 >
                   <a
@@ -789,7 +791,7 @@ exports[`<OfferDetail /> Should render detail offer 1`] = `
                   </a>
                 </h2>
                 <p
-                  classNameName="place-card__type"
+                  className="place-card__type"
                 >
                   Private room
                 </p>

@@ -7,7 +7,7 @@ const getFormatDate = (utc) => {
   return `${date.toLocaleString(`default`, {month: `long`})} ${date.getDate()}, ${date.getFullYear()}`;
 };
 
-const Reviews = ({review}) => {
+const Review = ({review}) => {
   const {avatar, name, rating, text, time} = review;
 
   return (<>
@@ -37,8 +37,8 @@ const Reviews = ({review}) => {
   );
 };
 
-Reviews.propTypes = {
+Review.propTypes = {
   review: (PropTypes.shape(ReviewProperties))
 };
 
-export default Reviews;
+export default Review;

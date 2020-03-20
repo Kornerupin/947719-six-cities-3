@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Main /> should render offers 1`] = `
+exports[`<Main /> should render <Offers /> 1`] = `
 <div
-  classNameName="page page--gray page--main"
+  className="page page--gray page--main"
 >
   <header
-    classNameName="header"
+    className="header"
   >
     <div
-      classNameName="container"
+      className="container"
     >
       <div
-        classNameName="header__wrapper"
+        className="header__wrapper"
       >
         <div
-          classNameName="header__left"
+          className="header__left"
         >
           <a
-            classNameName="header__logo-link header__logo-link--active"
+            className="header__logo-link header__logo-link--active"
           >
             <img
               alt="6 cities logo"
-              classNameName="header__logo"
+              className="header__logo"
               height="41"
               src="img/logo.svg"
               width="81"
@@ -29,23 +29,23 @@ exports[`<Main /> should render offers 1`] = `
           </a>
         </div>
         <nav
-          classNameName="header__nav"
+          className="header__nav"
         >
           <ul
-            classNameName="header__nav-list"
+            className="header__nav-list"
           >
             <li
-              classNameName="header__nav-item user"
+              className="header__nav-item user"
             >
               <a
-                classNameName="header__nav-link header__nav-link--profile"
+                className="header__nav-link header__nav-link--profile"
                 href="#"
               >
                 <div
-                  classNameName="header__avatar-wrapper user__avatar-wrapper"
+                  className="header__avatar-wrapper user__avatar-wrapper"
                 />
                 <span
-                  classNameName="header__user-name user__name"
+                  className="header__user-name user__name"
                 >
                   Oliver.conner@gmail.com
                 </span>
@@ -57,97 +57,97 @@ exports[`<Main /> should render offers 1`] = `
     </div>
   </header>
   <main
-    classNameName="page__main page__main--index true"
+    className="page__main page__main--index true"
   >
     <h1
-      classNameName="visually-hidden"
+      className="visually-hidden"
     >
       Cities
     </h1>
     <div
-      classNameName="tabs"
+      className="tabs"
     >
       <section
-        classNameName="locations container"
+        className="locations container"
       >
         <ul
-          classNameName="locations__list tabs__list"
+          className="locations__list tabs__list"
         >
           <li
-            classNameName="locations__item"
+            className="locations__item"
           >
             <a
-              classNameName="locations__item-link tabs__item"
+              className="locations__item-link tabs__item"
               href="#"
               onClick={[Function]}
             >
               <span>
-                Paris
+                Dusseldorf
               </span>
             </a>
           </li>
           <li
-            classNameName="locations__item"
+            className="locations__item"
           >
             <a
-              classNameName="locations__item-link tabs__item"
+              className="locations__item-link tabs__item"
               href="#"
               onClick={[Function]}
             >
               <span>
-                Cologne
+                Berlin
               </span>
             </a>
           </li>
           <li
-            classNameName="locations__item"
+            className="locations__item"
           >
             <a
-              classNameName="locations__item-link tabs__item"
+              className="locations__item-link tabs__item"
+              href="#"
+              onClick={[Function]}
+            >
+              <span>
+                Rome
+              </span>
+            </a>
+          </li>
+          <li
+            className="locations__item"
+          >
+            <a
+              className="locations__item-link tabs__item"
+              href="#"
+              onClick={[Function]}
+            >
+              <span>
+                Prague
+              </span>
+            </a>
+          </li>
+          <li
+            className="locations__item"
+          >
+            <a
+              className="locations__item-link tabs__item"
+              href="#"
+              onClick={[Function]}
+            >
+              <span>
+                Vienna
+              </span>
+            </a>
+          </li>
+          <li
+            className="locations__item"
+          >
+            <a
+              className="locations__item-link tabs__item"
               href="#"
               onClick={[Function]}
             >
               <span>
                 Brussels
-              </span>
-            </a>
-          </li>
-          <li
-            classNameName="locations__item"
-          >
-            <a
-              classNameName="locations__item-link tabs__item"
-              href="#"
-              onClick={[Function]}
-            >
-              <span>
-                Amsterdam
-              </span>
-            </a>
-          </li>
-          <li
-            classNameName="locations__item"
-          >
-            <a
-              classNameName="locations__item-link tabs__item"
-              href="#"
-              onClick={[Function]}
-            >
-              <span>
-                Brussels
-              </span>
-            </a>
-          </li>
-          <li
-            classNameName="locations__item"
-          >
-            <a
-              classNameName="locations__item-link tabs__item"
-              href="#"
-              onClick={[Function]}
-            >
-              <span>
-                Hamburg
               </span>
             </a>
           </li>
@@ -155,40 +155,104 @@ exports[`<Main /> should render offers 1`] = `
       </section>
     </div>
     <div
-      classNameName="cities"
+      className="cities"
     >
       <div
-        classNameName="cities__places-container container"
+        className="cities__places-container container"
       >
         <section
-          classNameName="cities__places places"
+          className="cities__places places"
         >
           <h2
-            classNameName="visually-hidden"
+            className="visually-hidden"
           >
             Places
           </h2>
           <b
-            classNameName="places__found"
+            className="places__found"
           >
-            2 places to stay in Amsterdam
+            2 places to stay in Dusseldorf
           </b>
+          <form
+            action=""
+            className="places__sorting"
+            method="get"
+          >
+            <span
+              className="places__sorting-caption"
+            >
+              Sort by 
+            </span>
+            <span
+              className="places__sorting-type"
+              onClick={[Function]}
+              tabIndex={0}
+            >
+              Popular
+              <svg
+                className="places__sorting-arrow"
+                height={4}
+                width={7}
+              >
+                <use
+                  xlinkHref="#icon-arrow-select"
+                />
+              </svg>
+            </span>
+            <ul
+              className="places__options places__options--custom false"
+            >
+              <li
+                className="places__option places__option--active"
+                onClick={[Function]}
+                onMouseOver={[Function]}
+                tabIndex={0}
+              >
+                Popular
+              </li>
+              <li
+                className="places__option false"
+                onClick={[Function]}
+                onMouseOver={[Function]}
+                tabIndex={0}
+              >
+                Price: low to high
+              </li>
+              <li
+                className="places__option false"
+                onClick={[Function]}
+                onMouseOver={[Function]}
+                tabIndex={0}
+              >
+                Price: high to low
+              </li>
+              <li
+                className="places__option false"
+                onClick={[Function]}
+                onMouseOver={[Function]}
+                tabIndex={0}
+              >
+                Top rated first
+              </li>
+            </ul>
+          </form>
           <div
-            classNameName="cities__places-list places__list tabs__content"
+            className="cities__places-list places__list tabs__content"
           >
             <article
-              classNameName="cities__place-card place-card"
+              className="cities__place-card place-card"
+              onMouseLeave={[Function]}
               onMouseOver={[Function]}
             >
               <div
-                classNameName="cities__image-wrapper place-card__image-wrapper"
+                className="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
                 >
                   <img
                     alt="Place image"
-                    classNameName="place-card__image"
+                    className="place-card__image"
                     height="200"
                     src="img/apartment-01.jpg"
                     width="260"
@@ -196,32 +260,32 @@ exports[`<Main /> should render offers 1`] = `
                 </a>
               </div>
               <div
-                classNameName="place-card__info"
+                className="place-card__info"
               >
                 <div
-                  classNameName="place-card__price-wrapper"
+                  className="place-card__price-wrapper"
                 >
                   <div
-                    classNameName="place-card__price"
+                    className="place-card__price"
                   >
                     <b
-                      classNameName="place-card__price-value"
+                      className="place-card__price-value"
                     >
                       €
                       80
                     </b>
                     <span
-                      classNameName="place-card__price-text"
+                      className="place-card__price-text"
                     >
                       / night
                     </span>
                   </div>
                   <button
-                    classNameName="place-card__bookmark-button place-card__bookmark-button--active button"
+                    className="place-card__bookmark-button place-card__bookmark-button--active button"
                     type="button"
                   >
                     <svg
-                      classNameName="place-card__bookmark-icon"
+                      className="place-card__bookmark-icon"
                       height="19"
                       id="icon-bookmark"
                       viewBox="0 0 17 18"
@@ -232,17 +296,17 @@ exports[`<Main /> should render offers 1`] = `
                       />
                     </svg>
                     <span
-                      classNameName="visually-hidden"
+                      className="visually-hidden"
                     >
                       In bookmarks
                     </span>
                   </button>
                 </div>
                 <div
-                  classNameName="place-card__rating rating"
+                  className="place-card__rating rating"
                 >
                   <div
-                    classNameName="place-card__stars rating__stars"
+                    className="place-card__stars rating__stars"
                   >
                     <span
                       style={
@@ -252,14 +316,14 @@ exports[`<Main /> should render offers 1`] = `
                       }
                     />
                     <span
-                      classNameName="visually-hidden"
+                      className="visually-hidden"
                     >
                       Rating
                     </span>
                   </div>
                 </div>
                 <h2
-                  classNameName="place-card__name"
+                  className="place-card__name"
                   onClick={[Function]}
                 >
                   <a
@@ -269,25 +333,26 @@ exports[`<Main /> should render offers 1`] = `
                   </a>
                 </h2>
                 <p
-                  classNameName="place-card__type"
+                  className="place-card__type"
                 >
                   Apartment
                 </p>
               </div>
             </article>
             <article
-              classNameName="cities__place-card place-card"
+              className="cities__place-card place-card"
+              onMouseLeave={[Function]}
               onMouseOver={[Function]}
             >
               <div
-                classNameName="cities__image-wrapper place-card__image-wrapper"
+                className="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
                 >
                   <img
                     alt="Place image"
-                    classNameName="place-card__image"
+                    className="place-card__image"
                     height="200"
                     src="img/room.jpg"
                     width="260"
@@ -295,32 +360,32 @@ exports[`<Main /> should render offers 1`] = `
                 </a>
               </div>
               <div
-                classNameName="place-card__info"
+                className="place-card__info"
               >
                 <div
-                  classNameName="place-card__price-wrapper"
+                  className="place-card__price-wrapper"
                 >
                   <div
-                    classNameName="place-card__price"
+                    className="place-card__price"
                   >
                     <b
-                      classNameName="place-card__price-value"
+                      className="place-card__price-value"
                     >
                       €
                       132
                     </b>
                     <span
-                      classNameName="place-card__price-text"
+                      className="place-card__price-text"
                     >
                       / night
                     </span>
                   </div>
                   <button
-                    classNameName="place-card__bookmark-button place-card__bookmark-button--active button"
+                    className="place-card__bookmark-button place-card__bookmark-button--active button"
                     type="button"
                   >
                     <svg
-                      classNameName="place-card__bookmark-icon"
+                      className="place-card__bookmark-icon"
                       height="19"
                       id="icon-bookmark"
                       viewBox="0 0 17 18"
@@ -331,17 +396,17 @@ exports[`<Main /> should render offers 1`] = `
                       />
                     </svg>
                     <span
-                      classNameName="visually-hidden"
+                      className="visually-hidden"
                     >
                       In bookmarks
                     </span>
                   </button>
                 </div>
                 <div
-                  classNameName="place-card__rating rating"
+                  className="place-card__rating rating"
                 >
                   <div
-                    classNameName="place-card__stars rating__stars"
+                    className="place-card__stars rating__stars"
                   >
                     <span
                       style={
@@ -351,14 +416,14 @@ exports[`<Main /> should render offers 1`] = `
                       }
                     />
                     <span
-                      classNameName="visually-hidden"
+                      className="visually-hidden"
                     >
                       Rating
                     </span>
                   </div>
                 </div>
                 <h2
-                  classNameName="place-card__name"
+                  className="place-card__name"
                   onClick={[Function]}
                 >
                   <a
@@ -368,7 +433,7 @@ exports[`<Main /> should render offers 1`] = `
                   </a>
                 </h2>
                 <p
-                  classNameName="place-card__type"
+                  className="place-card__type"
                 >
                   Private room
                 </p>
@@ -377,10 +442,10 @@ exports[`<Main /> should render offers 1`] = `
           </div>
         </section>
         <div
-          classNameName="cities__right-section"
+          className="cities__right-section"
         >
           <section
-            classNameName="cities__map map"
+            className="cities__map map"
           >
             <div
               id="map"

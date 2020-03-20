@@ -1,17 +1,19 @@
 import OffersList from "../offers-list/offers-list";
 import OffersSort from "../offers-sort/offers-sort";
+import withToggleSort from '../../hocs/with-toggle-sort/with-toogle-sort';
 import Map from "../map/map";
+import {OfferProperties} from '../../proptypes/properties';
+
+const OffersSortWithToggle = withToggleSort(OffersSort);
 
 const OffersContainer = ({
   offers,
   city,
-  activePin,
+  activeCoordinate,
   onOfferMouseOver,
   onOfferNameClick,
-  onSortClick,
-  isSortOpened,
   onSortOptionClick,
-  currentOption
+  currentSortOption
 }) => {
 
   return (
@@ -22,11 +24,9 @@ const OffersContainer = ({
           {offers.length ? `${offers.length} places to stay in ${city}` : ``}
         </b>
         {
-          <OffersSort
-            onSortClick={onSortClick}
-            isSortOpened={isSortOpened}
+          <OffersSortWithToggle
             onSortOptionClick={onSortOptionClick}
-            currentOption={currentOption}
+            currentSortOption={currentSortOption}
           />
         }
         <div className="cities__places-list places__list tabs__content">
@@ -35,7 +35,7 @@ const OffersContainer = ({
               offers={offers}
               onOfferNameClick={onOfferNameClick}
               onOfferMouseOver={onOfferMouseOver}
-              currentOption={currentOption}
+              currentSortOption={currentSortOption}
             />
           }
         </div>
@@ -46,9 +46,9 @@ const OffersContainer = ({
           {
             offers.length ?
               <Map
-                coordinates={offers ? offers.map((offer) => offer.coords) : []}
-                currentCoordinates={[]}
-                activePin={activePin ? activePin : null} />
+                coordinates={offers ? offers.map((offer) => offer.coordinates) : []}
+                currentCoordinate={[]}
+                activeCoordinate={activeCoordinate ? activeCoordinate : null} />
               : ``
           }
         </section>
@@ -58,8 +58,13 @@ const OffersContainer = ({
 };
 
 OffersContainer.propTypes = {
-  offers: PropTypes.array.isRequired,
-  onOfferNameClick: PropTypes.func.isRequired
+  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
+  city: PropTypes.string.isRequired,
+  activeCoordinate: PropTypes.array,
+  onOfferMouseOver: PropTypes.func.isRequired,
+  onOfferNameClick: PropTypes.func.isRequired,
+  onSortOptionClick: PropTypes.func.isRequired,
+  currentSortOption: PropTypes.string.isRequired
 };
 
 export default OffersContainer;

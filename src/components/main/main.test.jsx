@@ -1,6 +1,6 @@
-import OffersList from './offers-list';
+import Main from './main';
 
-const offersMock = [
+const offersArray = [
   {
     id: 1,
     city: `Amsterdam`,
@@ -11,7 +11,7 @@ const offersMock = [
     price: `80`,
     rating: 3.1,
     name: `Beautiful &amp; luxurious apartment at great location`,
-    coords: [52.3909553943508, 4.85309666406198],
+    coordinates: [52.3909553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.9912918678423135`,
       name: `Max`,
@@ -28,7 +28,7 @@ const offersMock = [
     price: `132`,
     rating: 1.8,
     name: `Wood and stone place`,
-    coords: [52.369553943508, 4.85309666406198],
+    coordinates: [52.369553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.3963321309597061`,
       name: `Wax`,
@@ -38,11 +38,20 @@ const offersMock = [
     }]
   }];
 
-it(`<OfferList /> Should render list of offers`, () => {
-  const tree = renderer.create(<OfferList
-    offers={offersMock}
-    onOfferMouseOver={() => { }}
-    onOfferNameClick={() => { }}
+it(`<Main /> should render <Offers />`, () => {
+  const tree = renderer.create(<Main
+    offers={offersArray}
+    cities={[`Dusseldorf`, `Berlin`, `Rome`, `Prague`, `Vienna`, `Brussels`]}
+    city={`Dusseldorf`}
+    currentCoordinate={[0, 0]}
+    activeCoordinate={[0, 0]}
+    onOfferMouseOver={() => {}}
+    onOfferNameClick={() => {}}
+    onCityClick={() => {}}
+    onSortClick={() => {}}
+    isSortOpened={false}
+    onSortOptionClick={() => {}}
+    currentSortOption={`Popular`}
   />).toJSON();
 
   expect(tree).toMatchSnapshot();

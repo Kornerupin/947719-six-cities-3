@@ -1,5 +1,4 @@
-import Main from './main';
-import {cities} from '../../mocks/offers';
+import OfferDetail from './offer-detail';
 
 const offersMock = [
   {
@@ -12,7 +11,7 @@ const offersMock = [
     price: `80`,
     rating: 3.1,
     name: `Beautiful &amp; luxurious apartment at great location`,
-    coords: [52.3909553943508, 4.85309666406198],
+    coordinates: [52.3909553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.9912918678423135`,
       name: `Max`,
@@ -29,7 +28,7 @@ const offersMock = [
     price: `132`,
     rating: 1.8,
     name: `Wood and stone place`,
-    coords: [52.369553943508, 4.85309666406198],
+    coordinates: [52.369553943508, 4.85309666406198],
     reviews: [{
       avatar: `https://api.adorable.io/avatars/128/0.3963321309597061`,
       name: `Wax`,
@@ -39,13 +38,28 @@ const offersMock = [
     }]
   }];
 
-it(`<Main /> should render offers`, () => {
-  const tree = renderer.create(<Main
+
+it(`It expect an Object that contains the following properties`, () => {
+
+  shallow(<OfferDetail
     offers={offersMock}
-    cities={cities}
+    offer={offersMock[0]}
+    activeCoordinate={[0, 0]}
     onOfferMouseOver={() => { }}
     onOfferNameClick={() => { }}
-  />).toJSON();
+  />);
 
-  expect(tree).toMatchSnapshot();
+  expect(offersMock[0]).toEqual(
+      expect.objectContaining({
+        id: expect.any(Number),
+        city: expect.any(String),
+        image: expect.arrayContaining([expect.any(String)]),
+        type: expect.any(String),
+        price: expect.any(String),
+        rating: expect.any(Number),
+        name: expect.any(String),
+        coordinates: expect.arrayContaining([expect.anything()]),
+        reviews: expect.arrayContaining([expect.anything()]),
+      })
+  );
 });
