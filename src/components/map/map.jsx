@@ -17,10 +17,11 @@ class Map extends PureComponent {
   constructor(props) {
     super(props);
     this.mapRef = React.createRef();
+    this.markers = leaflet.layerGroup();
   }
 
   componentDidMount() {
-    const { coordinates, currentCoordinate } = this.props;
+    const {coordinates, currentCoordinate} = this.props;
 
     this._map = new leaflet.Map(this.mapRef.current, {
       center: MapSettings.CITY,
@@ -35,29 +36,26 @@ class Map extends PureComponent {
       attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
     }).addTo(this._map);
 
-    this.markers = leaflet.layerGroup();
-
     coordinates.map((coordinate) => {
 
       return (coordinate === currentCoordinate)
-        ? leaflet.marker(coordinate, { icon: MapSettings.ICON_ACTIVE }).addTo(this.markers)
-        : leaflet.marker(coordinate, { icon: MapSettings.ICON }).addTo(this.markers);
+        ? leaflet.marker(coordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this.markers)
+        : leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this.markers);
     });
 
     this.markers.addTo(this._map);
-
   }
 
   componentDidUpdate() {
     this.markers.clearLayers();
 
-    const { coordinates, activeCoordinate } = this.props;
+    const {coordinates, activeCoordinate} = this.props;
 
     coordinates.map((coordinate) => {
 
       return (coordinate === activeCoordinate)
-        ? leaflet.marker(activeCoordinate, { icon: MapSettings.ICON_ACTIVE }).addTo(this.markers)
-        : leaflet.marker(coordinate, { icon: MapSettings.ICON }).addTo(this.markers);
+        ? leaflet.marker(activeCoordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this.markers)
+        : leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this.markers);
     });
 
     this.markers.addTo(this._map);
@@ -70,7 +68,7 @@ class Map extends PureComponent {
   render() {
 
     return (
-      <div id="map" style={{ height: `100%` }} ref={this.mapRef}></div>
+      <div id="map" style={{height: `100%`}} ref={this.mapRef}></div>
     );
   }
 

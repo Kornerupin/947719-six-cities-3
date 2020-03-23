@@ -14,10 +14,10 @@ const Main = ({
   onSortOptionClick,
   currentSortOption
 }) => {
-  
+
   const isOffers = offers ? offers.length > 0 : false;
   const isCity = offers ? false : true;
-  
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -64,7 +64,7 @@ const Main = ({
                 onSortOptionClick={onSortOptionClick}
                 currentSortOption={currentSortOption}
               />
-              : <OffersContainerEmpty city={city} isCity={isCity} /> 
+              : <OffersContainerEmpty city={city} isCity={isCity} />
           }
         </div>
       </main>

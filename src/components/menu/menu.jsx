@@ -1,4 +1,4 @@
-const Menu = ({ cities, onCityClick }) => {
+const Menu = React.memo(function Menu({cities, onCityClick}) {
 
   return (
     <ul className="locations__list tabs__list">
@@ -15,12 +15,12 @@ const Menu = ({ cities, onCityClick }) => {
             </a>
           </li>
         ) : <li className="locations__item">
-          <a style={{ color: 'red' }}>Could not connect to server, please try again in a few minutes</a>
-          </li>
+          <a style={{color: `red`}}>Could not connect to server, please try again in a few minutes</a>
+        </li>
       }
     </ul>
   );
-};
+});
 
 Menu.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string.isRequired),

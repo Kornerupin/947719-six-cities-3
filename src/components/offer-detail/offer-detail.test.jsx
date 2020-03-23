@@ -59,7 +59,18 @@ const offersArray = [
   }];
 
 it(`<OfferDetail /> should render detail offer`, () => {
-  const tree = renderer.create(<OfferDetail offer={offerObject} offers={offersArray} onOfferNameClick={() => { }} activeCoordinate={[0, 0]} />).toJSON();
+  const tree = renderer.create(<OfferDetail
+    offer={offerObject}
+    offers={offersArray}
+    onOfferNameClick={() => { }}
+    activeCoordinate={[0, 0]}
+  />,
+  {
+    createNodeMock: () => {
+      return document.createElement(`div`);
+    }
+  }
+  ).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

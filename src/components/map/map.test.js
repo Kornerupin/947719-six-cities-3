@@ -3,7 +3,7 @@ import Map from './map.jsx';
 it(`<Map/> should render the map`, () => {
   const tree = renderer.create(
       <Map
-        coordinates={[[0, 0], [0, 0], [0, 0], [0, 0]]}
+        coordinates={[[0, 0]]}
         currentCoordinate={[0, 0]}
       />,
       {
@@ -15,4 +15,3 @@ it(`<Map/> should render the map`, () => {
 
   expect(tree).toMatchSnapshot();
 });
-

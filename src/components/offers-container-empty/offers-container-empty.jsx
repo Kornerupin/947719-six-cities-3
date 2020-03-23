@@ -1,5 +1,5 @@
-const OffersContainerEmpty = ({ city, isCity }) => {
-  
+const OffersContainerEmpty = ({city, isCity}) => {
+
   return (
     <div className="cities__places-container cities__places-container--empty container">
       <section className="cities__no-places">
@@ -16,7 +16,8 @@ const OffersContainerEmpty = ({ city, isCity }) => {
 };
 
 OffersContainerEmpty.propTypes = {
-  city: PropTypes.string.isRequired
+  city: PropTypes.string.isRequired,
+  isCity: PropTypes.bool.isRequired
 };
 
 export default OffersContainerEmpty;

@@ -33,7 +33,7 @@ const App = ({
           activeCoordinate={activeCoordinate}
         />);
     }
-    
+
     return (<Main
       offers={filteredOffers}
       cities={cities}
