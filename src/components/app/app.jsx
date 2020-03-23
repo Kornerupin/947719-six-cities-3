@@ -18,7 +18,7 @@ const App = ({
   currentSortOption
 }) => {
 
-  const filteredOffers = offers.length && offers.filter((element) => element.city === city);
+  const filteredOffers = offers && offers.filter((element) => element.city === city);
 
   const _renderApp = () => {
 
@@ -33,7 +33,7 @@ const App = ({
           activeCoordinate={activeCoordinate}
         />);
     }
-
+    
     return (<Main
       offers={filteredOffers}
       cities={cities}

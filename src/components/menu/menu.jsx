@@ -1,9 +1,9 @@
-const Menu = ({cities, onCityClick}) => {
+const Menu = ({ cities, onCityClick }) => {
 
   return (
     <ul className="locations__list tabs__list">
       {
-        cities.slice(0, 6).map((city, index) =>
+        cities ? cities.slice(0, 6).map((city, index) =>
           <li key={`menu-${index}`} className="locations__item">
             <a className="locations__item-link tabs__item" href="#"
               onClick={
@@ -14,7 +14,10 @@ const Menu = ({cities, onCityClick}) => {
               <span>{city}</span>
             </a>
           </li>
-        )}
+        ) : <li className="locations__item">
+          <a style={{ color: 'red' }}>Could not connect to server, please try again in a few minutes</a>
+          </li>
+      }
     </ul>
   );
 };

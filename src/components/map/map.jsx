@@ -17,11 +17,11 @@ class Map extends PureComponent {
   constructor(props) {
     super(props);
     this.mapRef = React.createRef();
-    this.coordinates = this.props.coordinates;
-    this.currentCoordinate = this.props.currentCoordinate;
   }
 
   componentDidMount() {
+    const { coordinates, currentCoordinate } = this.props;
+
     this._map = new leaflet.Map(this.mapRef.current, {
       center: MapSettings.CITY,
       zoom: MapSettings.ZOOM,
@@ -35,36 +35,42 @@ class Map extends PureComponent {
       attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
     }).addTo(this._map);
 
-    this.coordinates.map((coordinate) => {
+    this.markers = leaflet.layerGroup();
 
-      return (coordinate === this.currentCoordinate)
-        ? leaflet.marker(coordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this._map)
-        : leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this._map);
+    coordinates.map((coordinate) => {
+
+      return (coordinate === currentCoordinate)
+        ? leaflet.marker(coordinate, { icon: MapSettings.ICON_ACTIVE }).addTo(this.markers)
+        : leaflet.marker(coordinate, { icon: MapSettings.ICON }).addTo(this.markers);
     });
+
+    this.markers.addTo(this._map);
 
   }
 
   componentDidUpdate() {
-    const {activeCoordinate} = this.props;
+    this.markers.clearLayers();
 
-    this.coordinates.map((coordinate) => {
+    const { coordinates, activeCoordinate } = this.props;
+
+    coordinates.map((coordinate) => {
 
       return (coordinate === activeCoordinate)
-        ? leaflet.marker(activeCoordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this._map)
-        : leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this._map);
+        ? leaflet.marker(activeCoordinate, { icon: MapSettings.ICON_ACTIVE }).addTo(this.markers)
+        : leaflet.marker(coordinate, { icon: MapSettings.ICON }).addTo(this.markers);
     });
 
+    this.markers.addTo(this._map);
   }
 
   componentWillUnmount() {
     this._map.remove();
   }
 
-
   render() {
 
     return (
-      <div id="map" style={{height: `100%`}} ref={this.mapRef}></div>
+      <div id="map" style={{ height: `100%` }} ref={this.mapRef}></div>
     );
   }
 
