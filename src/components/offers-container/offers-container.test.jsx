@@ -43,13 +43,20 @@ it(`<OffersContainer /> should render <OffersList />`, () => {
     offers={offersMock}
     city={`Dusseldorf`}
     activeCoordinate={[0, 0]}
-    onOfferMouseOver={() => {}}
-    onOfferNameClick={() => {}}
-    onSortClick={() => {}}
+    currentCoordinate={[0, 0]}
+    onOfferMouseOver={() => { }}
+    onOfferNameClick={() => { }}
+    onSortClick={() => { }}
     isSortOpened={false}
-    onSortOptionClick={() => {}}
+    onSortOptionClick={() => { }}
     currentSortOption={`Popular`}
-  />).toJSON();
+  />,
+  {
+    createNodeMock: () => {
+      return document.createElement(`div`);
+    }
+  }
+  ).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

@@ -6,15 +6,17 @@ import {OfferProperties} from '../../proptypes/properties';
 
 const OffersSortWithToggle = withToggleSort(OffersSort);
 
-const OffersContainer = ({
-  offers,
-  city,
-  activeCoordinate,
-  onOfferMouseOver,
-  onOfferNameClick,
-  onSortOptionClick,
-  currentSortOption
-}) => {
+const OffersContainer = React.memo(function OffersContainer(props) {
+
+  const {
+    offers,
+    city,
+    activeCoordinate,
+    onOfferMouseOver,
+    onOfferNameClick,
+    onSortOptionClick,
+    currentSortOption
+  } = props;
 
   return (
     <div className="cities__places-container container">
@@ -46,16 +48,16 @@ const OffersContainer = ({
           {
             offers.length ?
               <Map
-                coordinates={offers ? offers.map((offer) => offer.coordinates) : []}
+                coordinates={offers.map((offer) => offer.coordinates)}
                 currentCoordinate={[]}
-                activeCoordinate={activeCoordinate ? activeCoordinate : null} />
+                activeCoordinate={activeCoordinate} />
               : ``
           }
         </section>
       </div>
     </div>
   );
-};
+});
 
 OffersContainer.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),

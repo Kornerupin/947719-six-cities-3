@@ -1,8 +1,8 @@
 import {getStars} from '../../utils';
 import {OfferProperties} from "../../proptypes/properties";
 
-const Offer = (props) => {
-  const {offer, onOfferMouseOver, onOfferNameClick} = props;
+const Offer = React.memo(function Offer({offer, onOfferMouseOver, onOfferNameClick}) {
+
   const {image, type, price, rating, name, coordinates} = offer;
 
   return (
@@ -51,7 +51,7 @@ const Offer = (props) => {
       </div>
     </article>
   );
-};
+});
 
 Offer.propTypes = {
   offer: PropTypes.shape(OfferProperties),

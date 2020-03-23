@@ -18,7 +18,7 @@ const App = ({
   currentSortOption
 }) => {
 
-  const filteredOffers = offers ? offers.filter((element) => element.city === city ? element : false) : false;
+  const filteredOffers = offers && offers.filter((element) => element.city === city);
 
   const _renderApp = () => {
 

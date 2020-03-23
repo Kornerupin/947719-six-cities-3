@@ -1,11 +1,5 @@
-import {getStars} from '../../utils';
+import {getStars, getFormatDate} from '../../utils';
 import {ReviewProperties} from "../../proptypes/properties";
-
-const getFormatDate = (utc) => {
-  const date = new Date(utc);
-
-  return `${date.toLocaleString(`default`, {month: `long`})} ${date.getDate()}, ${date.getFullYear()}`;
-};
 
 const Review = ({review}) => {
   const {avatar, name, rating, text, time} = review;

@@ -5,8 +5,8 @@ const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
 
-const cities = [...new Set(offersMock.map((offer) => offer.city))]
-.concat([`Dusseldorf`, `Berlin`, `Rome`, `Prague`, `Vienna`, `Brussels`]);
+const cities = offersMock ? [...new Set(offersMock.map((offer) => offer.city))]
+.concat([`Dusseldorf`, `Berlin`, `Rome`, `Prague`, `Vienna`, `Brussels`]) : null;
 
 const initialState = {
   offer: null,

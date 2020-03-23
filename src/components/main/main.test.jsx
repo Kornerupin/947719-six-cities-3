@@ -52,7 +52,13 @@ it(`<Main /> should render <Offers />`, () => {
     isSortOpened={false}
     onSortOptionClick={() => {}}
     currentSortOption={`Popular`}
-  />).toJSON();
+  />,
+  {
+    createNodeMock: () => {
+      return document.createElement(`div`);
+    }
+  }
+  ).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
