@@ -1,25 +1,25 @@
-import {offersMock} from '../mocks/offers';
-import {ActionType} from '../reducer/actions';
-
-const extend = (a, b) => {
-  return Object.assign({}, a, b);
-};
-
-const cities = offersMock ? [...new Set(offersMock.map((offer) => offer.city))]
-.concat([`Dusseldorf`, `Berlin`, `Rome`, `Prague`, `Vienna`, `Brussels`]) : null;
+import { ActionType } from '../reducer/actions';
+import { extend } from '../utils';
 
 const initialState = {
-  offer: null,
-  offers: offersMock,
-  cities,
+  offer: {},
+  offers: [],
+  cities: [],
   city: `Amsterdam`,
   activeCoordinate: [],
   currentSortOption: `Popular`
 };
 
 export const reducer = (state = initialState, action) => {
-
   switch (action.type) {
+    case ActionType.LOAD_OFFERS:
+      return extend(state, {
+        offers: action.payload
+      });
+    case ActionType.GET_CITIES:
+      return extend(state, {
+        cities: action.payload[0]
+      });
     case ActionType.SHOW_ACTIVE_PIN:
       return extend(state, {
         activeCoordinate: action.payload
@@ -37,6 +37,6 @@ export const reducer = (state = initialState, action) => {
         currentSortOption: action.payload
       });
   }
-
+  
   return state;
 };

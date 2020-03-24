@@ -1,4 +1,6 @@
 export const ActionType = {
+  LOAD_OFFERS: `LOAD_OFFERS`,
+  GET_CITIES: `GET_CITIES`,
   SHOW_ACTIVE_PIN: `SHOW_ACTIVE_PIN`,
   SHOW_OFFER: `SHOW_OFFER`,
   CHANGE_CITY: `CHANGE_CITY`,
@@ -7,6 +9,14 @@ export const ActionType = {
 };
 
 export const ActionCreator = {
+  loadOffers: (offers) => ({
+    type: ActionType.LOAD_OFFERS,
+    payload: offers,
+  }),
+  getCities: (cities) => ({
+    type: ActionType.GET_CITIES,
+    payload: cities,
+  }),
   showActivePin: (activeCoordinate) => ({
     type: ActionType.SHOW_ACTIVE_PIN,
     payload: activeCoordinate,

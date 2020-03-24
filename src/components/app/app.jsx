@@ -5,19 +5,23 @@ import OfferDetail from '../offer-detail/offer-detail';
 import {ActionCreator} from '../../reducer/actions';
 import {OfferProperties} from '../../proptypes/properties';
 
-const App = ({
-  offers,
-  offer,
-  cities,
-  city,
-  activeCoordinate,
-  onOfferMouseOver,
-  onOfferNameClick,
-  onCityClick,
-  onSortOptionClick,
-  currentSortOption
-}) => {
+const App = (props) => {
 
+  const {
+    offers,
+    offer,
+    cities,
+    city,
+    activeCoordinate,
+    onOfferMouseOver,
+    onOfferNameClick,
+    onCityClick,
+    onSortOptionClick,
+    currentSortOption
+  } = props;
+
+  console.log(props);
+  
   const filteredOffers = offers && offers.filter((element) => element.city === city);
 
   const _renderApp = () => {
