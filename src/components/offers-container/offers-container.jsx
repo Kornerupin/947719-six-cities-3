@@ -17,7 +17,9 @@ const OffersContainer = React.memo(function OffersContainer(props) {
     onSortOptionClick,
     currentSortOption
   } = props;
-
+  
+  const coordinates = offers.map((offer) => offer.coordinates);  
+      
   return (
     <div className="cities__places-container container">
       <section className="cities__places places">
@@ -46,12 +48,13 @@ const OffersContainer = React.memo(function OffersContainer(props) {
       <div className="cities__right-section">
         <section className="cities__map map">
           {
-            offers.length ?
               <Map
-                coordinates={offers.map((offer) => offer.coordinates)}
+                coordinates={coordinates}
+                center={offers[0].cityCenter}
+                zoom={offers[0].cityZoom}
                 currentCoordinate={[]}
-                activeCoordinate={activeCoordinate} />
-              : ``
+                activeCoordinate={activeCoordinate}
+                />
           }
         </section>
       </div>

@@ -8,7 +8,7 @@ const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time)
 
 const OfferDetail = (props) => {
   const {offer, offers, onOfferNameClick, onOfferMouseOver, activeCoordinate} = props;
-  const {type, price, rating, name, reviews, coordinates} = offer;
+  const {type, price, rating, name, reviews, coordinates, cityCenter, cityZoom} = offer;
   const OFFERS_MAX = 4;
   const REVIEWS_MAX = 10;
 
@@ -164,7 +164,10 @@ const OfferDetail = (props) => {
               <Map
                 coordinates={offers.slice(0, OFFERS_MAX).map((element) => element.coordinates)}
                 currentCoordinate={coordinates}
-                activeCoordinate={activeCoordinate} />
+                activeCoordinate={activeCoordinate}
+                center={offers[0].cityCenter}
+                zoom={offers[0].cityZoom}
+             />
             }
           </section>
           <div className="container">

@@ -19,7 +19,7 @@ const App = (props) => {
     onSortOptionClick,
     currentSortOption
   } = props;
-    
+      
   const filteredOffers = offers && offers.filter((element) => element.city === city);
 
   const _renderApp = () => {

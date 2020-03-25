@@ -21,7 +21,7 @@ const store = createStore(
 
 const queryData = () => (dispatch, getState, api) => {
   return api.get(`/hotels`)
-    .then((response) => {
+    .then((response) => {    
       const offers = response.data.map((offer) => Adapter.parse(offer));            
       dispatch(ActionCreator.loadOffers(offers));
       dispatch(ActionCreator.getCities(offers));

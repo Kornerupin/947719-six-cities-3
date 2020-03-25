@@ -2,6 +2,8 @@ class Adapter {
     constructor(data) {
         this.id = data.id;
         this.city = data.city.name;
+        this.cityCenter = [data.city.location.latitude, data.city.location.longitude];
+        this.cityZoom = data.city.location.zoom;
         this.image = data.images;
         this.preview_image = data.preview_image;
         this.name = data.title;
@@ -9,8 +11,8 @@ class Adapter {
         this.is_premium = data.is_premium;
         this.rating = data.rating;
         this.type = data.type;
-        this.bedrooms = this.bedrooms;
-        this.max_adults = this.max_adults;
+        this.bedrooms = data.bedrooms;
+        this.max_adults = data.max_adults;
         this.price = data.price;
         this.goods = data.goods;
         this.coordinates = [data.location.latitude, data.location.longitude];
