@@ -11,6 +11,7 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
+    
   switch (action.type) {
     case ActionType.LOAD_OFFERS:
       return extend(state, {
@@ -18,7 +19,7 @@ export const reducer = (state = initialState, action) => {
       });
     case ActionType.GET_CITIES:
       return extend(state, {
-        cities: action.payload[0]
+        cities: [...new Set(action.payload.map((offer) => offer.city))]
       });
     case ActionType.SHOW_ACTIVE_PIN:
       return extend(state, {

@@ -7,6 +7,7 @@ import { createAPI } from "./api.js";
 import { ActionCreator } from './reducer/actions';
 import { reducer } from './reducer/reducer';
 import App from './components/app/app';
+import Adapter from './adapter';
 
 const api = createAPI();
 
@@ -21,8 +22,9 @@ const store = createStore(
 const queryData = () => (dispatch, getState, api) => {
   return api.get(`/hotels`)
     .then((response) => {
-      dispatch(ActionCreator.loadOffers(response.data));
-      dispatch(ActionCreator.getCities(response.data));
+      const offers = response.data.map((offer) => Adapter.parse(offer));            
+      dispatch(ActionCreator.loadOffers(offers));
+      dispatch(ActionCreator.getCities(offers));
     });
 }
 

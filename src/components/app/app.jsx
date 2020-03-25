@@ -19,14 +19,12 @@ const App = (props) => {
     onSortOptionClick,
     currentSortOption
   } = props;
-
-  console.log(props);
-  
+    
   const filteredOffers = offers && offers.filter((element) => element.city === city);
 
   const _renderApp = () => {
 
-    if (offer) {
+    if (Object.keys(offer).length !== 0) {
 
       return (
         <OfferDetail
@@ -86,7 +84,8 @@ const mapStateToProps = (state) => ({
   city: state.city,
   activeCoordinate: state.activeCoordinate,
   currentSortOption: state.currentSortOption
-});
+}
+);
 
 const mapDispatchToProps = (dispatch) => ({
   onOfferMouseOver(activeCoordinate) {

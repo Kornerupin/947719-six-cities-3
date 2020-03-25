@@ -11,7 +11,7 @@ export const OfferProperties = {
   city: PropTypes.string.isRequired,
   image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   type: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
