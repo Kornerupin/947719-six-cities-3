@@ -44,7 +44,6 @@ it(`<Main /> should render <Offers />`, () => {
     cities={[`Dusseldorf`, `Berlin`, `Rome`, `Prague`, `Vienna`, `Brussels`]}
     city={`Dusseldorf`}
     currentCoordinate={[0, 0]}
-    activeCoordinate={[0, 0]}
     onOfferMouseOver={() => {}}
     onOfferNameClick={() => {}}
     onCityClick={() => {}}

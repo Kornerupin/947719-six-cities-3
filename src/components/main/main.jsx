@@ -7,7 +7,7 @@ const Main = ({
   offers,
   cities,
   city,
-  activeCoordinate,
+  currentCoordinate,
   onOfferMouseOver,
   onOfferNameClick,
   onCityClick,
@@ -62,7 +62,7 @@ const Main = ({
               ? <OffersContainer
                 offers={offers}
                 city={city}
-                activeCoordinate={activeCoordinate}
+                currentCoordinate={currentCoordinate}
                 onOfferNameClick={onOfferNameClick}
                 onOfferMouseOver={onOfferMouseOver}
                 onSortOptionClick={onSortOptionClick}
@@ -80,7 +80,7 @@ Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   cities: PropTypes.arrayOf(PropTypes.string.isRequired),
   city: PropTypes.string.isRequired,
-  activeCoordinate: PropTypes.array,
+  currentCoordinate: PropTypes.array,
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired,
   onCityClick: PropTypes.func.isRequired,

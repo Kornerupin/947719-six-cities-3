@@ -42,7 +42,6 @@ it(`<OffersContainer /> should render <OffersList />`, () => {
   const tree = renderer.create(<OffersContainer
     offers={offersMock}
     city={`Dusseldorf`}
-    activeCoordinate={[0, 0]}
     currentCoordinate={[0, 0]}
     onOfferMouseOver={() => { }}
     onOfferNameClick={() => { }}

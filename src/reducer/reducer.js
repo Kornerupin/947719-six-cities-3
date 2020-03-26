@@ -6,7 +6,7 @@ const initialState = {
   offers: [],
   cities: [],
   city: `Amsterdam`,
-  activeCoordinate: [],
+  currentCoordinate: [],
   currentSortOption: `Popular`
 };
 
@@ -23,7 +23,7 @@ export const reducer = (state = initialState, action) => {
       });
     case ActionType.SHOW_ACTIVE_PIN:
       return extend(state, {
-        activeCoordinate: action.payload
+        currentCoordinate: action.payload
       });
     case ActionType.SHOW_OFFER:
       return extend(state, {

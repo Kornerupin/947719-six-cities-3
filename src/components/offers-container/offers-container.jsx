@@ -11,7 +11,7 @@ const OffersContainer = React.memo(function OffersContainer(props) {
   const {
     offers,
     city,
-    activeCoordinate,
+    currentCoordinate,
     onOfferMouseOver,
     onOfferNameClick,
     onSortOptionClick,
@@ -52,8 +52,7 @@ const OffersContainer = React.memo(function OffersContainer(props) {
                 coordinates={coordinates}
                 center={offers[0].cityCenter}
                 zoom={offers[0].cityZoom}
-                currentCoordinate={[]}
-                activeCoordinate={activeCoordinate}
+                currentCoordinate={currentCoordinate}
                 />
           }
         </section>
@@ -65,7 +64,7 @@ const OffersContainer = React.memo(function OffersContainer(props) {
 OffersContainer.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   city: PropTypes.string.isRequired,
-  activeCoordinate: PropTypes.array,
+  currentCoordinate: PropTypes.array,
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired,
   onSortOptionClick: PropTypes.func.isRequired,

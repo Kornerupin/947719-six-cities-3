@@ -12,7 +12,7 @@ const App = (props) => {
     offer,
     cities,
     city,
-    activeCoordinate,
+    currentCoordinate,
     onOfferMouseOver,
     onOfferNameClick,
     onCityClick,
@@ -29,10 +29,10 @@ const App = (props) => {
       return (
         <OfferDetail
           offer={offer}
-          offers={offers}
+          offers={filteredOffers}
           onOfferMouseOver={(onOfferMouseOver)}
           onOfferNameClick={onOfferNameClick}
-          activeCoordinate={activeCoordinate}
+          currentCoordinate={currentCoordinate}
         />);
     }
 
@@ -40,7 +40,7 @@ const App = (props) => {
       offers={filteredOffers}
       cities={cities}
       city={city}
-      activeCoordinate={activeCoordinate}
+      currentCoordinate={currentCoordinate}
       onOfferMouseOver={onOfferMouseOver}
       onOfferNameClick={onOfferNameClick}
       onCityClick={onCityClick}
@@ -68,7 +68,7 @@ App.propTypes = {
   offer: PropTypes.object,
   cities: PropTypes.arrayOf(PropTypes.string.isRequired),
   city: PropTypes.string.isRequired,
-  activeCoordinate: PropTypes.array,
+  currentCoordinate: PropTypes.array,
   currentCityCoords: PropTypes.array,
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired,
@@ -82,14 +82,14 @@ const mapStateToProps = (state) => ({
   offer: state.offer,
   cities: state.cities,
   city: state.city,
-  activeCoordinate: state.activeCoordinate,
+  currentCoordinate: state.currentCoordinate,
   currentSortOption: state.currentSortOption
 }
 );
 
 const mapDispatchToProps = (dispatch) => ({
-  onOfferMouseOver(activeCoordinate) {
-    dispatch(ActionCreator.showActivePin(activeCoordinate));
+  onOfferMouseOver(currentCoordinate) {
+    dispatch(ActionCreator.showActivePin(currentCoordinate));
   },
   onOfferNameClick(offer) {
     dispatch(ActionCreator.showOffer(offer));

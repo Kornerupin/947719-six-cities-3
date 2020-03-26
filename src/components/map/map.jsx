@@ -18,8 +18,16 @@ class Map extends PureComponent {
     this.markers = leaflet.layerGroup();
   }
 
+  _renderMarkers(offerCoordinates, activeCoordinate) {
+    offerCoordinates.map((coordinate) => {
+      return leaflet.marker(coordinate, { icon: MapSettings.ICON }).addTo(this.markers);
+    });
+
+    activeCoordinate.length > 0 ? leaflet.marker(activeCoordinate, { icon: MapSettings.ICON_ACTIVE }).addTo(this.markers) : [];
+  }
+
   componentDidMount() {
-    const {coordinates, currentCoordinate, center, zoom} = this.props;
+    const { currentCoordinate, coordinates, center, zoom } = this.props;
 
     this._map = new leaflet.Map(this.mapRef.current, {
       center: center,
@@ -34,30 +42,18 @@ class Map extends PureComponent {
       attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
     }).addTo(this._map);
 
-    coordinates.map((coordinate) => {
-
-      return (coordinate === currentCoordinate)
-        ? leaflet.marker(coordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this.markers)
-        : leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this.markers);
-    });
+    this._renderMarkers(coordinates, currentCoordinate);
 
     this.markers.addTo(this._map);
   }
 
   componentDidUpdate() {
+    const { currentCoordinate, coordinates, center, zoom } = this.props;
     this.markers.clearLayers();
-        
-    const {coordinates, activeCoordinate, center, zoom} = this.props;
-
     this._map.setView(center, zoom);
 
-    coordinates.map((coordinate) => {
-
-      return (coordinate === activeCoordinate)
-        ? leaflet.marker(activeCoordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this.markers)
-        : leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this.markers);
-    });
-
+    this._renderMarkers(coordinates, currentCoordinate);
+    
     this.markers.addTo(this._map);
   }
 
@@ -68,16 +64,15 @@ class Map extends PureComponent {
   render() {
 
     return (
-      <div id="map" style={{height: `100%`}} ref={this.mapRef}></div>
+      <div id="map" style={{ height: `100%` }} ref={this.mapRef}></div>
     );
   }
 
 }
 
 Map.propTypes = {
-  coordinates: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-  activeCoordinate: PropTypes.array,
-  currentCoordinate: PropTypes.arrayOf(PropTypes.number).isRequired
+  coordinates: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
+  currentCoordinate: PropTypes.arrayOf(PropTypes.number)
 };
 
 export default Map;

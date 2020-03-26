@@ -17,9 +17,9 @@ export const ActionCreator = {
     type: ActionType.GET_CITIES,
     payload: cities,
   }),
-  showActivePin: (activeCoordinate) => ({
+  showActivePin: (currentCoordinate) => ({
     type: ActionType.SHOW_ACTIVE_PIN,
-    payload: activeCoordinate,
+    payload: currentCoordinate,
   }),
   showOffer: (offer) => ({
     type: ActionType.SHOW_OFFER,

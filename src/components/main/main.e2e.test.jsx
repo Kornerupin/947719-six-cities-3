@@ -44,7 +44,7 @@ it(`Expected an Array`, () => {
     offer={null}
     cities={[`Dusseldorf`, `Berlin`, `Rome`, `Prague`, `Vienna`, `Brussels`]}
     city={`Dusseldorf`}
-    activeCoordinate={[0, 0]}
+    currentCoordinate={[0, 0]}
     onOfferMouseOver={() => { }}
     onOfferNameClick={() => { }}
     onCityClick={() => { }}

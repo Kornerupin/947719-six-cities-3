@@ -1,17 +1,19 @@
 import OffersList from "../offers-list/offers-list";
 import Map from '../map/map';
 import ReviewsList from '../reviews-list/reviews-list';
-import {getStars} from '../../utils';
-import {OfferProperties} from '../../proptypes/properties';
+import { getStars } from '../../utils';
+import { OfferProperties } from '../../proptypes/properties';
 
 const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time);
 
 const OfferDetail = (props) => {
-  const {offer, offers, onOfferNameClick, onOfferMouseOver, activeCoordinate} = props;
-  const {type, price, rating, name, reviews, coordinates, cityCenter, cityZoom} = offer;
-  const OFFERS_MAX = 4;
+  const { offer, offers, onOfferNameClick, currentCoordinate } = props;
+  const { type, price, rating, name, reviews, cityCenter, cityZoom } = offer;
+  const OFFERS_MAX = 3;
   const REVIEWS_MAX = 10;
-
+  
+  const neighbors = offers.slice().filter((element) => element.coordinates !== currentCoordinate);
+      
   return (
     <div className="page">
       <header className="header">
@@ -78,7 +80,7 @@ const OfferDetail = (props) => {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{width: `${getStars(rating)}%`}} />
+                  <span style={{ width: `${getStars(rating)}%` }} />
                   <span className="visually-hidden">Rating</span>
                 </div>
                 <span className="property__rating-value rating__value">{rating}</span>
@@ -88,10 +90,10 @@ const OfferDetail = (props) => {
                   {type}
                 </li>
                 <li className="property__feature property__feature--bedrooms">
-                    3 Bedrooms
+                  3 Bedrooms
                 </li>
                 <li className="property__feature property__feature--adults">
-                    Max 4 adults
+                  Max 4 adults
                 </li>
               </ul>
               <div className="property__price">
@@ -102,34 +104,34 @@ const OfferDetail = (props) => {
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
                   <li className="property__inside-item">
-                      Wi-Fi
+                    Wi-Fi
                   </li>
                   <li className="property__inside-item">
-                      Washing machine
+                    Washing machine
                   </li>
                   <li className="property__inside-item">
-                      Towels
+                    Towels
                   </li>
                   <li className="property__inside-item">
-                      Heating
+                    Heating
                   </li>
                   <li className="property__inside-item">
-                      Coffee machine
+                    Coffee machine
                   </li>
                   <li className="property__inside-item">
-                      Baby seat
+                    Baby seat
                   </li>
                   <li className="property__inside-item">
-                      Kitchen
+                    Kitchen
                   </li>
                   <li className="property__inside-item">
-                      Dishwasher
+                    Dishwasher
                   </li>
                   <li className="property__inside-item">
-                      Cabel TV
+                    Cabel TV
                   </li>
                   <li className="property__inside-item">
-                      Fridge
+                    Fridge
                   </li>
                 </ul>
               </div>
@@ -140,34 +142,33 @@ const OfferDetail = (props) => {
                     <img className="property__avatar user__avatar" src="img/avatar-angelina.jpg" alt="Host avatar" width={74} height={74} />
                   </div>
                   <span className="property__user-name">
-                      Angelina
+                    Angelina
                   </span>
                 </div>
                 <div className="property__description">
                   <p className="property__text">
-                      A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
+                    A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
                   </p>
                   <p className="property__text">
-                      An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
+                    An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
                   </p>
                 </div>
               </div>
               <section className="property__reviews reviews">
-
-                <ReviewsList reviews={sortReviews(reviews).slice(0, REVIEWS_MAX)} />
-
+                {
+                  <ReviewsList reviews={sortReviews(reviews).slice(0, REVIEWS_MAX)} />
+                }
               </section>
             </div>
           </div>
           <section className="property__map map">
             {
               <Map
-                coordinates={offers.slice(0, OFFERS_MAX).map((element) => element.coordinates)}
-                currentCoordinate={coordinates}
-                activeCoordinate={activeCoordinate}
-                center={offers[0].cityCenter}
-                zoom={offers[0].cityZoom}
-             />
+                coordinates={neighbors.slice(0, OFFERS_MAX).map((element) => element.coordinates)}
+                currentCoordinate={currentCoordinate}
+                center={cityCenter}
+                zoom={cityZoom}
+              />
             }
           </section>
           <div className="container">
@@ -176,9 +177,9 @@ const OfferDetail = (props) => {
               <div className="near-places__list places__list">
                 {
                   <OffersList
-                    offers={offers.slice(0, OFFERS_MAX)}
+                    offers={neighbors.slice(0, OFFERS_MAX)}
                     onOfferNameClick={onOfferNameClick}
-                    onOfferMouseOver={onOfferMouseOver} />
+                    onOfferMouseOver={() => { }} />
                 }
               </div>
             </section>
@@ -191,15 +192,14 @@ const OfferDetail = (props) => {
 
 OfferDetail.defaultProps = {
   currentCoordinate: [0, 0],
-  onOfferNameClick: () => {},
-  onOfferMouseOver: () => {},
+  onOfferNameClick: () => { },
+  onOfferMouseOver: () => { },
 };
 
 OfferDetail.propTypes = {
   offer: PropTypes.shape(OfferProperties),
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   currentCoordinate: PropTypes.arrayOf(PropTypes.number).isRequired,
-  activeCoordinate: PropTypes.array,
   onOfferNameClick: PropTypes.func.isRequired,
   onOfferMouseOver: PropTypes.func.isRequired
 };
