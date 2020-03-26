@@ -8,15 +8,12 @@ const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time)
 
 const OfferDetail = (props) => {
   const { offer, offers, onOfferNameClick, currentCoordinate } = props;
-  const { type, price, rating, name, reviews, cityCenter, cityZoom } = offer;
+  const { images, type, bedrooms, capacity, price, rating, name, facilities, hostAvatar, hostName, hostMessage, hostIsPro, reviews, cityCenter, cityZoom, isPremium } = offer;
   const OFFERS_MAX = 3;
   const REVIEWS_MAX = 10;
 
-  console.log(offer);
-  
-  
   const neighbors = offers.slice().filter((element) => element.coordinates !== currentCoordinate);
-      
+
   return (
     <div className="page">
       <header className="header">
@@ -45,31 +42,20 @@ const OfferDetail = (props) => {
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/room.jpg" alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-02.jpg" alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-03.jpg" alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/studio-01.jpg" alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
-              </div>
+              {
+                images.map((image, index) =>
+                  <div key={`image-${index}`} className="property__image-wrapper">
+                    <img className="property__image" src={image} alt="Photo studio" />
+                  </div>
+                )
+              }
             </div>
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              <div className="property__mark">
+              {isPremium && <div className="property__mark">
                 <span>Premium</span>
-              </div>
+              </div>}
               <div className="property__name-wrapper">
                 <h1 className="property__name">
                   {name}
@@ -93,10 +79,11 @@ const OfferDetail = (props) => {
                   {type}
                 </li>
                 <li className="property__feature property__feature--bedrooms">
-                  3 Bedrooms
+                  {bedrooms} Bedrooms
+
                 </li>
                 <li className="property__feature property__feature--adults">
-                  Max 4 adults
+                  Max {capacity} adults
                 </li>
               </ul>
               <div className="property__price">
@@ -106,54 +93,28 @@ const OfferDetail = (props) => {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  <li className="property__inside-item">
-                    Wi-Fi
-                  </li>
-                  <li className="property__inside-item">
-                    Washing machine
-                  </li>
-                  <li className="property__inside-item">
-                    Towels
-                  </li>
-                  <li className="property__inside-item">
-                    Heating
-                  </li>
-                  <li className="property__inside-item">
-                    Coffee machine
-                  </li>
-                  <li className="property__inside-item">
-                    Baby seat
-                  </li>
-                  <li className="property__inside-item">
-                    Kitchen
-                  </li>
-                  <li className="property__inside-item">
-                    Dishwasher
-                  </li>
-                  <li className="property__inside-item">
-                    Cabel TV
-                  </li>
-                  <li className="property__inside-item">
-                    Fridge
-                  </li>
+                  {
+                    facilities.map((facility, index) =>
+                      <li key={`facility-${index}`} className="property__inside-item">
+                        {facility}
+                      </li>
+                    )
+                  }
                 </ul>
               </div>
               <div className="property__host">
                 <h2 className="property__host-title">Meet the host</h2>
                 <div className="property__host-user user">
-                  <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                    <img className="property__avatar user__avatar" src="img/avatar-angelina.jpg" alt="Host avatar" width={74} height={74} />
+                  <div className={`property__avatar-wrapper ${hostIsPro && `property__avatar-wrapper--pro`} user__avatar-wrapper`}>
+                    <img className="property__avatar user__avatar" src={hostAvatar} alt="Host avatar" width={74} height={74} />
                   </div>
                   <span className="property__user-name">
-                    Angelina
+                    {hostName}
                   </span>
                 </div>
                 <div className="property__description">
                   <p className="property__text">
-                    A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                  </p>
-                  <p className="property__text">
-                    An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
+                    {hostMessage}
                   </p>
                 </div>
               </div>
