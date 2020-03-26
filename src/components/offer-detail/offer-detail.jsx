@@ -11,6 +11,9 @@ const OfferDetail = (props) => {
   const { type, price, rating, name, reviews, cityCenter, cityZoom } = offer;
   const OFFERS_MAX = 3;
   const REVIEWS_MAX = 10;
+
+  console.log(offer);
+  
   
   const neighbors = offers.slice().filter((element) => element.coordinates !== currentCoordinate);
       

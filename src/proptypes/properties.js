@@ -9,7 +9,8 @@ export const ReviewProperties = {
 export const OfferProperties = {
   id: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
-  image: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  image: PropTypes.string.isRequired,
+  images: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   type: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,

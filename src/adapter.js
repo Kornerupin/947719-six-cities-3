@@ -4,11 +4,11 @@ class Adapter {
         this.city = data.city.name;
         this.cityCenter = [data.city.location.latitude, data.city.location.longitude];
         this.cityZoom = data.city.location.zoom;
-        this.image = data.images;
-        this.preview_image = data.preview_image;
+        this.images = data.images;
+        this.image = data.preview_image;
         this.name = data.title;
-        this.is_favorite = data.is_favorite;
-        this.is_premium = data.is_premium;
+        this.isFavorite = data.is_favorite;
+        this.isPremium = data.is_premium;
         this.rating = data.rating;
         this.type = data.type;
         this.bedrooms = data.bedrooms;
