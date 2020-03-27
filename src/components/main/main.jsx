@@ -1,6 +1,6 @@
 import Menu from "../menu/menu";
 import OffersContainerEmpty from "../offers-container-empty/offers-container-empty";
-import OffersContainer from "../offers-container/offers-container";
+import OffersContainer from "../offers-container/offers-container.connect";
 import { OfferProperties } from "../../proptypes/properties";
 
 const Main = ({
@@ -8,11 +8,8 @@ const Main = ({
   cities,
   city,
   currentCoordinate,
-  onOfferMouseOver,
-  onOfferNameClick,
   onCityClick,
-  onSortOptionClick,
-  currentSortOption
+  currentFilter
 }) => {
 
   const isOffers = offers ? offers.length > 0 : false;
@@ -60,13 +57,9 @@ const Main = ({
           {
             isOffers
               ? <OffersContainer
-                offers={offers}
                 city={city}
                 currentCoordinate={currentCoordinate}
-                onOfferNameClick={onOfferNameClick}
-                onOfferMouseOver={onOfferMouseOver}
-                onSortOptionClick={onSortOptionClick}
-                currentSortOption={currentSortOption}
+                currentFilter={currentFilter}
               />
               : <OffersContainerEmpty city={city} isCity={isCity} />
           }
@@ -81,11 +74,8 @@ Main.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string.isRequired),
   city: PropTypes.string.isRequired,
   currentCoordinate: PropTypes.array,
-  onOfferMouseOver: PropTypes.func.isRequired,
-  onOfferNameClick: PropTypes.func.isRequired,
   onCityClick: PropTypes.func.isRequired,
-  onSortOptionClick: PropTypes.func.isRequired,
-  currentSortOption: PropTypes.string.isRequired
+  currentFilter: PropTypes.string.isRequired
 };
 
 export default Main;

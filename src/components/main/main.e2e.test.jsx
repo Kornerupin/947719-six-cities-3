@@ -49,9 +49,9 @@ it(`Expected an Array`, () => {
     onOfferNameClick={() => { }}
     onCityClick={() => { }}
     onSortClick={() => { }}
-    isSortOpened={false}
-    onSortOptionClick={() => { }}
-    currentSortOption={`Popular`}
+    isFilterOpened={false}
+    onFilterOptionClick={() => { }}
+    currentFilter={`Popular`}
   />);
 
   offersMock.map((offer) => {

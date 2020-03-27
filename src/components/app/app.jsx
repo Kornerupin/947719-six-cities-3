@@ -7,6 +7,8 @@ const App = (props) => {
 
   const {
     offers,
+    offersByCity,
+    offersByFilter,
     offer,
     cities,
     city,
@@ -14,14 +16,10 @@ const App = (props) => {
     onOfferMouseOver,
     onOfferNameClick,
     onCityClick,
-    onSortOptionClick,
-    currentSortOption
+    currentFilter,
+
   } = props;
-
-  console.log(props);
-      
-  const filteredOffers = offers && offers.filter((element) => element.city === city);
-
+              
   const _renderApp = () => {
 
     if (Object.keys(offer).length !== 0) {
@@ -29,7 +27,8 @@ const App = (props) => {
       return (
         <OfferDetail
           offer={offer}
-          offers={filteredOffers}
+          offersByCity={offersByCity}
+          offersByFilter={offersByFilter}
           onOfferMouseOver={(onOfferMouseOver)}
           onOfferNameClick={onOfferNameClick}
           currentCoordinate={currentCoordinate}
@@ -37,15 +36,12 @@ const App = (props) => {
     }
 
     return (<Main
-      offers={filteredOffers}
+      offers={offers}
       cities={cities}
       city={city}
       currentCoordinate={currentCoordinate}
-      onOfferMouseOver={onOfferMouseOver}
-      onOfferNameClick={onOfferNameClick}
       onCityClick={onCityClick}
-      onSortOptionClick={onSortOptionClick}
-      currentSortOption={currentSortOption}
+      currentFilter={currentFilter}
     />);
   };
 
@@ -70,11 +66,8 @@ App.propTypes = {
   city: PropTypes.string.isRequired,
   currentCoordinate: PropTypes.array,
   currentCityCoords: PropTypes.array,
-  onOfferMouseOver: PropTypes.func.isRequired,
-  onOfferNameClick: PropTypes.func.isRequired,
   onCityClick: PropTypes.func.isRequired,
-  onSortOptionClick: PropTypes.func.isRequired,
-  currentSortOption: PropTypes.string.isRequired
+  currentFilter: PropTypes.string.isRequired
 };
 
 export default App;

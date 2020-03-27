@@ -48,9 +48,9 @@ it(`<Main /> should render <Offers />`, () => {
     onOfferNameClick={() => {}}
     onCityClick={() => {}}
     onSortClick={() => {}}
-    isSortOpened={false}
-    onSortOptionClick={() => {}}
-    currentSortOption={`Popular`}
+    isFilterOpened={false}
+    onFilterOptionClick={() => {}}
+    currentFilter={`Popular`}
   />,
   {
     createNodeMock: () => {

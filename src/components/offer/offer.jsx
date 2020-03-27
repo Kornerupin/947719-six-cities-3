@@ -59,7 +59,6 @@ const Offer = React.memo(function Offer(props) {
 
 Offer.propTypes = {
   offer: PropTypes.shape(OfferProperties),
-  offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   onOfferMouseOver: PropTypes.func.isRequired,
   onOfferNameClick: PropTypes.func.isRequired
 };

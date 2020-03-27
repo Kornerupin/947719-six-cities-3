@@ -53,9 +53,9 @@ it(`<App /> should render <Main />`, () => {
     onOfferNameClick: () => { },
     onCityClick: () => { },
     onSortClick: () => { },
-    isSortOpened: false,
-    onSortOptionClick: () => { },
-    currentSortOption: `Popular`
+    isFilterOpened: false,
+    onFilterOptionClick: () => { },
+    currentFilter: `Popular`
   });
 
   const tree = renderer

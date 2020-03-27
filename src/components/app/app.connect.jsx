@@ -2,27 +2,23 @@ import App from './app';
 import { connect } from 'react-redux';
 import { ActionCreator } from '../../reducer/actions';
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
     offers: state.offers,
     offer: state.offer,
     cities: state.cities,
     city: state.city,
     currentCoordinate: state.currentCoordinate,
-    currentSortOption: state.currentSortOption
+    currentFilter: state.currentFilter,
+    offersByCity: state.offersByCity,
+    offersByFilter: state.offersByFilter,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    onOfferMouseOver(currentCoordinate) {
-        dispatch(ActionCreator.showActivePin(currentCoordinate));
-    },
-    onOfferNameClick(offer) {
-        dispatch(ActionCreator.showOffer(offer));
-    },
+export const mapDispatchToProps = (dispatch) => ({
     onCityClick(city) {
         dispatch(ActionCreator.changeCity(city));
     },
-    onSortOptionClick(currentSortOption) {
-        dispatch(ActionCreator.changeSortOptions(currentSortOption));
+    sortOffersByCity(offers, city) {
+        dispatch(ActionCreator.sortOffersByCity(offers, city));
     }
 });
 

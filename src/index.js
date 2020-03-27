@@ -25,6 +25,7 @@ const queryData = () => (dispatch, getState, api) => {
       const offers = response.data.map((offer) => Adapter.parse(offer));            
       dispatch(ActionCreator.loadOffers(offers));
       dispatch(ActionCreator.getCities(offers));
+      dispatch(ActionCreator.sortOffersByCity(offers, getState().city));
     });
 }
 

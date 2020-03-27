@@ -7,11 +7,13 @@ const initialState = {
   cities: [],
   city: `Amsterdam`,
   currentCoordinate: [],
-  currentSortOption: `Popular`
+  currentFilter: `Popular`,
+  offersByCity: [],
+  offersByFilter: []
 };
 
 export const reducer = (state = initialState, action) => {
-    
+
   switch (action.type) {
     case ActionType.LOAD_OFFERS:
       return extend(state, {
@@ -33,11 +35,19 @@ export const reducer = (state = initialState, action) => {
       return extend(state, {
         city: action.payload
       });
-    case ActionType.CHANGE_SORT_OPTION:
+    case ActionType.CHANGE_FILTER:
       return extend(state, {
-        currentSortOption: action.payload
+        currentFilter: action.payload
+      });
+    case ActionType.SORT_OFFERS_BY_CITY:
+      return extend(state, {
+        offersByCity: action.payload
+      });
+    case ActionType.SORT_OFFERS_BY_FILTER:
+      return extend(state, {
+        offersByFilter: action.payload
       });
   }
-  
+
   return state;
 };

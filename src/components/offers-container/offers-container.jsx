@@ -1,25 +1,22 @@
-import OffersList from "../offers-list/offers-list";
-import OffersSort from "../offers-sort/offers-sort";
-import withToggleSort from '../../hocs/with-toggle-sort/with-toogle-sort';
+import OffersList from "../offers-list/offers-list.connect";
+import OffersFilter from "../offers-filter/offers-filter.connect";
+import withToggleFilter from '../../hocs/with-toggle-filter/with-toogle-filter';
 import Map from "../map/map";
-import {OfferProperties} from '../../proptypes/properties';
+import { OfferProperties } from '../../proptypes/properties';
 
-const OffersSortWithToggle = withToggleSort(OffersSort);
+const OffersFilterWithToggle = withToggleFilter(OffersFilter);
 
 const OffersContainer = React.memo(function OffersContainer(props) {
 
   const {
-    offers,
     city,
     currentCoordinate,
-    onOfferMouseOver,
     onOfferNameClick,
-    onSortOptionClick,
-    currentSortOption
+    offersByCity,
   } = props;
   
-  const coordinates = offers.map((offer) => offer.coordinates);  
-      
+  const offers = offersByCity.length > 0 ? offersByCity : props.offers;
+  
   return (
     <div className="cities__places-container container">
       <section className="cities__places places">
@@ -28,19 +25,11 @@ const OffersContainer = React.memo(function OffersContainer(props) {
           {offers.length ? `${offers.length} places to stay in ${city}` : ``}
         </b>
         {
-          <OffersSortWithToggle
-            onSortOptionClick={onSortOptionClick}
-            currentSortOption={currentSortOption}
-          />
+          <OffersFilterWithToggle />
         }
         <div className="cities__places-list places__list tabs__content">
           {
-            <OffersList
-              offers={offers}
-              onOfferNameClick={onOfferNameClick}
-              onOfferMouseOver={onOfferMouseOver}
-              currentSortOption={currentSortOption}
-            />
+            <OffersList onOfferNameClick={onOfferNameClick} />
           }
         </div>
 
@@ -48,12 +37,12 @@ const OffersContainer = React.memo(function OffersContainer(props) {
       <div className="cities__right-section">
         <section className="cities__map map">
           {
-              <Map
-                coordinates={coordinates}
-                center={offers[0].cityCenter}
-                zoom={offers[0].cityZoom}
-                currentCoordinate={currentCoordinate}
-                />
+            <Map
+              coordinates={offers.map((offer) => offer.coordinates)}
+              center={offers[0].cityCenter}
+              zoom={offers[0].cityZoom}
+              currentCoordinate={currentCoordinate}
+            />
           }
         </section>
       </div>
@@ -64,11 +53,7 @@ const OffersContainer = React.memo(function OffersContainer(props) {
 OffersContainer.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   city: PropTypes.string.isRequired,
-  currentCoordinate: PropTypes.array,
-  onOfferMouseOver: PropTypes.func.isRequired,
-  onOfferNameClick: PropTypes.func.isRequired,
-  onSortOptionClick: PropTypes.func.isRequired,
-  currentSortOption: PropTypes.string.isRequired
+  currentCoordinate: PropTypes.array
 };
 
 export default OffersContainer;

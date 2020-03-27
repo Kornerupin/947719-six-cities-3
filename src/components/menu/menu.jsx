@@ -1,6 +1,9 @@
-const Menu = React.memo(function Menu(props) {
-  const { cities, city, onCityClick } = props;
+import { connect } from 'react-redux';
+import { ActionCreator } from '../../reducer/actions';
 
+const Menu = React.memo(function Menu(props) {
+  const { cities, city, onCityClick, offers, sortOffersByCity } = props;
+    
   return (
     <ul className="locations__list tabs__list">
       {
@@ -9,7 +12,7 @@ const Menu = React.memo(function Menu(props) {
             <a className={`locations__item-link tabs__item ${(currentCity === city) && `tabs__item--active`}`} href="#"
               onClick={
                 () => {
-                  onCityClick(currentCity);
+                  onCityClick(currentCity); sortOffersByCity(offers, currentCity);
                 }
               }>
               <span>{currentCity}</span>
@@ -28,4 +31,11 @@ Menu.propTypes = {
   onCityClick: PropTypes.func.isRequired,
 };
 
-export default Menu;
+const mapStateToProps = (state) => ({offers: state.offers});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sortOffersByCity: (offers, city) => dispatch(ActionCreator.sortOffersByCity(offers, city))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

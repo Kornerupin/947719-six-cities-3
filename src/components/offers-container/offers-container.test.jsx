@@ -46,9 +46,9 @@ it(`<OffersContainer /> should render <OffersList />`, () => {
     onOfferMouseOver={() => { }}
     onOfferNameClick={() => { }}
     onSortClick={() => { }}
-    isSortOpened={false}
-    onSortOptionClick={() => { }}
-    currentSortOption={`Popular`}
+    isFilterOpened={false}
+    onFilterOptionClick={() => { }}
+    currentFilter={`Popular`}
   />,
   {
     createNodeMock: () => {

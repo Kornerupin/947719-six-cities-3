@@ -7,13 +7,13 @@ import { OfferProperties } from '../../proptypes/properties';
 const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time);
 
 const OfferDetail = (props) => {
-  const { offer, offers, onOfferNameClick, currentCoordinate } = props;
+  const { offer, offersByCity, onOfferNameClick, currentCoordinate } = props;
   const { images, type, bedrooms, capacity, price, rating, name, facilities, hostAvatar, hostName, hostMessage, hostIsPro, reviews, cityCenter, cityZoom, isPremium } = offer;
   const OFFERS_MAX = 3;
   const REVIEWS_MAX = 10;
-
-  const neighbors = offers.slice().filter((element) => element.coordinates !== currentCoordinate);
-
+  
+  const neighbors = offersByCity.slice().filter((element) => element.coordinates !== currentCoordinate);
+  
   return (
     <div className="page">
       <header className="header">
@@ -141,7 +141,7 @@ const OfferDetail = (props) => {
               <div className="near-places__list places__list">
                 {
                   <OffersList
-                    offers={neighbors.slice(0, OFFERS_MAX)}
+                    offersByCity={neighbors.slice(0, OFFERS_MAX)}
                     onOfferNameClick={onOfferNameClick}
                     onOfferMouseOver={() => { }} />
                 }
