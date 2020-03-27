@@ -1,8 +1,6 @@
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
 import Main from '../main/main';
 import OfferDetail from '../offer-detail/offer-detail';
-import {ActionCreator} from '../../reducer/actions';
 import {OfferProperties} from '../../proptypes/properties';
 
 const App = (props) => {
@@ -19,6 +17,8 @@ const App = (props) => {
     onSortOptionClick,
     currentSortOption
   } = props;
+
+  console.log(props);
       
   const filteredOffers = offers && offers.filter((element) => element.city === city);
 
@@ -77,30 +77,4 @@ App.propTypes = {
   currentSortOption: PropTypes.string.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  offers: state.offers,
-  offer: state.offer,
-  cities: state.cities,
-  city: state.city,
-  currentCoordinate: state.currentCoordinate,
-  currentSortOption: state.currentSortOption
-}
-);
-
-const mapDispatchToProps = (dispatch) => ({
-  onOfferMouseOver(currentCoordinate) {
-    dispatch(ActionCreator.showActivePin(currentCoordinate));
-  },
-  onOfferNameClick(offer) {
-    dispatch(ActionCreator.showOffer(offer));
-  },
-  onCityClick(city) {
-    dispatch(ActionCreator.changeCity(city));
-  },
-  onSortOptionClick(currentSortOption) {
-    dispatch(ActionCreator.changeSortOptions(currentSortOption));
-  }
-});
-
-export {App};
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

@@ -6,7 +6,7 @@ import { compose } from "recompose";
 import { createAPI } from "./api.js";
 import { ActionCreator } from './reducer/actions';
 import { reducer } from './reducer/reducer';
-import App from './components/app/app';
+import App from './components/app/app.connect';
 import Adapter from './adapter';
 
 const api = createAPI();
