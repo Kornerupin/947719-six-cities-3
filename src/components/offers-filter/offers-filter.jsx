@@ -23,8 +23,8 @@ const OffersFilter = (props) => {
                 key={`option-${index}`}
                 className={`places__option ${option === currentFilter && `places__option--active`}`}
                 tabIndex={0}
-                onMouseOver={() => {sortOffersByFilter(offersByCity, currentFilter); onFilterOptionClick(option)}}
-                onClick={onToggleFilterClick}>
+                onMouseOver={() => {onFilterOptionClick(option)}}
+                onClick={() => {sortOffersByFilter(offersByCity, currentFilter); onToggleFilterClick()}}>
                 {option}
               </li>
             );
