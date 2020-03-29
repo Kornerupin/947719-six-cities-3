@@ -1,9 +1,9 @@
-import { connect } from 'react-redux';
-import { ActionCreator } from '../../reducer/actions';
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../reducer/actions';
 
 const Menu = React.memo(function Menu(props) {
-  const { cities, city, onCityClick, offers, sortOffersByCity } = props;
-    
+  const {cities, city, onCityClick, offers, sortOffersByCity} = props;
+
   return (
     <ul className="locations__list tabs__list">
       {
@@ -19,8 +19,8 @@ const Menu = React.memo(function Menu(props) {
             </a>
           </li>
         ) : <li className="locations__item">
-            <a style={{ color: `red` }}>Could not connect to server, please try again in a few minutes</a>
-          </li>
+          <a style={{color: `red`}}>Could not connect to server, please try again in a few minutes</a>
+        </li>
       }
     </ul>
   );
@@ -35,7 +35,7 @@ const mapStateToProps = (state) => ({offers: state.offers});
 const mapDispatchToProps = (dispatch) => {
   return {
     sortOffersByCity: (offers, city) => dispatch(ActionCreator.sortOffersByCity(offers, city))
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

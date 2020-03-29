@@ -21,18 +21,18 @@ class Map extends PureComponent {
 
   _renderMarkers(offerCoordinates, activeCoordinate) {
     offerCoordinates.map((coordinate) => {
-      return leaflet.marker(coordinate, { icon: MapSettings.ICON }).addTo(this.markers);
+      return leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this.markers);
     });
-    
-    activeCoordinate.length > 0 && leaflet.marker(activeCoordinate, { icon: MapSettings.ICON_ACTIVE }).addTo(this.currentMarker);
+
+    activeCoordinate.length > 0 && leaflet.marker(activeCoordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this.currentMarker);
   }
 
   componentDidMount() {
-    const { currentCoordinate, coordinates, center, zoom } = this.props;
+    const {currentCoordinate, coordinates, center, zoom} = this.props;
 
     this._map = new leaflet.Map(this.mapRef.current, {
-      center: center,
-      zoom: zoom,
+      center,
+      zoom,
       zoomControl: false,
       marker: true
     });
@@ -50,12 +50,12 @@ class Map extends PureComponent {
   }
 
   componentDidUpdate() {
-    const { currentCoordinate, coordinates, center, zoom } = this.props;
+    const {currentCoordinate, coordinates, center, zoom} = this.props;
     this.markers.clearLayers();
     this._map.setView(center, zoom);
 
     this._renderMarkers(coordinates, currentCoordinate);
-    
+
     this.markers.addTo(this._map);
   }
 
@@ -66,7 +66,7 @@ class Map extends PureComponent {
   render() {
 
     return (
-      <div id="map" style={{ height: `100%` }} ref={this.mapRef}></div>
+      <div id="map" style={{height: `100%`}} ref={this.mapRef}></div>
     );
   }
 

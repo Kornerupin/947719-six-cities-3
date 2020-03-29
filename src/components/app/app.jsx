@@ -8,7 +8,6 @@ const App = (props) => {
   const {
     offers,
     offersByCity,
-    offersByFilter,
     offer,
     cities,
     city,
@@ -19,7 +18,7 @@ const App = (props) => {
     currentFilter,
 
   } = props;
-              
+
   const _renderApp = () => {
 
     if (Object.keys(offer).length !== 0) {
@@ -28,7 +27,6 @@ const App = (props) => {
         <OfferDetail
           offer={offer}
           offersByCity={offersByCity}
-          offersByFilter={offersByFilter}
           onOfferMouseOver={(onOfferMouseOver)}
           onOfferNameClick={onOfferNameClick}
           currentCoordinate={currentCoordinate}

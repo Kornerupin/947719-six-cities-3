@@ -2,7 +2,7 @@ import OffersList from "../offers-list/offers-list.connect";
 import OffersFilter from "../offers-filter/offers-filter.connect";
 import withToggleFilter from '../../hocs/with-toggle-filter/with-toogle-filter';
 import Map from "../map/map";
-import { OfferProperties } from '../../proptypes/properties';
+import {OfferProperties} from '../../proptypes/properties';
 
 const OffersFilterWithToggle = withToggleFilter(OffersFilter);
 
@@ -14,9 +14,9 @@ const OffersContainer = React.memo(function OffersContainer(props) {
     onOfferNameClick,
     offersByCity,
   } = props;
-  
+
   const offers = offersByCity.length > 0 ? offersByCity : props.offers;
-  
+
   return (
     <div className="cities__places-container container">
       <section className="cities__places places">

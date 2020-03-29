@@ -1,8 +1,8 @@
 import OffersList from "../offers-list/offers-list";
 import Map from '../map/map';
 import ReviewsList from '../reviews-list/reviews-list';
-import { getStars } from '../../utils';
-import { OfferProperties } from '../../proptypes/properties';
+import {getStars} from '../../utils';
+import {OfferProperties} from '../../proptypes/properties';
 
 const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time);
 
@@ -30,12 +30,12 @@ const OfferDetail = (props) => {
     reviews,
     cityCenter,
     cityZoom,
-    isPremium } = props.offer;
+    isPremium} = props.offer;
 
   const OFFERS_MAX = 3;
   const REVIEWS_MAX = 10;
 
-  const currentIndex = offersByCity.findIndex(element => element.id === id);
+  const currentIndex = offersByCity.findIndex((element) => element.id === id);
   const neighbors = offersByCity.slice().filter((element, index) => index !== currentIndex);
 
   return (
@@ -93,7 +93,7 @@ const OfferDetail = (props) => {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{ width: `${getStars(rating)}%` }} />
+                  <span style={{width: `${getStars(rating)}%`}} />
                   <span className="visually-hidden">Rating</span>
                 </div>
                 <span className="property__rating-value rating__value">{rating}</span>

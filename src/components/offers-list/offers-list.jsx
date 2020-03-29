@@ -1,19 +1,12 @@
 import Offer from "../offer/offer.connect";
 import {OfferProperties} from "../../proptypes/properties";
 
-const OffersList = (props) => {
+const OffersList = ({offersByCity}) => {
 
-  const {
-    offersByCity,
-    offersByFilter,
-  } = props;
-
-  const offers = offersByFilter ? offersByFilter.length > 0 ? offersByFilter : offersByCity : offersByCity;
-  
-  return offers.map((offer, index) =>
-  <Offer
-    key={`offer-${index}`}
-    {...offer}
+  return offersByCity.map((offer, index) =>
+    <Offer
+      key={`offer-${index}`}
+      {...offer}
     />
   );
 };

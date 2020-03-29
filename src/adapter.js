@@ -42,7 +42,7 @@ class Adapter {
         text: `Emplacement parfait, beaucoup de commerces à proximité, le tout dans un lieu traditionnel et agréable, j'ai adoré mon court séjour et aimerait beaucoup y retourner un jour!`,
         time: 1574276894250
       }
-    ]
+    ];
   }
 
   static parse(data) {

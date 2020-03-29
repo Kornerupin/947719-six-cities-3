@@ -1,9 +1,9 @@
-import { getStars } from '../../utils';
-import { OfferProperties } from "../../proptypes/properties";
+import {getStars} from '../../utils';
+import {OfferProperties} from "../../proptypes/properties";
 
 const Offer = React.memo(function Offer(props) {
 
-  const { onOfferMouseOver,
+  const {onOfferMouseOver,
     onOfferNameClick,
     image,
     type,
@@ -52,7 +52,7 @@ const Offer = React.memo(function Offer(props) {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: `${getStars(rating)}%` }}></span>
+            <span style={{width: `${getStars(rating)}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

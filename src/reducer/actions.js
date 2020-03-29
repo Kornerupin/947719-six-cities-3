@@ -12,9 +12,9 @@ export const ActionType = {
   SORT_OFFERS_BY_FILTER: `SORT_OFFERS_BY_FILTER`,
 };
 
-const sortOffersByCity = (offers, city) => {  
-  return offers.filter((element) => element.city === city)
-}
+const sortOffersByCity = (offers, city) => {
+  return offers.filter((element) => element.city === city);
+};
 
 const sortOffersByFilter = (offers, currentFilter) => {
   switch (currentFilter) {

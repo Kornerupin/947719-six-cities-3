@@ -1,7 +1,7 @@
 import Menu from "../menu/menu";
 import OffersContainerEmpty from "../offers-container-empty/offers-container-empty";
 import OffersContainer from "../offers-container/offers-container.connect";
-import { OfferProperties } from "../../proptypes/properties";
+import {OfferProperties} from "../../proptypes/properties";
 
 const Main = ({
   offers,

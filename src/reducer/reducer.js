@@ -1,5 +1,5 @@
-import { ActionType } from '../reducer/actions';
-import { extend } from '../utils';
+import {ActionType} from '../reducer/actions';
+import {extend} from '../utils';
 
 const initialState = {
   offer: {},
@@ -8,8 +8,7 @@ const initialState = {
   city: `Amsterdam`,
   currentCoordinate: [],
   currentFilter: `Popular`,
-  offersByCity: [],
-  offersByFilter: []
+  offersByCity: []
 };
 
 export const reducer = (state = initialState, action) => {
@@ -45,7 +44,7 @@ export const reducer = (state = initialState, action) => {
       });
     case ActionType.SORT_OFFERS_BY_FILTER:
       return extend(state, {
-        offersByFilter: action.payload
+        offersByCity: action.payload
       });
   }
 
