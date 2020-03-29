@@ -16,14 +16,15 @@ class Map extends PureComponent {
     super(props);
     this.mapRef = React.createRef();
     this.markers = leaflet.layerGroup();
+    this.currentMarker = leaflet.layerGroup();
   }
 
   _renderMarkers(offerCoordinates, activeCoordinate) {
     offerCoordinates.map((coordinate) => {
       return leaflet.marker(coordinate, { icon: MapSettings.ICON }).addTo(this.markers);
     });
-
-    activeCoordinate.length > 0 ? leaflet.marker(activeCoordinate, { icon: MapSettings.ICON_ACTIVE }).addTo(this.markers) : [];
+    
+    activeCoordinate.length > 0 && leaflet.marker(activeCoordinate, { icon: MapSettings.ICON_ACTIVE }).addTo(this.currentMarker);
   }
 
   componentDidMount() {
@@ -45,6 +46,7 @@ class Map extends PureComponent {
     this._renderMarkers(coordinates, currentCoordinate);
 
     this.markers.addTo(this._map);
+    this.currentMarker.addTo(this._map);
   }
 
   componentDidUpdate() {

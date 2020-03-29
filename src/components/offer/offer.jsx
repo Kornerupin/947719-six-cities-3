@@ -3,8 +3,16 @@ import { OfferProperties } from "../../proptypes/properties";
 
 const Offer = React.memo(function Offer(props) {
 
-  const { offer, onOfferMouseOver, onOfferNameClick } = props;
-  const { image, type, price, rating, name, coordinates, isPremium} = offer;
+  const { onOfferMouseOver,
+    onOfferNameClick,
+    image,
+    type,
+    price,
+    rating,
+    name,
+    coordinates,
+    isPremium
+  } = props;
 
   return (
     <article className="cities__place-card place-card"
@@ -48,7 +56,7 @@ const Offer = React.memo(function Offer(props) {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onClick={() => onOfferNameClick(offer)}>
+        <h2 className="place-card__name" onClick={() => onOfferNameClick(props)}>
           <a href="#">{name}</a>
         </h2>
         <p className="place-card__type">{type}</p>

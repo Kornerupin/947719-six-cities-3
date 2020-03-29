@@ -29,7 +29,6 @@ const sortOffersByFilter = (offers, currentFilter) => {
   return offers;
 };
 
-export const getOffer = (currentOffer) => (currentOffer);
 export const getCoordinates = (currentCoordinate) => (currentCoordinate);
 
 export const ActionCreator = {
@@ -47,7 +46,7 @@ export const ActionCreator = {
   }),
   showOffer: (offer) => ({
     type: ActionType.SHOW_OFFER,
-    payload: getOffer(offer)
+    payload: offer
   }),
   changeCity: (city) => ({
     type: ActionType.CHANGE_CITY,

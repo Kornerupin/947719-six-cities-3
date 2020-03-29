@@ -7,13 +7,37 @@ import { OfferProperties } from '../../proptypes/properties';
 const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time);
 
 const OfferDetail = (props) => {
-  const { offer, offersByCity, onOfferNameClick, currentCoordinate } = props;
-  const { images, type, bedrooms, capacity, price, rating, name, facilities, hostAvatar, hostName, hostMessage, hostIsPro, reviews, cityCenter, cityZoom, isPremium } = offer;
+  const {
+    offersByCity,
+    onOfferNameClick,
+    currentCoordinate
+  } = props;
+
+  const {
+    id,
+    images,
+    type,
+    bedrooms,
+    capacity,
+    price,
+    rating,
+    name,
+    facilities,
+    hostAvatar,
+    hostName,
+    hostMessage,
+    hostIsPro,
+    reviews,
+    cityCenter,
+    cityZoom,
+    isPremium } = props.offer;
+
   const OFFERS_MAX = 3;
   const REVIEWS_MAX = 10;
-  
-  const neighbors = offersByCity.slice().filter((element) => element.coordinates !== currentCoordinate);
-  
+
+  const currentIndex = offersByCity.findIndex(element => element.id === id);
+  const neighbors = offersByCity.slice().filter((element, index) => index !== currentIndex);
+
   return (
     <div className="page">
       <header className="header">

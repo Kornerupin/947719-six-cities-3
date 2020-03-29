@@ -13,7 +13,7 @@ const OffersList = (props) => {
   return offers.map((offer, index) =>
   <Offer
     key={`offer-${index}`}
-    offer={offer}
+    {...offer}
     />
   );
 };
