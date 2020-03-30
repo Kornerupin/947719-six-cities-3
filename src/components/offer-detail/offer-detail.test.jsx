@@ -63,7 +63,7 @@ it(`<OfferDetail /> should render detail offer`, () => {
     offer={offerObject}
     offers={offersArray}
     onOfferNameClick={() => { }}
-    activeCoordinate={[0, 0]}
+    currentCoordinate={[0, 0]}
   />,
   {
     createNodeMock: () => {

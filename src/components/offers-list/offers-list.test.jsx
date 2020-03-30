@@ -46,7 +46,7 @@ describe(`<PlacesList/>: `, () => {
           offers={offersArray}
           onOfferMouseOver={() => { }}
           onOfferNameClick={jest.fn()}
-          currentSortOption={`Popular`}
+          currentFilter={`Popular`}
         />
     ).toJSON();
 

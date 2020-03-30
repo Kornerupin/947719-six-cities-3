@@ -1,8 +1,6 @@
 import leaflet from 'leaflet';
 
 const MapSettings = {
-  CITY: [52.38333, 4.9],
-  ZOOM: 12,
   ICON: leaflet.icon({
     iconUrl: `img/pin.svg`,
     iconSize: [30, 30]
@@ -18,45 +16,45 @@ class Map extends PureComponent {
     super(props);
     this.mapRef = React.createRef();
     this.markers = leaflet.layerGroup();
+    this.currentMarker = leaflet.layerGroup();
+  }
+
+  _renderMarkers(offerCoordinates, activeCoordinate) {
+    offerCoordinates.map((coordinate) => {
+      return leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this.markers);
+    });
+
+    activeCoordinate.length > 0 && leaflet.marker(activeCoordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this.currentMarker);
   }
 
   componentDidMount() {
-    const {coordinates, currentCoordinate} = this.props;
+    const {currentCoordinate, coordinates, center, zoom} = this.props;
 
     this._map = new leaflet.Map(this.mapRef.current, {
-      center: MapSettings.CITY,
-      zoom: MapSettings.ZOOM,
+      center,
+      zoom,
       zoomControl: false,
       marker: true
     });
 
-    this._map.setView(MapSettings.CITY, MapSettings.ZOOM);
+    this._map.setView(center, zoom);
 
     leaflet.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
       attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
     }).addTo(this._map);
 
-    coordinates.map((coordinate) => {
-
-      return (coordinate === currentCoordinate)
-        ? leaflet.marker(coordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this.markers)
-        : leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this.markers);
-    });
+    this._renderMarkers(coordinates, currentCoordinate);
 
     this.markers.addTo(this._map);
+    this.currentMarker.addTo(this._map);
   }
 
   componentDidUpdate() {
+    const {currentCoordinate, coordinates, center, zoom} = this.props;
     this.markers.clearLayers();
+    this._map.setView(center, zoom);
 
-    const {coordinates, activeCoordinate} = this.props;
-
-    coordinates.map((coordinate) => {
-
-      return (coordinate === activeCoordinate)
-        ? leaflet.marker(activeCoordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this.markers)
-        : leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this.markers);
-    });
+    this._renderMarkers(coordinates, currentCoordinate);
 
     this.markers.addTo(this._map);
   }
@@ -75,9 +73,8 @@ class Map extends PureComponent {
 }
 
 Map.propTypes = {
-  coordinates: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-  activeCoordinate: PropTypes.array,
-  currentCoordinate: PropTypes.arrayOf(PropTypes.number).isRequired
+  coordinates: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
+  currentCoordinate: PropTypes.arrayOf(PropTypes.number)
 };
 
 export default Map;

@@ -1,22 +1,20 @@
-import Menu from "../menu/menu";
+import Menu from "../menu/menu.connect";
 import OffersContainerEmpty from "../offers-container-empty/offers-container-empty";
-import OffersContainer from "../offers-container/offers-container";
+import OffersContainer from "../offers-container/offers-container.connect";
 import {OfferProperties} from "../../proptypes/properties";
 
 const Main = ({
   offers,
   cities,
   city,
-  activeCoordinate,
-  onOfferMouseOver,
-  onOfferNameClick,
+  currentCoordinate,
   onCityClick,
-  onSortOptionClick,
-  currentSortOption
+  currentFilter
 }) => {
-
+  
   const isOffers = offers ? offers.length > 0 : false;
   const isCity = offers ? false : true;
+  const isAuth = false;
 
   return (
     <div className="page page--gray page--main">
@@ -34,7 +32,7 @@ const Main = ({
                   <a className="header__nav-link header__nav-link--profile" href="#">
                     <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                     <span className="header__user-name user__name">
-                      Oliver.conner@gmail.com
+                      {isAuth ? `` : `Sign In`}
                     </span>
                   </a>
                 </li>
@@ -48,7 +46,11 @@ const Main = ({
         <div className="tabs">
           <section className="locations container">
             {
-              <Menu cities={cities} onCityClick={onCityClick} />
+              <Menu
+                cities={cities}
+                city={city}
+                onCityClick={onCityClick}
+              />
             }
           </section>
         </div>
@@ -56,13 +58,9 @@ const Main = ({
           {
             isOffers
               ? <OffersContainer
-                offers={offers}
                 city={city}
-                activeCoordinate={activeCoordinate}
-                onOfferNameClick={onOfferNameClick}
-                onOfferMouseOver={onOfferMouseOver}
-                onSortOptionClick={onSortOptionClick}
-                currentSortOption={currentSortOption}
+                currentCoordinate={currentCoordinate}
+                currentFilter={currentFilter}
               />
               : <OffersContainerEmpty city={city} isCity={isCity} />
           }
@@ -76,12 +74,9 @@ Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   cities: PropTypes.arrayOf(PropTypes.string.isRequired),
   city: PropTypes.string.isRequired,
-  activeCoordinate: PropTypes.array,
-  onOfferMouseOver: PropTypes.func.isRequired,
-  onOfferNameClick: PropTypes.func.isRequired,
+  currentCoordinate: PropTypes.array,
   onCityClick: PropTypes.func.isRequired,
-  onSortOptionClick: PropTypes.func.isRequired,
-  currentSortOption: PropTypes.string.isRequired
+  currentFilter: PropTypes.string.isRequired
 };
 
 export default Main;

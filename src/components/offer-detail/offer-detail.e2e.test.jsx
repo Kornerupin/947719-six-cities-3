@@ -64,7 +64,7 @@ it(`It expect an Object that contains the following properties`, () => {
   shallow(<OfferDetail
     offers={offersArray}
     offer={offerObject}
-    activeCoordinate={[0, 0]}
+    currentCoordinate={[0, 0]}
     onOfferMouseOver={() => { }}
     onOfferNameClick={() => { }}
   />);
