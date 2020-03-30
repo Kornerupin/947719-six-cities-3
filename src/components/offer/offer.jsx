@@ -1,18 +1,18 @@
-import {getStars} from '../../utils';
-import {OfferProperties} from "../../proptypes/properties";
+import { getStars } from '../../utils';
+import { OfferProperties } from "../../proptypes/properties";
 
 const Offer = React.memo(function Offer(props) {
 
-  const {onOfferMouseOver,
-    onOfferNameClick,
+  const {offer, onOfferMouseOver, onOfferNameClick} = props;
+  
+  const {
     image,
     type,
     price,
     rating,
     name,
     coordinates,
-    isPremium
-  } = props;
+    isPremium } = offer;
 
   return (
     <article className="cities__place-card place-card"
@@ -52,11 +52,11 @@ const Offer = React.memo(function Offer(props) {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${getStars(rating)}%`}}></span>
+            <span style={{ width: `${getStars(rating)}%` }}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onClick={() => onOfferNameClick(props)}>
+        <h2 className="place-card__name" onClick={() => onOfferNameClick(offer)}>
           <a href="#">{name}</a>
         </h2>
         <p className="place-card__type">{type}</p>

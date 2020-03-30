@@ -12,7 +12,7 @@ export const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.showActivePin(currentCoordinate));
   },
   onOfferNameClick(offer) {
-    dispatch(ActionCreator.showOffer(offer));
+    dispatch(ActionCreator.updateOffer(offer));
   }
 });
 

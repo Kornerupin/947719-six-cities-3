@@ -11,7 +11,6 @@ const OffersContainer = React.memo(function OffersContainer(props) {
   const {
     city,
     currentCoordinate,
-    onOfferNameClick,
     offersByCity,
   } = props;
 
@@ -29,7 +28,7 @@ const OffersContainer = React.memo(function OffersContainer(props) {
         }
         <div className="cities__places-list places__list tabs__content">
           {
-            <OffersList onOfferNameClick={onOfferNameClick} />
+            <OffersList />
           }
         </div>
 

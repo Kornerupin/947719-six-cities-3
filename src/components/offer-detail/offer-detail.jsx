@@ -8,11 +8,12 @@ const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time)
 
 const OfferDetail = (props) => {
   const {
+    offer,
+    offers,
     offersByCity,
-    onOfferNameClick,
     currentCoordinate
   } = props;
-
+  
   const {
     id,
     images,
@@ -30,13 +31,13 @@ const OfferDetail = (props) => {
     reviews,
     cityCenter,
     cityZoom,
-    isPremium} = props.offer;
+    isPremium} = offer;
 
   const OFFERS_MAX = 3;
   const REVIEWS_MAX = 10;
 
   const currentIndex = offersByCity.findIndex((element) => element.id === id);
-  const neighbors = offersByCity.slice().filter((element, index) => index !== currentIndex);
+  const neighbors = offersByCity > 0 ? offersByCity.slice().filter((element, index) => index !== currentIndex) : offers;
 
   return (
     <div className="page">
@@ -166,7 +167,6 @@ const OfferDetail = (props) => {
                 {
                   <OffersList
                     offersByCity={neighbors.slice(0, OFFERS_MAX)}
-                    onOfferNameClick={onOfferNameClick}
                     onOfferMouseOver={() => { }} />
                 }
               </div>

@@ -21,13 +21,13 @@ const App = (props) => {
   const _renderApp = () => {
 
     if (Object.keys(offer).length !== 0) {
-
+      
       return (
         <OfferDetail
           offer={offer}
+          offers={offers}
           offersByCity={offersByCity}
           onOfferMouseOver={(onOfferMouseOver)}
-          onOfferNameClick={onOfferNameClick}
           currentCoordinate={currentCoordinate}
         />);
     }

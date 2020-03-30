@@ -16,7 +16,7 @@ const ActionType = {
   LOAD_OFFERS: `LOAD_OFFERS`,
   GET_CITIES: `GET_CITIES`,
   SHOW_ACTIVE_PIN: `SHOW_ACTIVE_PIN`,
-  SHOW_OFFER: `SHOW_OFFER`,
+  UPDATE_OFFER: `UPDATE_OFFER`,
   CHANGE_CITY: `CHANGE_CITY`,
   GET_OFFERS: `GET_OFFERS`,
   CHANGE_FILTER: `CHANGE_FILTER`,
@@ -37,8 +37,8 @@ const ActionCreator = {
       type: ActionType.SHOW_ACTIVE_PIN,
       payload: getCoordinates(currentCoordinate),
     }),
-    showOffer: (offer) => ({
-      type: ActionType.SHOW_OFFER,
+    updateOffer: (offer) => ({
+      type: ActionType.UPDATE_OFFER,
       payload: offer
     }),
     changeCity: (city) => ({
@@ -93,7 +93,7 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         currentCoordinate: action.payload
       });
-    case ActionType.SHOW_OFFER:
+    case ActionType.UPDATE_OFFER:
       return extend(state, {
         offer: action.payload
       });
