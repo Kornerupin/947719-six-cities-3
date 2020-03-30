@@ -31,11 +31,18 @@ const reducer = (state = initialState, action) => {
 
 const Operation = {
 checkAuth: () => (dispatch, getState, api) => {
-  return api.get(`/login`)
-    .then((response) => {      
+  return api.get(`/login`, {
+    email: `login@email.com`,
+    password: `password`,
+  })
+    .then((response) => {            
       dispatch(ActionCreator.setAuthStatus(`NO_AUTH`));      
-    }).catch((error) => {        
+    }).catch((error) => {         
+      const {response} = error;
+
+      if (response.status === ErrorType.UNAUTHORIZED) {
         dispatch((ActionCreator.setAuthStatus(`NO_AUTH`)));
+      }
     });
   }
 };
