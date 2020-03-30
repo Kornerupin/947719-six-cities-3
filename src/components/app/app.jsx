@@ -15,10 +15,9 @@ const App = (props) => {
     onOfferMouseOver,
     onOfferNameClick,
     onCityClick,
-    currentFilter,
-
+    currentFilter
   } = props;
-
+  
   const _renderApp = () => {
 
     if (Object.keys(offer).length !== 0) {

@@ -4,10 +4,10 @@ import {Provider} from 'react-redux';
 import thunk from "redux-thunk";
 import {compose} from "recompose";
 import {createAPI} from "./api.js";
-import {ActionCreator} from './reducer/actions';
-import {reducer} from './reducer/reducer';
+import reducer from './reducer/reducer';
+import {Operation as DataOperation} from './reducer/data/data';
+import {Operation as UserOperation} from './reducer/user/user';
 import App from './components/app/app.connect';
-import Adapter from './adapter';
 
 const api = createAPI();
 
@@ -19,17 +19,8 @@ const store = createStore(
     )
 );
 
-const queryData = () => (dispatch, getState, api) => {
-  return api.get(`/hotels`)
-    .then((response) => {
-      const offers = response.data.map((offer) => Adapter.parse(offer));
-      dispatch(ActionCreator.loadOffers(offers));
-      dispatch(ActionCreator.getCities(offers));
-      dispatch(ActionCreator.sortOffersByCity(offers, getState().city));
-    });
-};
-
-store.dispatch(queryData());
+store.dispatch(DataOperation.queryData());
+store.dispatch(UserOperation.checkAuth());
 
 ReactDOM.render(
     <Provider store={store}>

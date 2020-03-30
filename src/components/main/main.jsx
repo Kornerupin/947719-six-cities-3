@@ -1,4 +1,4 @@
-import Menu from "../menu/menu";
+import Menu from "../menu/menu.connect";
 import OffersContainerEmpty from "../offers-container-empty/offers-container-empty";
 import OffersContainer from "../offers-container/offers-container.connect";
 import {OfferProperties} from "../../proptypes/properties";
@@ -11,7 +11,7 @@ const Main = ({
   onCityClick,
   currentFilter
 }) => {
-
+  
   const isOffers = offers ? offers.length > 0 : false;
   const isCity = offers ? false : true;
 

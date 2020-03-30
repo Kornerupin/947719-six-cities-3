@@ -1,6 +1,3 @@
-import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer/actions';
-
 const Menu = React.memo(function Menu(props) {
   const {cities, city, onCityClick, offers, sortOffersByCity} = props;
 
@@ -31,11 +28,4 @@ Menu.propTypes = {
   onCityClick: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({offers: state.offers});
-const mapDispatchToProps = (dispatch) => {
-  return {
-    sortOffersByCity: (offers, city) => dispatch(ActionCreator.sortOffersByCity(offers, city))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default Menu;

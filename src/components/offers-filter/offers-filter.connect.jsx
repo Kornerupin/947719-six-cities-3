@@ -1,10 +1,11 @@
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer/actions';
+import {ActionCreator} from '../../reducer/data/data';
 import OffersFilter from './offers-filter';
+import NameSpace from '../../reducer/name-space';
 
 export const mapStateToProps = (state) => ({
-  offersByCity: state.offersByCity,
-  currentFilter: state.currentFilter,
+  offersByCity: state[NameSpace.DATA].offersByCity,
+  currentFilter: state[NameSpace.DATA].currentFilter,
 });
 
 export const mapDispatchToProps = (dispatch) => ({

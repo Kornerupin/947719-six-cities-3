@@ -1,9 +1,10 @@
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer/actions';
+import {ActionCreator} from '../../reducer/data/data';
+import NameSpace from '../../reducer/name-space';
 import Offer from './offer';
 
 export const mapStateToProps = (state) => ({
-  currentCoordinate: state.currentCoordinate,
+  currentCoordinate: state[NameSpace.DATA].currentCoordinate,
 });
 
 export const mapDispatchToProps = (dispatch) => ({

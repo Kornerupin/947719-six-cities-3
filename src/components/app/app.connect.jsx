@@ -1,18 +1,19 @@
-import App from './app';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer/actions';
+import {ActionCreator} from '../../reducer/data/data';
+import NameSpace from '../../reducer/name-space';
+import App from './app';
 
 export const mapStateToProps = (state) => ({
-  offers: state.offers,
-  offer: state.offer,
-  cities: state.cities,
-  city: state.city,
-  currentCoordinate: state.currentCoordinate,
-  currentFilter: state.currentFilter,
-  offersByCity: state.offersByCity
+  offers: state[NameSpace.DATA].offers,
+  offer: state[NameSpace.DATA].offer,
+  cities: state[NameSpace.DATA].cities,
+  city: state[NameSpace.DATA].city,
+  currentCoordinate: state[NameSpace.DATA].currentCoordinate,
+  currentFilter: state[NameSpace.DATA].currentFilter,
+  offersByCity: state[NameSpace.DATA].offersByCity
 });
 
-export const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({  
   onCityClick(city) {
     dispatch(ActionCreator.changeCity(city));
   },

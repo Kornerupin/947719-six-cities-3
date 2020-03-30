@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const createAPI = (onLoginFail) => {
+export const createAPI = () => {
   const api = axios.create({
     baseURL: `https://htmlacademy-react-3.appspot.com/six-cities`,
     timeout: 5000,
@@ -11,17 +11,8 @@ export const createAPI = (onLoginFail) => {
     return response;
   };
 
-  const onFail = (err) => {
-    if (err && err.response && err.response.config && err.response.config.passThrough) {
-      return;
-    }
-
-    if (err.response && (err.response.status === 401 || err.response.status === 403)) {
-      onLoginFail();
-      return;
-    }
-
-    return;
+  const onFail = (error) => {
+    throw error;
   };
 
   api.interceptors.response.use(onSuccess, onFail);
