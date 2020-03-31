@@ -1,4 +1,4 @@
-import {FilterType} from '../../consts';
+import {FilterType, DEFAULT_FILTER, FIRST_CITY} from '../../consts';
 import {extend} from '../../utils';
 import Adapter from '../../adapter';
 
@@ -8,7 +8,7 @@ const initialState = {
   cities: [],
   city: ``,
   currentCoordinate: [],
-  currentFilter: `Popular`,
+  currentFilter: DEFAULT_FILTER,
 };
 
 const ActionType = {
@@ -27,9 +27,9 @@ const ActionCreator = {
       type: ActionType.LOAD_OFFERS,
       payload: offers,
     }),
-    getCities: (cities) => ({
+    getCities: (offers) => ({
       type: ActionType.GET_CITIES,
-      payload: cities,
+      payload: getCities(offers),
     }),
     showActivePin: (currentCoordinate) => ({
       type: ActionType.SHOW_ACTIVE_PIN,
@@ -66,6 +66,7 @@ const sortOffersByFilter = (offers, currentFilter) => {
   return offers;
 };
 
+const getCities = (offers) => [...new Set(offers.map((offer) => offer.city))]
 const getCoordinates = (currentCoordinate) => (currentCoordinate);
 
 const reducer = (state = initialState, action) => {
@@ -75,9 +76,9 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         offers: action.payload
       });
-    case ActionType.GET_CITIES:
+    case ActionType.GET_CITIES:      
       return extend(state, {
-        cities: [...new Set(action.payload.map((offer) => offer.city))]
+        cities: action.payload
       });
     case ActionType.SHOW_ACTIVE_PIN:
       return extend(state, {
@@ -110,8 +111,8 @@ const Operation = {
       .then((response) => {        
         const offers = response.data.map((offer) => Adapter.parse(offer));
         dispatch(ActionCreator.loadOffers(offers));
-        dispatch(ActionCreator.getCities(offers));
-        dispatch(ActionCreator.setCity(getState().DATA.cities[0]));
+        dispatch(ActionCreator.getCities(offers));        
+        dispatch(ActionCreator.setCity(getState().DATA.cities[FIRST_CITY]));
       });
   }
 }

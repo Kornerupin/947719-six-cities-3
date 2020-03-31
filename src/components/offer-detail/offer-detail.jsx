@@ -34,9 +34,9 @@ const OfferDetail = (props) => {
 
   const OFFERS_MAX = 3;
   const REVIEWS_MAX = 10;
-
-  const currentIndex = offers.findIndex((element) => element.id === id);
-  const neighbors = offers.slice().filter((element, index) => index !== currentIndex);
+  
+  const currentOfferIndex = offers.findIndex((element) => element.id === id);  
+  const neighbors = offers.slice().filter((element, index) => index !== currentOfferIndex);  
 
   return (
     <div className="page">

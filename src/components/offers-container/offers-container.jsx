@@ -1,8 +1,9 @@
-import OffersList from "../offers-list/offers-list.connect";
+import {FIRST_CITY} from '../../consts';
+import OffersList from "../offers-list/offers-list";
 import OffersFilter from "../offers-filter/offers-filter.connect";
 import withToggleFilter from '../../hocs/with-toggle-filter/with-toogle-filter';
 import Map from "../map/map";
-import {OfferProperties} from '../../proptypes/properties';
+import { OfferProperties } from '../../proptypes/properties';
 
 const OffersFilterWithToggle = withToggleFilter(OffersFilter);
 
@@ -26,7 +27,7 @@ const OffersContainer = React.memo(function OffersContainer(props) {
         }
         <div className="cities__places-list places__list tabs__content">
           {
-            <OffersList />
+            <OffersList offers={offers} />
           }
         </div>
 
@@ -34,10 +35,10 @@ const OffersContainer = React.memo(function OffersContainer(props) {
       <div className="cities__right-section">
         <section className="cities__map map">
           {
-            <Map
+            offers.length > 0 && <Map
               coordinates={offers.map((offer) => offer.coordinates)}
-              center={offers[0].cityCenter}
-              zoom={offers[0].cityZoom}
+              center={offers[FIRST_CITY].cityCenter}
+              zoom={offers[FIRST_CITY].cityZoom}
               currentCoordinate={currentCoordinate}
             />
           }
