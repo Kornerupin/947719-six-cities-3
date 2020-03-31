@@ -19,11 +19,11 @@ class Map extends PureComponent {
     this.currentMarker = leaflet.layerGroup();
   }
 
-  _renderMarkers(offerCoordinates, activeCoordinate) {
+  _renderMarkers(offerCoordinates, activeCoordinate) {    
     offerCoordinates.map((coordinate) => {
       return leaflet.marker(coordinate, {icon: MapSettings.ICON}).addTo(this.markers);
     });
-
+    
     activeCoordinate.length > 0 && leaflet.marker(activeCoordinate, {icon: MapSettings.ICON_ACTIVE}).addTo(this.currentMarker);
   }
 
@@ -50,8 +50,10 @@ class Map extends PureComponent {
   }
 
   componentDidUpdate() {
-    const {currentCoordinate, coordinates, center, zoom} = this.props;
     this.markers.clearLayers();
+    
+    const {currentCoordinate, coordinates, center, zoom} = this.props;
+
     this._map.setView(center, zoom);
 
     this._renderMarkers(coordinates, currentCoordinate);

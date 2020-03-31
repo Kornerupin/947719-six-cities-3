@@ -7,14 +7,10 @@ const App = (props) => {
 
   const {
     offers,
-    offersByCity,
     offer,
-    cities,
     city,
     currentCoordinate,
     onOfferMouseOver,
-    onOfferNameClick,
-    onCityClick,
     currentFilter
   } = props;
   
@@ -26,7 +22,6 @@ const App = (props) => {
         <OfferDetail
           offer={offer}
           offers={offers}
-          offersByCity={offersByCity}
           onOfferMouseOver={(onOfferMouseOver)}
           currentCoordinate={currentCoordinate}
         />);
@@ -34,10 +29,8 @@ const App = (props) => {
 
     return (<Main
       offers={offers}
-      cities={cities}
       city={city}
       currentCoordinate={currentCoordinate}
-      onCityClick={onCityClick}
       currentFilter={currentFilter}
     />);
   };
@@ -59,11 +52,9 @@ const App = (props) => {
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(OfferProperties)),
   offer: PropTypes.object,
-  cities: PropTypes.arrayOf(PropTypes.string.isRequired),
   city: PropTypes.string.isRequired,
   currentCoordinate: PropTypes.array,
   currentCityCoords: PropTypes.array,
-  onCityClick: PropTypes.func.isRequired,
   currentFilter: PropTypes.string.isRequired
 };
 

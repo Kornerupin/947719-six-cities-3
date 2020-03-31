@@ -5,10 +5,8 @@ import {OfferProperties} from "../../proptypes/properties";
 
 const Main = ({
   offers,
-  cities,
   city,
   currentCoordinate,
-  onCityClick,
   currentFilter
 }) => {
   
@@ -46,11 +44,7 @@ const Main = ({
         <div className="tabs">
           <section className="locations container">
             {
-              <Menu
-                cities={cities}
-                city={city}
-                onCityClick={onCityClick}
-              />
+              <Menu />
             }
           </section>
         </div>
@@ -75,7 +69,6 @@ Main.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string.isRequired),
   city: PropTypes.string.isRequired,
   currentCoordinate: PropTypes.array,
-  onCityClick: PropTypes.func.isRequired,
   currentFilter: PropTypes.string.isRequired
 };
 

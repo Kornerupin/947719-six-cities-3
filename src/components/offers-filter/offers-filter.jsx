@@ -1,7 +1,7 @@
 import {FilterType} from '../../consts';
 
 const OffersFilter = (props) => {
-  const {onFilterOptionClick, sortOffersByFilter, offersByCity, currentFilter, onToggleFilterClick, isFilterOpened} = props;
+  const {onFilterOptionClick, sortOffersByFilter, offers, currentFilter, onToggleFilterClick, isFilterOpened} = props;
 
   return (
     <form className="places__sorting" action="" method="get">
@@ -27,7 +27,7 @@ const OffersFilter = (props) => {
                   onFilterOptionClick(option);
                 }}
                 onClick={() => {
-                  sortOffersByFilter(offersByCity, currentFilter); onToggleFilterClick();
+                  sortOffersByFilter(offers, currentFilter); onToggleFilterClick();
                 }}>
                 {option}
               </li>

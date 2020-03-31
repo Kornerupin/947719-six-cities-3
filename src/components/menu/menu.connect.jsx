@@ -3,12 +3,15 @@ import {ActionCreator} from '../../reducer/data/data';
 import NameSpace from '../../reducer/name-space';
 import Menu from './menu';
 
-const mapStateToProps = (state) => ({offers: state[NameSpace.DATA].offers});
+const mapStateToProps = (state) => ({
+  cities: state[NameSpace.DATA].cities,
+  city: state[NameSpace.DATA].city
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    sortOffersByCity: (offers, city) => dispatch(ActionCreator.sortOffersByCity(offers, city))
-  };
-};
+export const mapDispatchToProps = (dispatch) => ({
+  onCityClick(city) {
+    dispatch(ActionCreator.setCity(city));
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

@@ -4,7 +4,7 @@ import OffersFilter from './offers-filter';
 import NameSpace from '../../reducer/name-space';
 
 export const mapStateToProps = (state) => ({
-  offersByCity: state[NameSpace.DATA].offersByCity,
+  offers: state[NameSpace.DATA].offers,
   currentFilter: state[NameSpace.DATA].currentFilter,
 });
 
