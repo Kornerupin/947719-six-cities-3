@@ -19,30 +19,7 @@ class Adapter {
     this.hostAvatar = data.host.avatar_url;
     this.hostName = data.host.name;
     this.hostMessage = data.description;
-    this.hostIsPro = data.host.is_pro,
-    this.reviews = [
-      {
-        avatar: `https://api.adorable.io/avatars/128/0.9912918678423135`,
-        name: `Max`,
-        rating: 4.1,
-        text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-        time: 1569006474313
-      },
-      {
-        avatar: `https://api.adorable.io/avatars/128/0.33908914729720996`,
-        name: `Wax`,
-        rating: 4.5,
-        text: `It is my favorite hotel. I have been staying her for several years and can confirm that service level remains at the same high level.`,
-        time: 1571598485610
-      },
-      {
-        avatar: `https://api.adorable.io/avatars/128/0.06997580364137201`,
-        name: `Rax`,
-        rating: 3.8,
-        text: `Emplacement parfait, beaucoup de commerces à proximité, le tout dans un lieu traditionnel et agréable, j'ai adoré mon court séjour et aimerait beaucoup y retourner un jour!`,
-        time: 1574276894250
-      }
-    ];
+    this.hostIsPro = data.host.is_pro;
   }
 
   static parse(data) {

@@ -1,3 +1,8 @@
+export const ConnectionSettings = {
+  TIMEOUT: 5000,
+  URL: `https://htmlacademy-react-3.appspot.com/six-cities`
+}
+
 export const FilterType = {
   POPULAR: `Popular`,
   LOW_TO_HIGH: `Price: low to high`,

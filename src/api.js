@@ -1,9 +1,10 @@
 import axios from 'axios';
+import {ConnectionSettings} from "./consts";
 
 export const createAPI = () => {
   const api = axios.create({
-    baseURL: `https://htmlacademy-react-3.appspot.com/six-cities`,
-    timeout: 5000,
+    baseURL: ConnectionSettings.URL,
+    timeout: ConnectionSettings.TIMEOUT,
     withCredentials: true
   });
 

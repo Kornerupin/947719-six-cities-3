@@ -1,6 +1,6 @@
 import OffersList from "../offers-list/offers-list";
 import Map from '../map/map';
-import ReviewsList from '../reviews-list/reviews-list';
+import ReviewsList from '../reviews-list/reviews-list.connect';
 import {getStars} from '../../utils';
 import {OfferProperties} from '../../proptypes/properties';
 
@@ -37,7 +37,7 @@ const OfferDetail = (props) => {
   
   const currentOfferIndex = offers.findIndex((element) => element.id === id);  
   const neighbors = offers.slice().filter((element, index) => index !== currentOfferIndex);  
-
+  
   return (
     <div className="page">
       <header className="header">

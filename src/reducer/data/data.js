@@ -1,5 +1,5 @@
-import {FilterType, DEFAULT_FILTER, FIRST_CITY} from '../../consts';
-import {extend} from '../../utils';
+import { FilterType, DEFAULT_FILTER, FIRST_CITY } from '../../consts';
+import { extend } from '../../utils';
 import Adapter from '../../adapter';
 
 const initialState = {
@@ -22,36 +22,40 @@ const ActionType = {
   SORT_OFFERS_BY_FILTER: `SORT_OFFERS_BY_FILTER`,
 };
 
+const loadOffers = (offers) => {
+  return offers;
+}
+
 const ActionCreator = {
-    loadOffers: (offers) => ({
-      type: ActionType.LOAD_OFFERS,
-      payload: offers,
-    }),
-    getCities: (offers) => ({
-      type: ActionType.GET_CITIES,
-      payload: getCities(offers),
-    }),
-    showActivePin: (currentCoordinate) => ({
-      type: ActionType.SHOW_ACTIVE_PIN,
-      payload: getCoordinates(currentCoordinate),
-    }),
-    updateOffer: (offer) => ({
-      type: ActionType.UPDATE_OFFER,
-      payload: offer
-    }),
-    setCity: (city) => ({
-      type: ActionType.SET_CITY,
-      payload: city
-    }),
-    changeFilterOptions: (currentFilter) => ({
-      type: ActionType.CHANGE_FILTER,
-      payload: currentFilter,
-    }),
-    sortOffersByFilter: (offers, currentFilter) => ({
-      type: ActionType.SORT_OFFERS_BY_FILTER,
-      payload: sortOffersByFilter(offers, currentFilter),
-    }),
-  };
+  loadOffers: (offers) => ({
+    type: ActionType.LOAD_OFFERS,
+    payload: loadOffers(offers),
+  }),
+  getCities: (offers) => ({
+    type: ActionType.GET_CITIES,
+    payload: getCities(offers),
+  }),
+  showActivePin: (currentCoordinate) => ({
+    type: ActionType.SHOW_ACTIVE_PIN,
+    payload: getCoordinates(currentCoordinate),
+  }),
+  updateOffer: (offer) => ({
+    type: ActionType.UPDATE_OFFER,
+    payload: offer
+  }),
+  setCity: (city) => ({
+    type: ActionType.SET_CITY,
+    payload: city
+  }),
+  changeFilterOptions: (currentFilter) => ({
+    type: ActionType.CHANGE_FILTER,
+    payload: currentFilter,
+  }),
+  sortOffersByFilter: (offers, currentFilter) => ({
+    type: ActionType.SORT_OFFERS_BY_FILTER,
+    payload: sortOffersByFilter(offers, currentFilter),
+  }),
+};
 
 const sortOffersByFilter = (offers, currentFilter) => {
   switch (currentFilter) {
@@ -70,13 +74,13 @@ const getCities = (offers) => [...new Set(offers.map((offer) => offer.city))]
 const getCoordinates = (currentCoordinate) => (currentCoordinate);
 
 const reducer = (state = initialState, action) => {
-    
+
   switch (action.type) {
     case ActionType.LOAD_OFFERS:
       return extend(state, {
         offers: action.payload
       });
-    case ActionType.GET_CITIES:      
+    case ActionType.GET_CITIES:
       return extend(state, {
         cities: action.payload
       });
@@ -106,15 +110,23 @@ const reducer = (state = initialState, action) => {
 };
 
 const Operation = {
-    queryData: () => (dispatch, getState, api) => {
+
+  queryData: () => (dispatch, getState, api) => {
     return api.get(`/hotels`)
-      .then((response) => {        
+      .then((response) => {
         const offers = response.data.map((offer) => Adapter.parse(offer));
+        offers.map((offer) => api.get(`/comments/${offer.id}`).then((response) => Object.assign(offer, { reviews: response.data }))
+          .catch((error) => {
+            const {response} = error;
+            // console.log(response);
+          })
+        );
+
         dispatch(ActionCreator.loadOffers(offers));
-        dispatch(ActionCreator.getCities(offers));        
+        dispatch(ActionCreator.getCities(offers));
         dispatch(ActionCreator.setCity(getState().DATA.cities[FIRST_CITY]));
-      });
+      })
   }
 }
 
-export {Operation, ActionType, ActionCreator, reducer};
+export { Operation, ActionType, ActionCreator, reducer };
