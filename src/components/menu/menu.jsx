@@ -1,6 +1,6 @@
 const Menu = React.memo(function Menu(props) {
-  const {cities, city, onCityClick, offers, sortOffersByCity} = props;
-
+  const {cities, city, onCityClick} = props;
+  
   return (
     <ul className="locations__list tabs__list">
       {
@@ -9,7 +9,7 @@ const Menu = React.memo(function Menu(props) {
             <a className={`locations__item-link tabs__item ${(currentCity === city) && `tabs__item--active`}`} href="#"
               onClick={
                 () => {
-                  onCityClick(currentCity); sortOffersByCity(offers, currentCity);
+                  onCityClick(currentCity);
                 }
               }>
               <span>{currentCity}</span>

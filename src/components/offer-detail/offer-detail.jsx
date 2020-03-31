@@ -10,7 +10,6 @@ const OfferDetail = (props) => {
   const {
     offer,
     offers,
-    offersByCity,
     currentCoordinate
   } = props;
   
@@ -36,8 +35,8 @@ const OfferDetail = (props) => {
   const OFFERS_MAX = 3;
   const REVIEWS_MAX = 10;
 
-  const currentIndex = offersByCity.findIndex((element) => element.id === id);
-  const neighbors = offersByCity > 0 ? offersByCity.slice().filter((element, index) => index !== currentIndex) : offers;
+  const currentIndex = offers.findIndex((element) => element.id === id);
+  const neighbors = offers.slice().filter((element, index) => index !== currentIndex);
 
   return (
     <div className="page">
@@ -166,7 +165,7 @@ const OfferDetail = (props) => {
               <div className="near-places__list places__list">
                 {
                   <OffersList
-                    offersByCity={neighbors.slice(0, OFFERS_MAX)}
+                    offers={neighbors.slice(0, OFFERS_MAX)}
                     onOfferMouseOver={() => { }} />
                 }
               </div>

@@ -5,7 +5,7 @@ import OffersContainer from './offers-container';
 const mapStateToProps = (state) => ({
   offers: state[NameSpace.DATA].offers,
   city: state[NameSpace.DATA].city,
-  offersByCity: state[NameSpace.DATA].offersByCity
+  offers: state[NameSpace.DATA].offers
 });
 
 export default connect(mapStateToProps)(OffersContainer);

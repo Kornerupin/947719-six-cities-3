@@ -10,15 +10,15 @@ export const mapStateToProps = (state) => ({
   city: state[NameSpace.DATA].city,
   currentCoordinate: state[NameSpace.DATA].currentCoordinate,
   currentFilter: state[NameSpace.DATA].currentFilter,
-  offersByCity: state[NameSpace.DATA].offersByCity
+  offers: state[NameSpace.DATA].offers
 });
 
 export const mapDispatchToProps = (dispatch) => ({  
   onCityClick(city) {
-    dispatch(ActionCreator.changeCity(city));
+    dispatch(ActionCreator.setCity(city));
   },
-  sortOffersByCity(offers, city) {
-    dispatch(ActionCreator.sortOffersByCity(offers, city));
+  sortOffers(offers, city) {
+    dispatch(ActionCreator.sortOffers(offers, city));
   }
 });
 

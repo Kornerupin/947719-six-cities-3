@@ -11,10 +11,8 @@ const OffersContainer = React.memo(function OffersContainer(props) {
   const {
     city,
     currentCoordinate,
-    offersByCity,
+    offers,
   } = props;
-
-   const offers = offersByCity.length > 0 ? offersByCity : props.offers;
 
   return (
     <div className="cities__places-container container">

@@ -7,13 +7,11 @@ const App = (props) => {
 
   const {
     offers,
-    offersByCity,
     offer,
     cities,
     city,
     currentCoordinate,
     onOfferMouseOver,
-    onOfferNameClick,
     onCityClick,
     currentFilter
   } = props;
@@ -26,7 +24,6 @@ const App = (props) => {
         <OfferDetail
           offer={offer}
           offers={offers}
-          offersByCity={offersByCity}
           onOfferMouseOver={(onOfferMouseOver)}
           currentCoordinate={currentCoordinate}
         />);

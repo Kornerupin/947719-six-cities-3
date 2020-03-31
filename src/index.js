@@ -22,6 +22,8 @@ const store = createStore(
 store.dispatch(DataOperation.queryData());
 store.dispatch(UserOperation.checkAuth());
 
+// store.subscribe(() => console.log(store.getState()));
+
 ReactDOM.render(
     <Provider store={store}>
       <App />

@@ -5,7 +5,6 @@ import {OfferProperties} from "../../proptypes/properties";
 
 const Main = ({
   offers,
-  cities,
   city,
   currentCoordinate,
   onCityClick,
@@ -47,8 +46,6 @@ const Main = ({
           <section className="locations container">
             {
               <Menu
-                cities={cities}
-                city={city}
                 onCityClick={onCityClick}
               />
             }

@@ -8,7 +8,7 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  onOfferMouseOver(currentCoordinate) {
+  onOfferMouseOver(currentCoordinate) {    
     dispatch(ActionCreator.showActivePin(currentCoordinate));
   },
   onOfferNameClick(offer) {
