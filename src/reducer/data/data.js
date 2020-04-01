@@ -120,7 +120,7 @@ const Operation = {
           return Object.assign(offer, {
             reviews: response.data
           })
-        }).catch((error) => error));
+        }).catch((error) => console.log(error)));
 
         dispatch(ActionCreator.loadOffers(offers));
         dispatch(ActionCreator.getCities(offers));

@@ -6,8 +6,7 @@ import ReviewForm from './review-form';
 const mapStateToProps = (state) => ({
   error: getReviewError(state),
   isLoading: isLoadingStatus(state),
-  isSuccess: isSuccessStatus(state),
-  // offerId: getCurrentOfferId(state)
+  isSuccess: isSuccessStatus(state)
 });
 
 const mapDispatchToProps = {
