@@ -116,9 +116,7 @@ const Operation = {
       .then((response) => {
         const offers = response.data.map((offer) => Adapter.parse(offer));
         offers.map((offer) => api.get(`/comments/${offer.id}`).then((response) => Object.assign(offer, { reviews: response.data }))
-          .catch((error) => {
-            console.log(error.response);
-          })
+          .catch((error) => error)
         );
 
         dispatch(ActionCreator.loadOffers(offers));

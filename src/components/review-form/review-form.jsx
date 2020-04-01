@@ -4,13 +4,11 @@ class ReviewForm extends React.PureComponent {
   constructor(props) {
     super(props);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-
-    // ReviewOperation.queryReviews(this.props.id);
   }
 
   handleFormSubmit(evt) {
     evt.preventDefault();
-    // console.log(evt.target);
+    console.log(evt.target);
     // sendReview();
   }
 

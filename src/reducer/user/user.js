@@ -32,8 +32,8 @@ const reducer = (state = initialState, action) => {
 const Operation = {
 checkAuth: () => (dispatch, getState, api) => {
   return api.get(`/login`, {
-    email: `login@email.com`,
-    password: `password`,
+    email: `Oliver.conner@gmail.com`,
+    password: `12345678`,
   })
     .then((response) => {            
       dispatch(ActionCreator.setAuthStatus(`NO_AUTH`));      
