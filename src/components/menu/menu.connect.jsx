@@ -14,4 +14,5 @@ export const mapDispatchToProps = (dispatch) => ({
   }
 });
 
+export {Menu};
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

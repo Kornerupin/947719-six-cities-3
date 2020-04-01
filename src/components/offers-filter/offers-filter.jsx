@@ -1,8 +1,8 @@
 import {FilterType} from '../../consts';
 
 const OffersFilter = (props) => {
-  const {onFilterOptionClick, sortOffersByFilter, offers, currentFilter, onToggleFilterClick, isFilterOpened} = props;
-
+  const {onFilterOptionClick, onToggleFilterClick, offers, currentFilter, isFilterOpened} = props;
+  
   return (
     <form className="places__sorting" action="" method="get">
       <span className="places__sorting-caption">Sort by&nbsp;</span>
@@ -15,7 +15,6 @@ const OffersFilter = (props) => {
       <ul className={
         `places__options places__options--custom ${isFilterOpened && `places__options--opened`}`
       }>
-
         {
           Object.values(FilterType).map((option, index) => {
             return (
@@ -23,11 +22,9 @@ const OffersFilter = (props) => {
                 key={`option-${index}`}
                 className={`places__option ${option === currentFilter && `places__option--active`}`}
                 tabIndex={0}
-                onMouseOver={() => {
-                  onFilterOptionClick(option);
-                }}
                 onClick={() => {
-                  sortOffersByFilter(offers, currentFilter); onToggleFilterClick();
+                  onFilterOptionClick(offers, option); 
+                  onToggleFilterClick();
                 }}>
                 {option}
               </li>

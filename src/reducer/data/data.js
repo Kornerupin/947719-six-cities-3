@@ -1,5 +1,5 @@
 import { FilterType, DEFAULT_FILTER, FIRST_CITY } from '../../consts';
-import { extend } from '../../utils';
+import { updateObject } from '../../utils';
 import Adapter from '../../adapter';
 
 const initialState = {
@@ -77,31 +77,31 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ActionType.LOAD_OFFERS:
-      return extend(state, {
+      return updateObject(state, {
         offers: action.payload
       });
     case ActionType.GET_CITIES:
-      return extend(state, {
+      return updateObject(state, {
         cities: action.payload
       });
     case ActionType.SHOW_ACTIVE_PIN:
-      return extend(state, {
+      return updateObject(state, {
         currentCoordinate: action.payload
       });
     case ActionType.UPDATE_OFFER:
-      return extend(state, {
+      return updateObject(state, {
         offer: action.payload
       });
     case ActionType.SET_CITY:
-      return extend(state, {
+      return updateObject(state, {
         city: action.payload
       });
     case ActionType.CHANGE_FILTER:
-      return extend(state, {
+      return updateObject(state, {
         currentFilter: action.payload
       });
     case ActionType.SORT_OFFERS_BY_FILTER:
-      return extend(state, {
+      return updateObject(state, {
         offers: action.payload
       });
   }
@@ -115,14 +115,22 @@ const Operation = {
     return api.get(`/hotels`)
       .then((response) => {
         const offers = response.data.map((offer) => Adapter.parse(offer));
-        offers.map((offer) => api.get(`/comments/${offer.id}`).then((response) => Object.assign(offer, { reviews: response.data }))
-          .catch((error) => error)
-        );
+        offers.map((offer) => api.get(`/comments/${offer.id}`).then((response) => {
+          
+          return Object.assign(offer, {
+            reviews: response.data
+          })
+        }).catch((error) => error));
 
         dispatch(ActionCreator.loadOffers(offers));
         dispatch(ActionCreator.getCities(offers));
         dispatch(ActionCreator.setCity(getState().DATA.cities[FIRST_CITY]));
       })
+  },
+
+  sortOffersByFilter: (offers, filter) => (dispatch) => {
+    dispatch(ActionCreator.changeFilterOptions(filter));
+    dispatch(ActionCreator.sortOffersByFilter(offers, filter));
   }
 }
 

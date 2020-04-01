@@ -14,5 +14,18 @@ export const FIRST_CITY = 0;
 export const DEFAULT_FILTER = FilterType.POPULAR;
 
 export const ErrorType = {
-  UNAUTHORIZED: 401
+  UNAUTHORIZED: 401,
+  BADREQUEST: 400,
+  NOTFOUND: 404
+}
+
+export const REVIEWS_MAX = 10;
+export const RatingValues = [`5`, `4`, `3`, `2`, `1`];
+export const MIN_COMMENT_LENGTH = 50;
+
+export const LoadingStatus = {
+  DEFAULT: `DEFAULT`,
+  SUCCESS: `SUCCESS`,
+  LOADING: `LOADING`,
+  ERROR: `ERROR`
 }

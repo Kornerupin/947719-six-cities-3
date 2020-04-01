@@ -1,10 +1,12 @@
 import {connect} from 'react-redux';
-import NameSpace from '../../reducer/name-space';
 import ReviewsList from './reviews-list';
-import {sortReviews} from '../../reducer/review/selectors';
+import {sortByDate} from '../../reducer/review/selectors';
+import {getOfferId} from '../../reducer/data/selectors';
 
 const mapStateToProps = (state) => ({
-  reviews: sortReviews(state[NameSpace.DATA].offer.reviews)
+  reviews: sortByDate(state),
+  offerId: getOfferId(state)
 });
 
+export {ReviewsList};
 export default connect(mapStateToProps)(ReviewsList);

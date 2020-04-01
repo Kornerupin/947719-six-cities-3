@@ -1,5 +1,5 @@
 import {ErrorType} from '../../consts';
-import {extend} from '../../utils';
+import {updateObject} from '../../utils';
 
 const initialState = {
   authStatus: `NO_AUTH`,
@@ -21,7 +21,7 @@ const ActionCreator = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.SET_AUTH_STATUS:
-      return extend(state, {
+      return updateObject(state, {
         authStatus: action.payload
       });
   }
