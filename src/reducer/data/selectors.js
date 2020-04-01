@@ -1,4 +1,3 @@
-import {ActionCreator} from '../../reducer/data/data';
 import NameSpace from '../../reducer/name-space';
 
 export const getOffersByCity = (state) => {  

@@ -117,9 +117,7 @@ const Operation = {
         const offers = response.data.map((offer) => Adapter.parse(offer));
         offers.map((offer) => api.get(`/comments/${offer.id}`).then((response) => Object.assign(offer, { reviews: response.data }))
           .catch((error) => {
-            const {response} = error;
-            if(response.status === 400) { throw error}
-            console.log(response);
+            console.log(error.response);
           })
         );
 

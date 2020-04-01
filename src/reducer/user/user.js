@@ -38,9 +38,8 @@ checkAuth: () => (dispatch, getState, api) => {
     .then((response) => {            
       dispatch(ActionCreator.setAuthStatus(`NO_AUTH`));      
     }).catch((error) => {         
-      const {response} = error;
 
-      if (response.status === ErrorType.UNAUTHORIZED) {
+      if (error.response.status === ErrorType.UNAUTHORIZED) {
         dispatch((ActionCreator.setAuthStatus(`NO_AUTH`)));
       }
     });
