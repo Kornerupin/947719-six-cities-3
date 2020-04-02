@@ -7,12 +7,10 @@ class SignInForm extends React.PureComponent {
   }
 
   handleFormSubmit(evt) {
-    evt.preventDefault();
-    evt.preventDefault();
+    evt.preventDefault();    
+    const {onSubmitSignInForm, userLogin, userPassword} = this.props;
 
-    const {onSubmitSignInForm, email, password} = this.props;
-
-    onSubmitSignInForm({login: email, password});
+    onSubmitSignInForm({login: userLogin, password: userPassword});
   }
 
   handleLoginChange(evt) {
@@ -26,9 +24,6 @@ class SignInForm extends React.PureComponent {
   }
 
   render() {
-
-    console.log(this.props);
-
       return (
         <form className="login__form form" action="" onSubmit={this.handleFormSubmit}>
           <div className="login__input-wrapper form__input-wrapper">

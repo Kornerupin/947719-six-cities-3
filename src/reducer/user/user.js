@@ -10,7 +10,7 @@ const initialState = {
 const ActionType = {
   SET_USER_STATUS: `SET_USER_STATUS`,
   SET_USER_LOGIN: `SET_USER_LOGIN`,
-  SET_USER_REVIEW: `SET_USER_PASSWORD`
+  SET_USER_PASSWORD: `SET_USER_PASSWORD`
 };
 
 const ActionCreator = {
@@ -64,13 +64,14 @@ const Operation = {
       });
   },
 
-  sendSignInData: (userData) => (dispatch, getState, api) => {
+  sendSignInData: (userData) => (dispatch, getState, api) => {    
     return api.post(`/login`, {
       email: userData.login,
       password: userData.password,
     }).then((response) => {
+      console.log(response.config.data);
       dispatch((ActionCreator.setUserStatus(`AUTH`)));
-    }).catch((error) => {
+    }).catch((error) => {      
       error.response.status === ErrorType.BABREQUEST &&
         dispatch(ActionCreator.setUserStatus(`NO_AUTH`));
     });
@@ -80,7 +81,7 @@ const Operation = {
     dispatch(ActionCreator.setUserLogin(login));
   },
 
-  setUserPassword: (password) => (dispatch) => {
+  setUserPassword: (password) => (dispatch) => {    
     dispatch(ActionCreator.setUserPassword(password));
   }
 

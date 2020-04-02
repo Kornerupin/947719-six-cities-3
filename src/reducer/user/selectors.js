@@ -3,12 +3,13 @@ import {createSelector} from "reselect";
 
 const NAME_SPACE = NameSpace.USER;
 
-export const getAuthStatus = (state) => state[NAME_SPACE].authStatus
+export const getUserStatus = (state) => state[NAME_SPACE].userStatus
 
 export const isLoadingStatus = createSelector(
-  getAuthStatus,
+  getUserStatus,
     (userStatus) => {
       return userStatus === UserStatus.AUTH;
     }
 );
-
+export const getUserLogin = (state) => state[NAME_SPACE].userLogin;
+export const getUserPassword= (state) => state[NAME_SPACE].userPassword;

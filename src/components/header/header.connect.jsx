@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import Header from './header';
-import {getAuthStatus} from '../../reducer/user/selectors';
+import {getUserStatus} from '../../reducer/user/selectors';
 
 const mapStateToProps = (state) => ({
-  authStatus: getAuthStatus(state)
+  userStatus: getUserStatus(state)
 });
 
 export {Header};

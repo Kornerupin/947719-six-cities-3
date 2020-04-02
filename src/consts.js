@@ -13,7 +13,7 @@ export const FilterType = {
 export const FIRST_CITY = 0;
 export const DEFAULT_FILTER = FilterType.POPULAR;
 
-export const AuthStatus = {
+export const UserStatus = {
   NO_AUTH: `NO_AUTH`,
   LOADING: `LOADING`,
   AUTH: `AUTH`

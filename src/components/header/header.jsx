@@ -1,6 +1,6 @@
-import { AuthStatus } from '../../consts';
+import { UserStatus } from '../../consts';
 
-const Header = React.memo(function Header({ authStatus }) {
+const Header = React.memo(function Header({ userStatus }) {
 
     return (
         <header className="header">
@@ -18,7 +18,7 @@ const Header = React.memo(function Header({ authStatus }) {
                         </a>
                     </div>
                     <nav className="header__nav">
-                        {authStatus === AuthStatus.AUTH ? (
+                        {userStatus === UserStatus.AUTH ? (
                             <ul className="header__nav-list">
                                 <li className="header__nav-item user">
                                     <a
