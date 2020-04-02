@@ -6,8 +6,8 @@ class ReviewForm extends React.PureComponent {
     super(props);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.handleValueReset = this.handleValueReset.bind(this);
+    this.handleReviewChange = this.handleReviewChange.bind(this);
+    this.handleValueReset = this.handleValueReset.bind(this);    
   }
 
   componentDidUpdate() {
@@ -20,30 +20,24 @@ class ReviewForm extends React.PureComponent {
 
   handleFormSubmit(evt) {
     evt.preventDefault();
-
-   console.log(`evt.target.name`, evt.target.name);
-    console.log(`evt.target.value`, evt.target.value);
-        
-    const {rating, review, sendReview, isLoading, offerId} = this.props;
+    const {userRating, userReview, sendReview, isLoading, offerId} = this.props;
     
     // if (isLoading || !this.isFormValid) {
     //   return;
     // }
 
-    sendReview(offerId, {rating, comment: review});
+    sendReview(offerId, {rating: userRating, comment: userReview});
   }
 
   
   handleRatingChange(evt) {
-    // this.setState({[evt.target.name]: evt.target.value});
-    console.log(`evt.target.name`, evt.target.name);
-    console.log(`evt.target.value`, evt.target.value);
+    const {setUserRating} = this.props;
+    setUserRating(evt.target.value);
   }
 
-  handleTextChange(evt) {
-    // this.setState({[evt.target.name]: evt.target.value});
-    console.log(`evt.target.name`, evt.target.name);
-    console.log(`evt.target.value`, evt.target.value);
+  handleReviewChange(evt) {
+    const {setUserReview} = this.props;
+    setUserReview(evt.target.value);
   }
 
   handleValueReset() {
@@ -73,7 +67,7 @@ class ReviewForm extends React.PureComponent {
               </React.Fragment>
             )}
           </div>
-          <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" onChange={this.handleTextChange} value={review}></textarea>
+          <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" onChange={this.handleReviewChange} value={review}></textarea>
           <div className="reviews__button-wrapper">
             <p className="reviews__help">
               To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.

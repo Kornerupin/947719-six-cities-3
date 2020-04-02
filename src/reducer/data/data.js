@@ -115,15 +115,11 @@ const Operation = {
     return api.get(`/hotels`)
       .then((response) => {
         const offers = response.data.map((offer) => Adapter.parse(offer));
-        offers.map((offer) => api.get(`/comments/${offer.id}`).then((response) => {
-          
-          return Object.assign(offer, {
-            reviews: response.data
-          })
-        }).catch((err) => {
-          throw err;
+        offers.map((offer) => api.get(`/comments/${offer.id}`).then((response) => { 
+          Object.assign(offer, { reviews: response.data })
+        }).catch((error) => {
+          console.log(error.response.data.error);
         }));
-
         dispatch(ActionCreator.loadOffers(offers));
         dispatch(ActionCreator.getCities(offers));
         dispatch(ActionCreator.setCity(getState().DATA.cities[FIRST_CITY]));

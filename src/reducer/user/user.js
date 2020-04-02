@@ -1,5 +1,5 @@
-import {ErrorType} from '../../consts';
-import {updateObject} from '../../utils';
+import { ErrorType } from '../../consts';
+import { updateObject } from '../../utils';
 
 const initialState = {
   authStatus: `NO_AUTH`,
@@ -30,20 +30,27 @@ const reducer = (state = initialState, action) => {
 };
 
 const Operation = {
-checkAuth: () => (dispatch, getState, api) => {
-  return api.get(`/login`, {
-    email: `Oliver.conner@gmail.com`,
-    password: `12345678`,
-  })
-    .then((response) => {            
-      dispatch(ActionCreator.setAuthStatus(`NO_AUTH`));      
-    }).catch((error) => {         
+  checkAuth: () => (dispatch, getState, api) => {
+    return api.get(`/login`)
+      .then((response) => {
+        dispatch(ActionCreator.setAuthStatus(`AUTH`));
+      }).catch((error) => {
+        error.response.status === ErrorType.BABREQUEST &&
+        dispatch(ActionCreator.setAuthStatus(`NO_AUTH`));
+      });
+  },
 
-      if (error.response.status === ErrorType.UNAUTHORIZED) {
-        dispatch((ActionCreator.setAuthStatus(`NO_AUTH`)));
-      }
+  login: () => (dispatch, getState, api) => {
+    return api.post(`/login`, {
+      email: `Oliver.conner@gmail.com`,
+      password: `12345678`,
+    }).then((response) => {
+      dispatch((ActionCreator.setAuthStatus(`AUTH`)));
+    }).catch((error) => {
+      error.response.status === ErrorType.BABREQUEST &&
+        dispatch(ActionCreator.setAuthStatus(`NO_AUTH`));
     });
-  }
+  },
 };
 
-export {ActionCreator, ActionType, Operation, reducer};
+export { ActionCreator, ActionType, Operation, reducer };

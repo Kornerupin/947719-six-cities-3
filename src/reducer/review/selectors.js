@@ -8,7 +8,8 @@ export const sortByDate = (state) => {
   return state[NameSpace.DATA].offer.reviews.slice()
   .sort((a, b) => b.date - a.date).slice(0, REVIEWS_MAX);
 }
-export const getReviews = (state) => state[NAME_SPACE].reviews;
+export const getUserRating = (state) => state[NAME_SPACE].userRating;
+export const getUserReview = (state) => state[NAME_SPACE].userReview;
 export const getReviewError = (state) => state[NAME_SPACE].reviewError;
 export const getLoadingStatus = (state) => state[NAME_SPACE].loadingStatus;
 

@@ -13,6 +13,12 @@ export const FilterType = {
 export const FIRST_CITY = 0;
 export const DEFAULT_FILTER = FilterType.POPULAR;
 
+export const AuthStatus = {
+  NO_AUTH: `NO_AUTH`,
+  LOADING: `LOADING`,
+  AUTH: `AUTH`
+}
+
 export const ErrorType = {
   UNAUTHORIZED: 401,
   BADREQUEST: 400,

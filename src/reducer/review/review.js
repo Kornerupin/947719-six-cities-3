@@ -2,22 +2,30 @@ import {updateObject} from "../../utils.js";
 import {ErrorType, LoadingStatus} from "../../consts";
 
 const initialState = {
-  reviews: [],
+  userRating: 0,
+  userReview: ``,
   reviewError: ``,
   loadingStatus: LoadingStatus.DEFAULT
 };
 
 const ActionType = {
-  SET_REVIEWS: `SET_REVIEWS`,
+  SET_USER_RATING: `SET_USER_RATING`,
+  SET_USER_REVIEW: `SET_USER_REVIEW`,
   SET_REVIEW_ERROR: `SET_REVIEW_ERROR`,
   SET_LOADING_STATUS: `SET_LOADING_STATUS`,
 };
 
 const ActionCreator = {
-  setReviews: (comments) => {
+  setUserRating: (rating) => {
     return {
-      type: ActionType.SET_REVIEWS,
-      payload: comments
+      type: ActionType.SET_USER_RATING,
+      payload: rating
+    };
+  },
+  setUserReview: (review) => {
+    return {
+      type: ActionType.SET_USER_REVIEW,
+      payload: review
     };
   },
   setReviewError: (message) => {
@@ -34,12 +42,16 @@ const ActionCreator = {
   }
 };
 
-const setReviewError = (state, action) => {
-  return updateObject(state, {reviewError: action.payload});
+const setUserRating = (state, action) => {
+  return updateObject(state, {userRating: action.payload});
 };
 
-const setReviews = (state, action) => {
-  return updateObject(state, {reviews: action.payload});
+const setUserReview = (state, action) => {
+  return updateObject(state, {userReview: action.payload});
+};
+
+const setReviewError = (state, action) => {
+  return updateObject(state, {reviewError: action.payload});
 };
 
 const setLoadingStatus = (state, action) => {
@@ -48,8 +60,10 @@ const setLoadingStatus = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.SET_REVIEWS:
-      return setReviews(state, action);
+    case ActionType.SET_USER_RATING:
+      return setUserRating(state, action);
+    case ActionType.SET_USER_REVIEW:
+      return setUserReview(state, action);
     case ActionType.SET_REVIEW_ERROR:
       return setReviewError(state, action);
     case ActionType.SET_LOADING_STATUS:
@@ -60,31 +74,19 @@ const reducer = (state = initialState, action) => {
 };
 
 const Operation = {
-  resetReviews: () => (dispatch) => {
-    dispatch(ActionCreator.setReviews([]));
+  setUserRating: (rating) => (dispatch) => {
+    dispatch(ActionCreator.setUserRating(rating));
   },
 
-  sendReview: (offerId, reviewData) => (dispatch, _getState, api) => {
-    console.log(reviewData);
-    
-    dispatch(ActionCreator.setLoadingStatus(LoadingStatus.LOADING));
-    return api.post(`/comment/${offerId}`, reviewData)
-    .then((response) => {
-      // dispatch(ActionCreator.setReviews(adaptCommentsResponse(response.data)));
-      dispatch(ActionCreator.setLoadingStatus(LoadingStatus.SUCCESS));
-    })
-    .catch((err) => {
-      const {response} = err;
-      if (response.status === ErrorType.BADREQUEST) {
-        dispatch(ActionCreator.setLoadingStatus(LoadingStatus.ERROR));
-        dispatch(ActionCreator.setReviewError(response.data.error));
-      }
-    });
+  setUserReview: (review) => (dispatch) => {
+    dispatch(ActionCreator.setUserReview(review));
   },
 
-  clearStatus: () => (dispatch) => {
-    dispatch(ActionCreator.setLoadingStatus(LoadingStatus.DEFAULT));
-  }
+  sendReview: (offerId, userReview) => (dispatch, getState, api) => {
+    return api.post(`/comments/${offerId}`, userReview)
+    .then((response) => console.log(`POST`, response.config.data))
+    .catch((error) => console.log(error.response.data.error))
+  },
 };
 
 export {ActionCreator, ActionType, Operation, reducer};
