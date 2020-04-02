@@ -1,15 +1,20 @@
 import {connect} from 'react-redux';
-import NameSpace from '../../reducer/name-space';
-import {getOffersByCity} from '../../reducer/data/selectors';
-
+import {
+  getOffersByCity,
+  getOffer,
+  getCity,
+  getCurrentCoordinate,
+  getCurrentFilter
+} from '../../reducer/data/selectors';
 import App from './app';
 
 const mapStateToProps = (state) => ({
   offers: getOffersByCity(state),
-  offer: state[NameSpace.DATA].offer,
-  city: state[NameSpace.DATA].city,
-  currentCoordinate: state[NameSpace.DATA].currentCoordinate,
-  currentFilter: state[NameSpace.DATA].currentFilter,
+  offer: getOffer(state),
+  city: getCity(state),
+  currentCoordinate: getCurrentCoordinate(state),
+  currentFilter: getCurrentFilter(state),
 });
 
+export {App};
 export default connect(mapStateToProps)(App);

@@ -1,10 +1,10 @@
 import OffersList from "../offers-list/offers-list";
 import Map from '../map/map';
-import ReviewsList from '../reviews-list/reviews-list';
+import ReviewsList from '../reviews-list/reviews-list.connect';
 import {getStars} from '../../utils';
 import {OfferProperties} from '../../proptypes/properties';
 
-const sortReviews = (reviews) => reviews.slice().sort((a, b) => b.time - a.time);
+const OFFERS_MAX = 3;
 
 const OfferDetail = (props) => {
   const {
@@ -27,17 +27,13 @@ const OfferDetail = (props) => {
     hostName,
     hostMessage,
     hostIsPro,
-    reviews,
     cityCenter,
     cityZoom,
     isPremium} = offer;
-
-  const OFFERS_MAX = 3;
-  const REVIEWS_MAX = 10;
-  
+ 
   const currentOfferIndex = offers.findIndex((element) => element.id === id);  
   const neighbors = offers.slice().filter((element, index) => index !== currentOfferIndex);  
-
+  
   return (
     <div className="page">
       <header className="header">
@@ -144,7 +140,7 @@ const OfferDetail = (props) => {
               </div>
               <section className="property__reviews reviews">
                 {
-                  <ReviewsList reviews={sortReviews(reviews).slice(0, REVIEWS_MAX)} />
+                  <ReviewsList />
                 }
               </section>
             </div>
