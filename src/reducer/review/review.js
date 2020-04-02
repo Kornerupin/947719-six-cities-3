@@ -1,5 +1,5 @@
 import {updateObject} from "../../utils.js";
-import {ErrorType, LoadingStatus} from "../../consts";
+import {LoadingStatus} from "../../consts";
 
 const initialState = {
   userRating: 0,
@@ -82,7 +82,7 @@ const Operation = {
     dispatch(ActionCreator.setUserReview(review));
   },
 
-  sendReview: (offerId, userReview) => (dispatch, getState, api) => {
+  sendReviewData: (offerId, userReview) => (dispatch, getState, api) => {
     return api.post(`/comments/${offerId}`, userReview)
     .then((response) => console.log(`POST`, response.config.data))
     .catch((error) => console.log(error.response.data.error))

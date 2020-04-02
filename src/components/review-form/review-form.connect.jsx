@@ -14,8 +14,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   setUserRating: ReviewOperation.setUserRating,
   setUserReview: ReviewOperation.setUserReview,
-  sendReview: ReviewOperation.sendReview,
-  clearStatus: ReviewOperation.clearStatus
+  onSubmitReviewForm: ReviewOperation.sendReviewData
 };
 
 export {ReviewForm};

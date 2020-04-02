@@ -20,7 +20,7 @@ const store = createStore(
 );
 
 store.dispatch(DataOperation.queryData());
-store.dispatch(UserOperation.login());
+// store.dispatch(UserOperation.login());
 store.dispatch(UserOperation.checkAuth());
 
 // let it be here to the end oO

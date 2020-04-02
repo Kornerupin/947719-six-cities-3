@@ -1,5 +1,6 @@
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
+import SignIn from '../sign-in/sign-in';
 import OfferDetail from '../offer-detail/offer-detail';
 import {OfferProperties} from '../../proptypes/properties';
 
@@ -41,8 +42,8 @@ const App = (props) => {
         <Route exact path="/">
           {_renderApp()}
         </Route>
-        <Route exact path="/dev-offer">
-          <OfferDetail />
+        <Route exact path="/dev-auth">
+        <SignIn></SignIn>
         </Route>
       </Switch>
     </BrowserRouter>
