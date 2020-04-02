@@ -13,7 +13,11 @@ export const createAPI = () => {
   };
 
   const onFail = (error) => {
-    throw error;
+    switch (error.response.status) {
+      case 400:
+           console.log('Bad request');
+           break;
+    }
   };
 
   api.interceptors.response.use(onSuccess, onFail);

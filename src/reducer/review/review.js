@@ -1,4 +1,4 @@
-import {extendObject} from "../../utils.js";
+import {updateObject} from "../../utils.js";
 import {ErrorType, LoadingStatus} from "../../consts";
 
 const initialState = {
@@ -65,11 +65,12 @@ const Operation = {
   },
 
   sendReview: (offerId, reviewData) => (dispatch, _getState, api) => {
+    console.log(reviewData);
+    
     dispatch(ActionCreator.setLoadingStatus(LoadingStatus.LOADING));
-    return api.post(`/${comment}/${offerId}`, reviewData)
+    return api.post(`/comment/${offerId}`, reviewData)
     .then((response) => {
-      dispatch(ActionCreator.setReviews(adaptCommentsResponse(response.data)));
-
+      // dispatch(ActionCreator.setReviews(adaptCommentsResponse(response.data)));
       dispatch(ActionCreator.setLoadingStatus(LoadingStatus.SUCCESS));
     })
     .catch((err) => {
